@@ -1,1 +1,1 @@
-function deepEqual() {}
+function deepEqual(obj, obj) {}
