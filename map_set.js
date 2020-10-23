@@ -39,6 +39,6 @@ function readNumber() {
 readNumber();
 
 function random(min, max) {
-  let num = Math.random() * max;
+  let num = Math.random() * max + min;
 }
 random(1, 5);
