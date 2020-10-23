@@ -20,11 +20,11 @@ alert(`Product is ${calculator.mul()}`);
 
 // New Accumulator
 function Accumulator(startingValue) {
-  this.startingValue = startingValue;
+  this.value = startingValue;
 
   this.read = function () {
     this.currentValue = +prompt("Enter a number to add...");
-    this.value = this.startingValue += this.currentValue;
+    this.value += this.currentValue;
   };
 }
 
