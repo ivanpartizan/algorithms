@@ -27,6 +27,12 @@ function randomInteger(min, max) {
 
 randomInteger(2, 6);
 
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+randomInteger(1, 5);
+
 // Sum numbers from the visitor
 let a = +prompt("Enter first number");
 let b = +prompt("Enter second number");

@@ -23,22 +23,28 @@ function unique(arr) {
 unique(values);
 
 /////
-let a = +prompt("Enter first number");
-let b = +prompt("Enter second number");
-alert(a + b);
+function ucFirst(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
 
-function readNumber() {
-  let num;
-  do {
-    num = +prompt("Enter a valid number");
-  } while (isFinite(num));
-  if (num === "" || num === null) {
-    return null;
+ucFirst("baby girl boy woman man");
+
+function checkSpam(str) {
+  if (
+    str.toLowerCase().includes("viagra") ||
+    str.toLowerCase().includes("xxx")
+  ) {
+    return true;
   }
+  return false;
 }
-readNumber();
+checkSpam("i am a fine boy");
+function truncate(str, maxlength) {
+  if (str.length > maxlength) {
+    str[maxlength - 1] === "…";
+  }
+  console.log(str);
+}
+truncate("What I'd like to tell on this topic is:", 20);
 
-function random(min, max) {
-  let num = Math.random() * max + min;
-}
-random(1, 5);
+truncate("Hi everyone!", 20);

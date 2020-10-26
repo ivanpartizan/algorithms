@@ -1,59 +1,81 @@
-let styles = ["Jazz", "Blues"];
-
-styles.push("Rock-n-Roll");
-
-styles[(styles.length - 1) / 2] = "Classics";
-
-console.log(styles);
-
-styles.shift();
-console.log(styles);
-
-styles.unshift("Rap", "Reggae");
-console.log(styles);
-
+// Sum input numbers
 function sumInput() {
   let array = [];
-  let sum = 10;
-  let number;
+  let value;
+  let sum = 0;
 
-  do {
-    number = prompt("Enter a number to add");
-    array.push(number);
-  } while (number !== "" || number !== null);
+  while (true) {
+    value = prompt("Enter a number");
 
-  for (item of array) {
-    sum += +item;
+    if (!isFinite(value) || value === "" || value === null) {
+      break;
+    } else {
+      array.push(value);
+      // console.log(array);
+    }
   }
-  console.log(array);
+
+  for (let number of array) {
+    sum += +number;
+  }
   return sum;
 }
 
 sumInput();
 
-// 1
-function camelize(str) {
-  let newstr = str.split("-");
-  console.log(newstr);
-  let newarray = [];
-
-  let cap;
-  for (let word of newstr) {
-    if (newstr.indexOf(word) !== 0) {
-      cap = word[0].toUpperCase() + word.slice(1);
-    } else {
-      cap = word;
+// A maximal subarray
+function getMaxSubSum(arr) {
+  let maxSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let subSum = 0;
+    for (let j = i; j < arr.length; j++) {
+      subSum += arr[j];
+      maxSum = Math.max(maxSum, subSum);
     }
-    console.log(cap);
-    newarray.push(cap);
   }
-  console.log(newarray);
-  console.log(cap);
-  let newstr1 = newarray.join("");
-  return newstr1;
+  return maxSum;
 }
 
-camelize("my-name-is-ivan-milenkovic");
+getMaxSubSum([2, -1, 2, 3, -9]);
+
+function getMaxSubSumNew(arr) {
+  let maxSum = 0;
+  let subSum = 0;
+
+  for (let number of arr) {
+    subSum += number;
+    maxSum = Math.max(maxSum, subSum);
+
+    if (subSum < 0) {
+      subSum = 0;
+    }
+  }
+  return maxSum;
+}
+
+getMaxSubSumNew([-1, 2, 3, -9, 11]);
+
+// Translate border-left-width to borderLeftWidth
+function camelize(str) {
+  let array = str.split("-");
+  let words = array.map((word, index) =>
+    index === 0 ? word : word[0].toUpperCase() + word.slice(1)
+  );
+  let newStr = words.join("");
+  // word.join(';')
+  return newStr;
+}
+
 camelize("background-color");
 camelize("list-style-image");
-camelize("-webkit-transition");
+
+// Filter range
+
+let arr1 = [5, 3, 8, 1];
+
+function filterRange(arr, a, b) {
+  let newArr = arr.filter((number) => number >= a && number <= b);
+  return newArr;
+}
+
+let filtered = filterRange(arr1, 1, 4);
