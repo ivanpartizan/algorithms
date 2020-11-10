@@ -1,21 +1,24 @@
 // Repeat until the input is a number
 function readNumber() {
-  let num;
+  let number;
   do {
-    num = prompt("Enter valid number");
-  } while (!isFinite(num));
-  if (num === null || num === "") {
+    number = prompt("Enter valid number");
+  } while (!isFinite(number));
+  if (number === null || number === "") {
     return null;
   }
-  return +num;
-  alert(`You entered number ${num}`);
+
+  alert(`You entered number ${number}`);
+
+  return +number;
 }
 
 readNumber();
 
 // A random number from min to max
 function random(min, max) {
-  return Math.random() * (max - min) + min;
+  let number = Math.random() * (max - min) + min;
+  return number;
 }
 
 random(1, 5);
