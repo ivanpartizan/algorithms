@@ -33,3 +33,15 @@ function extractCurrencyValue(str) {
 }
 
 extractCurrencyValue("$120");
+
+function extractCurrencyValuePlus(str) {
+  let price = "";
+  for (let char of str) {
+    if (isFinite(char)) {
+      price += char;
+    }
+  }
+  return +price;
+}
+
+extractCurrencyValuePlus("$120");

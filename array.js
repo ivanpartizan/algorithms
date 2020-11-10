@@ -1,23 +1,23 @@
 // Sum input numbers
 function sumInput() {
-  let array = [];
+  let values = [];
   let value;
-  let sum = 0;
 
   while (true) {
     value = prompt("Enter a number");
-
     if (!isFinite(value) || value === "" || value === null) {
       break;
-    } else {
-      array.push(value);
-      // console.log(array);
     }
+    values.push(value);
   }
 
-  for (let number of array) {
+  let sum = 0;
+
+  for (let number of values) {
     sum += +number;
   }
+
+  // console.log(values);
   return sum;
 }
 
