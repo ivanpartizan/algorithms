@@ -22,29 +22,28 @@ function unique(arr) {
 
 unique(values);
 
-/////
-function ucFirst(str) {
-  return str[0].toUpperCase() + str.slice(1);
-}
-
-ucFirst("baby girl boy woman man");
-
-function checkSpam(str) {
-  if (
-    str.toLowerCase().includes("viagra") ||
-    str.toLowerCase().includes("xxx")
-  ) {
-    return true;
-  }
-  return false;
-}
-checkSpam("i am a fine boy");
-function truncate(str, maxlength) {
-  if (str.length > maxlength) {
-    str[maxlength - 1] === "…";
-  }
-  console.log(str);
-}
-truncate("What I'd like to tell on this topic is:", 20);
-
-truncate("Hi everyone!", 20);
+//
+let styles = [
+  "Jazz",
+  "Jazz",
+  "Jazz",
+  "Jazz",
+  "Jazz",
+  "Jazz",
+  "Blues",
+  "Blues",
+  "Blues",
+  "Blues",
+  "Blues",
+  "Blues",
+];
+console.log(styles);
+styles.push("Rock-n-Roll");
+console.log(styles);
+console.log(styles.length);
+styles[Math.floor(styles.length / 2)] = "Classics";
+console.log(styles);
+styles.shift();
+console.log(styles);
+styles.unshift("Rap", "Reggae");
+console.log(styles);

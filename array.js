@@ -38,6 +38,27 @@ function getMaxSubSum(arr) {
 
 getMaxSubSum([2, -1, 2, 3, -9]);
 
+// THE BEST
+function getMaxSubSum(arr) {
+  let maxSum = 0;
+  let subSum = 0;
+
+  for (let number of arr) {
+    subSum += number;
+    // console.log(subSum)
+
+    if (subSum > maxSum) {
+      maxSum = subSum;
+    }
+    if (subSum < 0) {
+      subSum = 0;
+    }
+  }
+  return maxSum;
+}
+
+getMaxSubSum([-1, 2, 3, -9]);
+
 function getMaxSubSumNew(arr) {
   let maxSum = 0;
   let subSum = 0;
@@ -68,6 +89,18 @@ function camelize(str) {
 camelize("background-color");
 camelize("list-style-image");
 
+// NEW
+function camelizeNew(str) {
+  return str
+    .split("-")
+    .map((item, index) =>
+      index === 0 ? item : item[0].toUpperCase() + item.slice(1)
+    )
+    .join("");
+}
+
+camelizeNew("background-color");
+
 // Filter range
 let array1 = [55, 33, 8, 1, 10, 15];
 
@@ -77,9 +110,23 @@ function filterRange(arr, a, b) {
 }
 
 let filtered = filterRange(array1, 10, 40);
-// console.log(filtered);
+console.log(filtered);
 
 // Filter range "in place"
+let arr = [5, 3, 8, 1];
+
+function filterRangeInPlace(arr, a, b) {
+  let i = arr.length;
+
+  while (i--) {
+    if (arr[i] < a || arr[i] > b) {
+      arr.splice(i, 1);
+    }
+  }
+}
+
+filterRangeInPlace(arr, 1, 4);
+// console.log(arr);
 
 // Sort in decreasing order
 let arr = [5, 2, 1, -10, 0, 8, 4];
@@ -99,20 +146,34 @@ console.log(sorted);
 
 // Create an extendable calculator
 function Calculator() {
-  this.calculate = function (str) {
-    let array = str.split(" ");
-    let result =
-      array[1] === "+" ? +array[0] + +array[2] : +array[0] - +array[2];
-    return result;
+  this.methods = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
   };
 
-  // this.addMethod(name, func) {
+  this.calculate = function (str) {
+    let operands = str.split(" ");
+    let a = +operands[0];
+    let operator = operands[1];
+    let b = +operands[2];
 
-  // }
+    if (!this.methods[operator] || isNaN(a) || isNaN(b)) {
+      return NaN;
+    }
+
+    return this.methods[operator](a, b);
+  };
+
+  this.addMethod = function (name, func) {
+    this.methods[name] = func;
+  };
 }
 
 let calc = new Calculator();
-
+let powerCalc = new Calculator();
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
 console.log(calc.calculate("3 + 7"));
 
 // Map to names
@@ -136,6 +197,17 @@ let usersMapped = users.map((user) => ({
   id: user.id,
   fullName: `${user.name} ${user.surname}`,
 }));
+
+console.log(usersMapped);
+
+// NEW
+let usersMapped = users.map((user) => {
+  let obj = {};
+  obj["fullName"] = `${user.name} ${user.surname}`;
+  obj.id = user.id;
+  return obj;
+});
+
 console.log(usersMapped);
 
 // Sort users by age
@@ -153,12 +225,15 @@ function sortByAge(users) {
 sortByAge(arr);
 
 // Shuffle an array
-let arr = [1, 2, 3];
-
 function shuffle(array) {
-  let sort = array.sort(() => Math.random() - 0.5);
-  return sort;
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 shuffle(arr);
 
@@ -173,7 +248,7 @@ function getAverageAge(users) {
   return users.reduce((sum, user) => sum + user.age, 0) / users.length;
 }
 
-console.log(getAverageAge(arr));
+getAverageAge(arr);
 
 // Filter unique array members
 function unique(arr) {
@@ -199,7 +274,7 @@ let strings = [
   ":-O",
 ];
 
-console.log(unique(strings));
+unique(strings);
 
 // Create keyed object from array
 let users = [
@@ -209,9 +284,9 @@ let users = [
 ];
 
 function groupById(arr) {
-  return arr.reduce((obj, property) => {
-    obj[property.id] = property;
-    return obj;
+  return arr.reduce((object, user) => {
+    object[user.id] = user;
+    return object;
   }, {});
 }
 

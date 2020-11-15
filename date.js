@@ -66,3 +66,13 @@ function getLocalDay(date) {
 }
 
 getLocalDay(new Date(2020, 9, 12));
+
+// Which day of month was many days ago?
+
+let newdate = new Date(2020, 11, 5);
+function getDateAgo(date, days) {
+  date.setDate(date.getDate() - days);
+  return date.getDate();
+}
+
+getDateAgo(newdate, 1);
