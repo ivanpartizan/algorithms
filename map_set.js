@@ -1,3 +1,4 @@
+// Filter unique array members
 let values = [
   "Hare",
   "Krishna",
@@ -11,39 +12,34 @@ let values = [
 ];
 
 function unique(arr) {
-  let set = new Set();
-
-  for (let value of values) {
-    set.add(value);
-  }
-
-  console.log(set);
+  let set = new Set(arr);
+  return Array.from(set);
 }
 
 unique(values);
 
-//
-let styles = [
-  "Jazz",
-  "Jazz",
-  "Jazz",
-  "Jazz",
-  "Jazz",
-  "Jazz",
-  "Blues",
-  "Blues",
-  "Blues",
-  "Blues",
-  "Blues",
-  "Blues",
-];
-console.log(styles);
-styles.push("Rock-n-Roll");
-console.log(styles);
-console.log(styles.length);
-styles[Math.floor(styles.length / 2)] = "Classics";
-console.log(styles);
-styles.shift();
-console.log(styles);
-styles.unshift("Rap", "Reggae");
-console.log(styles);
+// Filter anagrams
+function aclean(arr) {
+  let map = new Map();
+
+  for (let word of arr) {
+    let words = word.toLowerCase().split("").sort().join("");
+    // console.log(words)
+
+    map.set(words, word);
+  }
+  return Array.from(map.values());
+}
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+aclean(arr);
+
+// Iterable keys
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+
+keys.push("more");
+console.log(keys);

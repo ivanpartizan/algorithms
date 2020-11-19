@@ -16,7 +16,7 @@ function sumSalaries(salaries) {
   return sum;
 }
 
-console.log(sumSalaries(salaries));
+sumSalaries(salaries);
 
 // Count properties
 function count(obj) {
@@ -34,9 +34,11 @@ let user = {
   age: 30,
 };
 
-console.log(count(user));
+count(user);
 
 // short version
 function count1(obj) {
   return Object.keys(obj).length;
 }
+
+count1(user);
