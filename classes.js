@@ -77,3 +77,50 @@ const balloonAttack = (player1, player2) => {
 
   return "Tie";
 };
+
+// Cipher
+class ShiftCipher {
+  constructor(shiftValue) {
+    this.shiftValue = shiftValue;
+  }
+  encrypt(textString) {
+    let returnedString = "";
+    let char;
+    for (let i = 0; i < textString.length; i++) {
+      let uniCode = textString.toUpperCase().charCodeAt(i);
+      if (uniCode >= 65 && uniCode <= 90) {
+        uniCode += this.shiftValue;
+        if (uniCode > 90) {
+          uniCode -= 26;
+        }
+        char = String.fromCharCode(uniCode);
+      } else {
+        char = String.fromCharCode(uniCode);
+      }
+      returnedString += char;
+    }
+    return returnedString;
+  }
+  decrypt(encryptedMessage) {
+    let returnedMessage = "";
+    let char;
+    for (let i = 0; i < encryptedMessage.length; i++) {
+      let uniCode = encryptedMessage.toLowerCase().charCodeAt(i);
+      if (uniCode >= 97 && uniCode <= 122) {
+        uniCode -= this.shiftValue;
+        if (uniCode < 97) {
+          uniCode += 26;
+        }
+        char = String.fromCharCode(uniCode);
+      } else {
+        char = String.fromCharCode(uniCode);
+      }
+      returnedMessage += char;
+    }
+    return returnedMessage;
+  }
+}
+
+const cipher = new ShiftCipher(2);
+cipher.encrypt("I love to code!"); // returns 'K NQXG VQ EQFG!'
+cipher.decrypt("K <3 OA RWRRA"); // returns 'i <3 my puppy'
