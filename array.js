@@ -291,3 +291,18 @@ function groupById(arr) {
 }
 
 let usersById = groupById(users);
+
+// Log all pairs of array
+const boxes = ["a", "b", "c", "d", "e"];
+
+const logAllPairs = (array) => {
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      newArray.push(array[i], array[j]);
+    }
+  }
+  return newArray;
+};
+
+logAllPairs(boxes);
