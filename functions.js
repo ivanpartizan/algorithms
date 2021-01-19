@@ -1,25 +1,4 @@
-// Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
-
-const sumDigPow = (a, b) => {
-  let result = [];
-
-  for (let i = a; i <= b; i++) {
-    let sum = 0;
-    let digits = i.toString();
-    for (let j = 0; j < digits.length; j++) {
-      sum += Math.pow(+digits[j], j + 1);
-    }
-    if (sum == i) {
-      result.push(i);
-    }
-  }
-  return result;
-};
-
-sumDigPow(1, 150);
-
 // Roman Numerals Encoder
-
 const romanEncoder = (number) => {
   let romanNumbers = {
     M: 1000,
@@ -48,6 +27,40 @@ const romanEncoder = (number) => {
 };
 
 romanEncoder(2020);
+
+// Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
+const sumDigPow = (a, b) => {
+  let result = [];
+
+  for (let i = a; i <= b; i++) {
+    let sum = 0;
+    let digits = i.toString();
+    for (let j = 0; j < digits.length; j++) {
+      sum += Math.pow(+digits[j], j + 1);
+    }
+    if (sum == i) {
+      result.push(i);
+    }
+  }
+  return result;
+};
+
+sumDigPow(1, 150);
+
+// Build a pile of Cubes
+function findNb(m) {
+  let n = 0;
+  let total = 0;
+
+  while (total < m) {
+    n++;
+    total += n ** 3;
+  }
+
+  return total == m ? n : -1;
+}
+
+findNb(1071225);
 
 // Create Phone Number
 function createPhoneNumber(numbers) {
