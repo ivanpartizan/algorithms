@@ -70,3 +70,18 @@ function createPhoneNumber(numbers) {
 }
 
 createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+
+// Split Strings
+function solution(str) {
+  let chunks = [];
+
+  if (str.length % 2 == 1) {
+    str = str + "_";
+  }
+
+  for (let i = 0; i < str.length; i += 2) {
+    chunks.push(str.substring(i, i + 2));
+  }
+
+  return chunks;
+}
