@@ -47,6 +47,21 @@ const sumDigPow = (a, b) => {
 
 sumDigPow(1, 150);
 
+// Playing with digits
+function digPow(n, p) {
+  let digits = String(n);
+  let total = 0;
+
+  for (let i = 0; i < digits.length; i++) {
+    total += (+digits[i]) ** p;
+    p++;
+  }
+
+  return Number.isInteger(total / n) ? total / n : -1;
+}
+
+digPow(46288, 3);
+
 // Build a pile of Cubes
 function findNb(m) {
   let n = 0;
