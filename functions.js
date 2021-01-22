@@ -28,6 +28,25 @@ const romanEncoder = (number) => {
 
 romanEncoder(2020);
 
+// The Hashtag Generator
+function generateHashtag(str) {
+  if (str == "") {
+    return false;
+  }
+
+  str = str.split(" ").filter((s) => s !== "");
+
+  let newString = `#${str
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join("")}`;
+
+  if (newString.length > 140 || newString == "" || newString == "#") {
+    return false;
+  }
+
+  return newString;
+}
+
 // Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
 const sumDigPow = (a, b) => {
   let result = [];
@@ -46,6 +65,24 @@ const sumDigPow = (a, b) => {
 };
 
 sumDigPow(1, 150);
+
+// Sum of pairs
+function sumPairs(ints, s) {
+  let numbers = {};
+
+  for (let int of ints) {
+    let currentNumber = int;
+    let neededNumber = s - currentNumber;
+
+    if (numbers[neededNumber] == true) {
+      return [neededNumber, currentNumber];
+    } else {
+      numbers[currentNumber] = true;
+    }
+  }
+}
+
+sumPairs([1, 4, 8, 7, 3, 15], 8);
 
 // Playing with digits
 function digPow(n, p) {
