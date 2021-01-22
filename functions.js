@@ -114,6 +114,29 @@ function findNb(m) {
 
 findNb(1071225);
 
+// Is my friend cheating?
+function removeNb(n) {
+  let numbers = [];
+  let sum = ((n + 1) * n) / 2;
+  // console.log(sum)
+
+  for (let a = 1; a <= n; a++) {
+    // a * b = sum - a - b => b is ?
+    // a * b + b = sum - a - b + b
+    // b * (a + 1) = sum - a // divide by (a + 1)
+    // b = (sum - a) / (a + 1)
+    let b = (sum - a) / (a + 1);
+    if (b < n && Number.isInteger(b)) {
+      // console.log(a, b)
+      numbers.push([a, b]);
+    }
+  }
+
+  return numbers;
+}
+
+removeNb(26);
+
 // Create Phone Number
 function createPhoneNumber(numbers) {
   return `(${numbers.slice(0, 3).join("")}) ${numbers
