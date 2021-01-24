@@ -146,6 +146,35 @@ function createPhoneNumber(numbers) {
 
 createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 
+//First non-repeating character
+function firstNonRepeatingLetter(s) {
+  let lowerCase = s.toLowerCase();
+
+  for (let i = 0; i < lowerCase.length; i++) {
+    if (
+      lowerCase.indexOf(lowerCase[i]) == lowerCase.lastIndexOf(lowerCase[i])
+    ) {
+      return s[i];
+    }
+  }
+
+  return "";
+}
+
+// First character that repeats
+function firstDup(s) {
+  for (let i = 0; i < s.length; i++) {
+    let firstIndex = s.indexOf(s[i]);
+    let secondIndex = s.indexOf(s[i], i + 1);
+
+    if (firstIndex >= 0 && secondIndex != -1) {
+      return s[i];
+    }
+  }
+}
+
+firstDup("tweet");
+
 // Split Strings
 function solution(str) {
   let chunks = [];
