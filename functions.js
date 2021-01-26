@@ -114,6 +114,24 @@ function findNb(m) {
 
 findNb(1071225);
 
+// Formatting a number as price
+var numberToPrice = function (number) {
+  if (typeof number !== "number") {
+    return "NaN";
+  }
+
+  //  number = Math.trunc(number*Math.pow(10, 2))/Math.pow(10, 2)
+
+  number =
+    (Math.sign(number) * Math.floor(100 * Math.abs(number) + 0.0000001)) / 100;
+
+  let newPrice = number.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return newPrice;
+};
+
 // Is my friend cheating?
 function removeNb(n) {
   let numbers = [];
