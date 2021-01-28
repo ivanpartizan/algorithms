@@ -1,3 +1,20 @@
+// What's a Perfect Power anyway?
+var isPP = function (n) {
+  let m = parseInt(n ** 0.5);
+  for (let i = 2; i < m + 1; i++) {
+    let k = 2;
+    while (i ** k < n) {
+      k++;
+    }
+    if (i ** k == n) {
+      return [i, k];
+    }
+  }
+  return null;
+};
+
+isPP(81);
+
 // Roman Numerals Encoder
 const romanEncoder = (number) => {
   let romanNumbers = {
