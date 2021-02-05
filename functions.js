@@ -14,7 +14,6 @@ var isPP = function (n) {
 };
 
 isPP(81);
-isPP(15);
 
 // Roman Numerals Encoder
 const romanEncoder = (number) => {
