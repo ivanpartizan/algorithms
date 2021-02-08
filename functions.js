@@ -224,3 +224,36 @@ function solution(str) {
 
   return chunks;
 }
+
+// Holiday IV - Leg Room
+function legRoom(a, b) {
+  if (b.includes("00")) {
+    return "Jackpot!";
+  }
+
+  let roomForLegs = 0;
+
+  for (let letter of b) {
+    if (
+      letter !== "a" &&
+      letter !== "e" &&
+      letter !== "i" &&
+      letter !== "o" &&
+      letter !== "u"
+    ) {
+      roomForLegs += 2;
+    }
+  }
+
+  let personLegLength = Math.floor((a * 55) / 100);
+
+  if (roomForLegs > (personLegLength * 25) / 100) {
+    return "super comfy";
+  } else if (roomForLegs >= (personLegLength * 15) / 100) {
+    return "comfortable";
+  } else {
+    return "ouch";
+  }
+}
+
+legRoom(192, "aelm");
