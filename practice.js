@@ -16,3 +16,19 @@ function reverse1(str) {
 }
 
 reverse1("Ivan Milenkovic");
+
+// Merge Sorted Arrays
+function mergeSortedArrays(array1, array2) {
+  let merged = [];
+
+  for (let i = 0; i < array1.length; i++) {
+    merged.push(array1[i]);
+  }
+  for (let i = 0; i < array2.length; i++) {
+    merged.push(array2[i]);
+  }
+
+  return merged.sort((a, b) => a - b);
+}
+
+mergeSortedArrays([11, 88, 22, 5, 4], [33, 6, 7, 90]);
