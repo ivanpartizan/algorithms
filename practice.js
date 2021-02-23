@@ -32,3 +32,37 @@ function mergeSortedArrays(array1, array2) {
 }
 
 mergeSortedArrays([11, 88, 22, 5, 4], [33, 6, 7, 90]);
+
+// Output even numbers in the loop
+for (let i = 2; i <= 10; i++) {
+  if (i % 2 == 0) {
+    alert(i);
+  }
+}
+
+// Check the login
+let login = prompt("Who's there?");
+
+if (login == "Admin") {
+  let password = prompt("Enter password");
+  if (password == "TheMaster") {
+    alert("Welcome!");
+  } else if (password == "" || password == null) {
+    alert("Canceled");
+  } else {
+    alert("Wrong password");
+  }
+} else if (login == "" || login == null) {
+  alert("Canceled");
+} else {
+  alert("I don't know you");
+}
+
+// Repeat until the input is correct
+while (true) {
+  let number = prompt("Enter a number greater than 100");
+
+  if (number > 100 || number == "" || number == null) {
+    break;
+  }
+}
