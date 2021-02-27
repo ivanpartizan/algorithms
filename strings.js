@@ -1,7 +1,6 @@
 // Uppercase the first character
 function ucFirst(str) {
-  let uC = str[0].toUpperCase();
-  return uC + str.slice(1);
+  return str[0].toUpperCase() + str.slice(1);
 }
 
 ucFirst("ivanmilenkovic");

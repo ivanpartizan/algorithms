@@ -82,3 +82,84 @@ function pow(x, n) {
 }
 
 pow(x, n);
+
+// Simple Calculator
+let calculator = {
+  read() {
+    this.a = +prompt("Enter first number");
+    this.b = +prompt("Enter second number");
+  },
+
+  sum() {
+    return this.a + this.b;
+  },
+
+  mul() {
+    return this.a * this.b;
+  },
+};
+
+// Create new Calculator
+function Calculator() {
+  this.read = function () {
+    this.a = +prompt("Enter first number");
+    this.b = +prompt("Enter second number");
+  };
+  this.sum = function () {
+    return this.a + this.b;
+  };
+  this.mul = function () {
+    return this.a * this.b;
+  };
+}
+
+let calculator = new Calculator();
+calculator.read();
+alert("Sum=" + calculator.sum());
+alert("Mul=" + calculator.mul());
+
+// Create new Accumulator
+function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = function () {
+    this.newValue = +prompt("Enter a number");
+    this.value += this.newValue;
+  };
+}
+
+let accumulator = new Accumulator(1);
+accumulator.read();
+accumulator.read();
+alert(accumulator.value);
+
+// Repeat until the input is a number
+function readNumber() {
+  let value;
+
+  do {
+    value = prompt("Please, enter a valid numeric value");
+  } while (!isFinite(value));
+
+  if (value === null || value === "") {
+    return null;
+  }
+
+  return +value;
+}
+
+readNumber();
+
+// A random number from min to max
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+random(1, 5);
+
+// A random integer from min to max
+function randomInteger(min, max) {
+  return Math.round(Math.random() * (max - min + 1) + min - 0.5);
+}
+
+randomInteger(1, 5);
