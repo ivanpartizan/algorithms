@@ -234,3 +234,74 @@ function copySorted(arr) {
 }
 
 // Create an extendable calculator
+
+// Map to names
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [john, pete, mary];
+
+let names = users.map((user) => user.name);
+
+// Map to objects
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [john, pete, mary];
+
+let usersMapped = users.map((user) => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id,
+}));
+
+// Sort users by age
+function sortByAge(arr) {
+  return arr.sort((a, b) => a.age - b.age);
+}
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let arr = [pete, john, mary];
+
+sortByAge(arr);
+
+// Shuffle an array
+
+// Get average age
+function getAverageAge(users) {
+  return users.reduce((acc, user) => acc + user.age, 0) / users.length;
+}
+
+// Filter unique array members
+function unique(arr) {
+  let uniques = [];
+
+  for (let item of arr) {
+    if (!uniques.includes(item)) {
+      uniques.push(item);
+    }
+  }
+
+  return uniques;
+}
+
+let strings = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+unique(strings);
+
+// Create keyed object from array
+function groupById(arr) {}
