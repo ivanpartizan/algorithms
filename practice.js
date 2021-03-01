@@ -163,3 +163,74 @@ function randomInteger(min, max) {
 }
 
 randomInteger(1, 5);
+
+// Sum input numbers
+function sumInput() {
+  let values = [];
+  let sum = 0;
+
+  while (true) {
+    let value = prompt("Enter a number");
+
+    if (isFinite(value) && value != "" && value != null) {
+      values.push(value);
+    }
+
+    if (!isFinite(value) || value == "" || value == null) {
+      break;
+    }
+  }
+
+  for (let number of values) {
+    sum += +number;
+  }
+
+  console.log(values);
+  return sum;
+}
+
+sumInput();
+
+// A maximal subarray
+function getMaxSubSum(arr) {}
+
+// Translate border-left-width to borderLeftWidth
+function camelize(str) {
+  return str
+    .split("-")
+    .map((word, index) =>
+      index > 0 ? word[0].toUpperCase() + word.slice(1) : word
+    )
+    .join("");
+}
+
+// Filter range
+function filterRange(arr, a, b) {
+  let filtered = arr.filter((number) => number >= a && number <= b);
+  return filtered;
+}
+
+// Filter range "in place"
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < a || arr[i] > b) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+}
+
+let arr = [5, 3, 8, 1];
+filterRangeInPlace(arr, 1, 4);
+
+// Sort in decreasing order
+let arr = [5, 2, 1, -10, 8];
+
+arr.sort((a, b) => b - a);
+
+// Copy and sort array
+function copySorted(arr) {
+  return arr.slice().sort();
+}
+
+// Create an extendable calculator
