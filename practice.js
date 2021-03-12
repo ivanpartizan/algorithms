@@ -234,6 +234,9 @@ function copySorted(arr) {
 }
 
 // Create an extendable calculator
+class Calculator(){
+  
+}
 
 // Map to names
 let john = { name: "John", age: 25 };
