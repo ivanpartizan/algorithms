@@ -321,3 +321,16 @@ let users = [
 ];
 
 let usersById = groupById(users);
+
+// Lost number in number sequence
+function findDeletedNumber(arr, mixArr) {
+  for (let number of arr) {
+    if (!(mixArr.includes(number))) {
+      return number;
+    }
+  }
+  
+  return 0;
+}
+
+findDeletedNumber([1,2,3,4,5], [3,4,1,5])
