@@ -1,3 +1,7 @@
+class Node {}
+
+class LinkedList {}
+
 function LinkedList() {
   this.head = null;
   this.tail = null;
