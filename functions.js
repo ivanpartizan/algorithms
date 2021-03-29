@@ -257,3 +257,78 @@ function legRoom(a, b) {
 }
 
 legRoom(192, "aelm");
+
+// Vowels Back
+function vowelBack(s) {
+  let output = "";
+  let position;
+  let newPosition;
+  let newChar;
+
+  for (let i = 0; i < s.length; i++) {
+    position = s.charCodeAt(i);
+
+    if (s[i] === "c" || s[i] === "o") {
+      newPosition = ((position - 97 - 1) % 26) + 97;
+      newChar = String.fromCharCode(newPosition);
+      if (
+        newChar === "c" ||
+        newChar === "o" ||
+        newChar === "d" ||
+        newChar === "e"
+      ) {
+        newChar = s[i];
+      }
+      output += newChar;
+    } else if (s[i] === "d") {
+      newPosition = ((position - 97 - 3) % 26) + 97;
+      newChar = String.fromCharCode(newPosition);
+      if (
+        newChar === "c" ||
+        newChar === "o" ||
+        newChar === "d" ||
+        newChar === "e"
+      ) {
+        newChar = s[i];
+      }
+      output += newChar;
+    } else if (s[i] === "e") {
+      newPosition = ((position - 97 - 4) % 26) + 97;
+      newChar = String.fromCharCode(newPosition);
+      if (
+        newChar === "c" ||
+        newChar === "o" ||
+        newChar === "d" ||
+        newChar === "e"
+      ) {
+        newChar = s[i];
+      }
+      output += newChar;
+    } else if (s[i] === "a" || s[i] === "i" || s[i] === "u") {
+      newPosition = ((((position - 97 - 5) % 26) + 26) % 26) + 97;
+      newChar = String.fromCharCode(newPosition);
+      if (
+        newChar === "c" ||
+        newChar === "o" ||
+        newChar === "d" ||
+        newChar === "e"
+      ) {
+        newChar = s[i];
+      }
+      output += newChar;
+    } else {
+      newPosition = ((position - 97 + 9) % 26) + 97;
+      newChar = String.fromCharCode(newPosition);
+      if (
+        newChar === "c" ||
+        newChar === "o" ||
+        newChar === "d" ||
+        newChar === "e"
+      ) {
+        newChar = s[i];
+      }
+      output += newChar;
+    }
+  }
+  return output;
+}
