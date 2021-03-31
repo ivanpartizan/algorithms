@@ -332,3 +332,17 @@ function vowelBack(s) {
   }
   return output;
 }
+
+// Char Code Calculation
+function calc(x) {
+  let total1 = "";
+  for (let i = 0; i < x.length; i++) {
+    total1 += x.charCodeAt(i);
+  }
+  let total2 = total1.replace(/7/g, "1");
+
+  let total1Sum = total1.split("").reduce((acc, value) => acc + +value, 0);
+  let total2Sum = total2.split("").reduce((acc, value) => acc + +value, 0);
+
+  return total1Sum - total2Sum;
+}
