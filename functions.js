@@ -347,6 +347,47 @@ function calc(x) {
   return total1Sum - total2Sum;
 }
 
+// Inside Out Strings
+function insideOut(x) {
+  return x
+    .split(" ")
+    .map((word) => {
+      if (word.length <= 3) {
+        word = word;
+      } else if (word.length % 2 == 0) {
+        let left = word
+          .slice(0, word.length / 2)
+          .split("")
+          .reverse()
+          .join("");
+        let right = word
+          .slice(word.length / 2)
+          .split("")
+          .reverse()
+          .join("");
+        word = left + right;
+      } else {
+        let left = word
+          .slice(0, word.length / 2)
+          .split("")
+          .reverse()
+          .join("");
+        let center = word.slice(
+          Math.floor(word.length / 2),
+          Math.floor(word.length / 2 + 1)
+        );
+        let right = word
+          .slice(word.length / 2 + 1)
+          .split("")
+          .reverse()
+          .join("");
+        word = left + center + right;
+      }
+      return word;
+    })
+    .join(" ");
+}
+
 // Are they the "same"?
 function comp(array1, array2) {
   if (
