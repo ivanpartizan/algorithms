@@ -347,6 +347,33 @@ function calc(x) {
   return total1Sum - total2Sum;
 }
 
+// Reverse or rotate?
+function revrot(str, sz) {
+  let newString = "";
+  let numberOfChunks = Math.floor(str.length / sz);
+  let chunks = [];
+  if (str === "" || sz <= 0 || sz > str.length) {
+    return "";
+  }
+  for (let i = 0, j = 0; i < numberOfChunks; i++, j += sz) {
+    chunks.push(str.substr(j, sz));
+  }
+  for (let chunk of chunks) {
+    let sum = 0;
+    for (let number of chunk) {
+      sum += Math.pow(number, 3);
+    }
+    if (sum % 2 === 0) {
+      chunk = chunk.split("").reverse().join("");
+      newString += chunk;
+    } else {
+      chunk = chunk.substr(1, chunk.length - 1) + chunk[0];
+      newString += chunk;
+    }
+  }
+  return newString;
+}
+
 // Inside Out Strings
 function insideOut(x) {
   return x
