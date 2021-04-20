@@ -434,14 +434,3 @@ function comp(array1, array2) {
     ? true
     : false;
 }
-
-function pow(x, n) {
-  x = +prompt("enter x");
-  n = +prompt("enter n");
-
-  let result = 1;
-  for (let i = 1; i <= n; i++) {
-    result *= x;
-  }
-  return result;
-}
