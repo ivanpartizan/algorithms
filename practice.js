@@ -322,38 +322,3 @@ let users = [
 
 let usersById = groupById(users);
 
-// Lost number in number sequence
-function findDeletedNumber(arr, mixArr) {
-  for (let number of arr) {
-    if (!(mixArr.includes(number))) {
-      return number;
-    }
-  }
-  
-  return 0;
-}
-
-findDeletedNumber([1,2,3,4,5], [3,4,1,5])
-
-// Who likes it?
-function likes(names) {
-  switch (names.length) {
-      case 0: 
-        return 'no one likes this';
-        break;
-      case 1: 
-        return `${names[0]} likes this`;
-        break;      
-      case 2: 
-        return `${names[0]} and ${names[1]} like this`;
-        break;      
-      case 3: 
-        return `${names[0]}, ${names[1]} and ${names[2]} like this`;
-        break;      
-      default: 
-        return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
-        break;
-  }
-}
-
-likes(['Alex', 'Jacob', 'Mark', 'Max'])

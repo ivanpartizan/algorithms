@@ -1,3 +1,22 @@
+// Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
+const sumDigPow = (a, b) => {
+  let result = [];
+
+  for (let i = a; i <= b; i++) {
+    let sum = 0;
+    let digits = i.toString();
+    for (let j = 0; j < digits.length; j++) {
+      sum += Math.pow(+digits[j], j + 1);
+    }
+    if (sum == i) {
+      result.push(i);
+    }
+  }
+  return result;
+};
+
+sumDigPow(1, 150);
+
 // What's a Perfect Power anyway?
 var isPP = function (n) {
   let m = parseInt(n ** 0.5);
@@ -14,6 +33,44 @@ var isPP = function (n) {
 };
 
 isPP(81);
+
+// Playing with digits
+function digPow(n, p) {
+  let digits = String(n);
+  let total = 0;
+
+  for (let i = 0; i < digits.length; i++) {
+    total += (+digits[i]) ** p;
+    p++;
+  }
+
+  return Number.isInteger(total / n) ? total / n : -1;
+}
+
+digPow(46288, 3);
+
+// Is my friend cheating?
+function removeNb(n) {
+  let numbers = [];
+  let sum = ((n + 1) * n) / 2;
+  // console.log(sum)
+
+  for (let a = 1; a <= n; a++) {
+    // a * b = sum - a - b => b is ?
+    // a * b + b = sum - a - b + b
+    // b * (a + 1) = sum - a // divide by (a + 1)
+    // b = (sum - a) / (a + 1)
+    let b = (sum - a) / (a + 1);
+    if (b < n && Number.isInteger(b)) {
+      // console.log(a, b)
+      numbers.push([a, b]);
+    }
+  }
+
+  return numbers;
+}
+
+removeNb(26);
 
 // Roman Numerals Encoder
 const romanEncoder = (number) => {
@@ -45,6 +102,39 @@ const romanEncoder = (number) => {
 
 romanEncoder(2020);
 
+// Sum of pairs
+function sumPairs(ints, s) {
+  let numbers = {};
+
+  for (let int of ints) {
+    let currentNumber = int;
+    let neededNumber = s - currentNumber;
+
+    if (numbers[neededNumber] == true) {
+      return [neededNumber, currentNumber];
+    } else {
+      numbers[currentNumber] = true;
+    }
+  }
+}
+
+sumPairs([1, 4, 8, 7, 3, 15], 8);
+
+// Build a pile of Cubes
+function findNb(m) {
+  let n = 0;
+  let total = 0;
+
+  while (total < m) {
+    n++;
+    total += n ** 3;
+  }
+
+  return total == m ? n : -1;
+}
+
+findNb(1071225);
+
 // The Hashtag Generator
 function generateHashtag(str) {
   if (str == "") {
@@ -64,73 +154,6 @@ function generateHashtag(str) {
   return newString;
 }
 
-// Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
-const sumDigPow = (a, b) => {
-  let result = [];
-
-  for (let i = a; i <= b; i++) {
-    let sum = 0;
-    let digits = i.toString();
-    for (let j = 0; j < digits.length; j++) {
-      sum += Math.pow(+digits[j], j + 1);
-    }
-    if (sum == i) {
-      result.push(i);
-    }
-  }
-  return result;
-};
-
-sumDigPow(1, 150);
-
-// Sum of pairs
-function sumPairs(ints, s) {
-  let numbers = {};
-
-  for (let int of ints) {
-    let currentNumber = int;
-    let neededNumber = s - currentNumber;
-
-    if (numbers[neededNumber] == true) {
-      return [neededNumber, currentNumber];
-    } else {
-      numbers[currentNumber] = true;
-    }
-  }
-}
-
-sumPairs([1, 4, 8, 7, 3, 15], 8);
-
-// Playing with digits
-function digPow(n, p) {
-  let digits = String(n);
-  let total = 0;
-
-  for (let i = 0; i < digits.length; i++) {
-    total += (+digits[i]) ** p;
-    p++;
-  }
-
-  return Number.isInteger(total / n) ? total / n : -1;
-}
-
-digPow(46288, 3);
-
-// Build a pile of Cubes
-function findNb(m) {
-  let n = 0;
-  let total = 0;
-
-  while (total < m) {
-    n++;
-    total += n ** 3;
-  }
-
-  return total == m ? n : -1;
-}
-
-findNb(1071225);
-
 // Formatting a number as price
 var numberToPrice = function (number) {
   if (typeof number !== "number") {
@@ -148,29 +171,6 @@ var numberToPrice = function (number) {
   });
   return newPrice;
 };
-
-// Is my friend cheating?
-function removeNb(n) {
-  let numbers = [];
-  let sum = ((n + 1) * n) / 2;
-  // console.log(sum)
-
-  for (let a = 1; a <= n; a++) {
-    // a * b = sum - a - b => b is ?
-    // a * b + b = sum - a - b + b
-    // b * (a + 1) = sum - a // divide by (a + 1)
-    // b = (sum - a) / (a + 1)
-    let b = (sum - a) / (a + 1);
-    if (b < n && Number.isInteger(b)) {
-      // console.log(a, b)
-      numbers.push([a, b]);
-    }
-  }
-
-  return numbers;
-}
-
-removeNb(26);
 
 // Create Phone Number
 function createPhoneNumber(numbers) {
@@ -434,3 +434,41 @@ function comp(array1, array2) {
     ? true
     : false;
 }
+
+// Lost number in number sequence
+function findDeletedNumber(arr, mixArr) {
+  for (let number of arr) {
+    if (!mixArr.includes(number)) {
+      return number;
+    }
+  }
+
+  return 0;
+}
+
+findDeletedNumber([1, 2, 3, 4, 5], [3, 4, 1, 5]);
+
+// Who likes it?
+function likes(names) {
+  switch (names.length) {
+    case 0:
+      return "no one likes this";
+      break;
+    case 1:
+      return `${names[0]} likes this`;
+      break;
+    case 2:
+      return `${names[0]} and ${names[1]} like this`;
+      break;
+    case 3:
+      return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+      break;
+    default:
+      return `${names[0]}, ${names[1]} and ${
+        names.length - 2
+      } others like this`;
+      break;
+  }
+}
+
+likes(["Alex", "Jacob", "Mark", "Max"]);
