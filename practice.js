@@ -321,4 +321,3 @@ let users = [
 ];
 
 let usersById = groupById(users);
-

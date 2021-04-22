@@ -442,6 +442,57 @@ function printerError(s) {
   return `${numerator}/${denominator}`;
 }
 
+// Errors : histogram
+function hist(s) {
+  let u = 0;
+  let w = 0;
+  let x = 0;
+  let z = 0;
+  let outputString = [];
+
+  for (let char of s) {
+    switch (char) {
+      case "u":
+        u++;
+        break;
+      case "w":
+        w++;
+        break;
+      case "x":
+        x++;
+        break;
+      case "z":
+        z++;
+        break;
+      default:
+        break;
+    }
+  }
+
+  if (u > 0) {
+    outputString.push(
+      `${"u".padEnd(2)} ${String(u).padEnd(6)}${"*".repeat(u)}`
+    );
+  }
+  if (w > 0) {
+    outputString.push(
+      `${"w".padEnd(2)} ${String(w).padEnd(6)}${"*".repeat(w)}`
+    );
+  }
+  if (x > 0) {
+    outputString.push(
+      `${"x".padEnd(2)} ${String(x).padEnd(6)}${"*".repeat(x)}`
+    );
+  }
+  if (z > 0) {
+    outputString.push(
+      `${"z".padEnd(2)} ${String(z).padEnd(6)}${"*".repeat(z)}`
+    );
+  }
+
+  return outputString.join(`\r`);
+}
+
 // Are they the "same"?
 function comp(array1, array2) {
   if (
