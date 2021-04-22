@@ -415,6 +415,33 @@ function insideOut(x) {
     .join(" ");
 }
 
+// Stop gninnipS My sdroW!
+function spinWords(string) {
+  return string
+    .split(" ")
+    .map((word) => {
+      if (word.length > 4) {
+        word = word.split("").reverse().join("");
+      }
+      return word;
+    })
+    .join(" ");
+}
+
+// Printer Errors
+function printerError(s) {
+  let numerator = 0;
+  let denominator = s.length;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s.charCodeAt(i) > 109) {
+      numerator++;
+    }
+  }
+
+  return `${numerator}/${denominator}`;
+}
+
 // Are they the "same"?
 function comp(array1, array2) {
   if (
