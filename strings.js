@@ -14,6 +14,17 @@ function checkSpam(str) {
   return false;
 }
 
+function checkSpam(str) {
+  if (
+    str.toLowerCase().includes("xxx") ||
+    str.toLowerCase().includes("viagra")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 checkSpam("buy ViAgRA now");
 checkSpam("free xxxxx");
 checkSpam("innocent rabbit");
@@ -24,6 +35,10 @@ function truncate(str, maxlength) {
     return str.slice(0, maxlength - 1) + "\u2026";
   }
   return str;
+}
+
+function truncate(str, maxlength) {
+  return str.length > maxlength ? str.slice(0, maxlength - 1) + "…" : str;
 }
 
 // Extract the money
