@@ -191,6 +191,28 @@ function sumInput() {
 
 sumInput();
 
+// NEW
+function sumInput() {
+  let sum = 0;
+  let values = [];
+
+  while (true) {
+    let value = prompt("Enter a number to sum");
+
+    if (!isFinite(value) || value === "" || value === null) {
+      break;
+    }
+
+    values.push(+value);
+  }
+
+  for (let number of values) {
+    sum += number;
+  }
+
+  return sum;
+}
+
 // A maximal subarray
 function getMaxSubSum(arr) {}
 
@@ -234,9 +256,9 @@ function copySorted(arr) {
 }
 
 // Create an extendable calculator
-class Calculator(){
-  
-}
+// class Calculator(){
+
+// }
 
 // Map to names
 let john = { name: "John", age: 25 };
