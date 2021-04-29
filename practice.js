@@ -256,9 +256,17 @@ function copySorted(arr) {
 }
 
 // Create an extendable calculator
-// class Calculator(){
-
-// }
+function Calculator() {
+  this.calculate = function (str) {
+    let values = str.split(" ");
+    if (values[1] === "+") {
+      return +values[0] + +values[2];
+    }
+    if (values[1] === "-") {
+      return +values[0] - +values[2];
+    }
+  };
+}
 
 // Map to names
 let john = { name: "John", age: 25 };

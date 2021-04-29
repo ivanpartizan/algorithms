@@ -17,7 +17,6 @@ function sumInput() {
     sum += +number;
   }
 
-  // console.log(values);
   return sum;
 }
 
@@ -45,7 +44,6 @@ function getMaxSubSum(arr) {
 
   for (let number of arr) {
     subSum += number;
-    // console.log(subSum)
 
     if (subSum > maxSum) {
       maxSum = subSum;
@@ -126,7 +124,6 @@ function filterRangeInPlace(arr, a, b) {
 }
 
 filterRangeInPlace(arr, 1, 4);
-// console.log(arr);
 
 // Sort in decreasing order
 let arr = [5, 2, 1, -10, 0, 8, 4];
