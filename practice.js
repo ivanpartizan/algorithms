@@ -214,7 +214,24 @@ function sumInput() {
 }
 
 // A maximal subarray
-function getMaxSubSum(arr) {}
+function getMaxSubSum(arr) {
+  let maxSum = 0;
+  let subSum = 0;
+
+  for (let number of arr) {
+    subSum += number;
+
+    if (subSum < 0) {
+      subSum = 0;
+    }
+
+    if (subSum > maxSum) {
+      maxSum = subSum;
+    }
+  }
+
+  return maxSum;
+}
 
 // Translate border-left-width to borderLeftWidth
 function camelize(str) {
