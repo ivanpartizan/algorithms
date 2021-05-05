@@ -37,3 +37,15 @@ function findFactorialRecursive(number) {
 }
 
 findFactorialRecursive(5);
+
+// N-th Fibonacci
+function nthFibo(n) {
+  // Return the n-th number in the Fibonacci Sequence
+  let arr = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    arr.push(arr[i - 2] + arr[i - 1]);
+  }
+
+  return arr[n - 1];
+}
