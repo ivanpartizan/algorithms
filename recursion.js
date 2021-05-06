@@ -49,3 +49,20 @@ function nthFibo(n) {
 
   return arr[n - 1];
 }
+
+// Complete Fibonacci Series
+
+function fibonacci(n) {
+  // Return Fibonacci array of n elements
+  if (n <= 0) {
+    return [];
+  }
+
+  let arr = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    arr.push(arr[i - 1] + arr[i - 2]);
+  }
+
+  return arr.slice(0, n);
+}
