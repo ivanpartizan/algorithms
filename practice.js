@@ -368,30 +368,3 @@ let users = [
 ];
 
 let usersById = groupById(users);
-
-// Title case
-function titleCase(title, minorWords) {
-  let mwords = [];
-  mwords.push(minorWords.split(" "));
-  console.log(mwords);
-
-  if (title) {
-    return title
-      .split(" ")
-      .map((word, index) => {
-        if (
-          mwords.length &&
-          mwords.includes(word.toLowerCase()) &&
-          index != 0
-        ) {
-          return word.toLowerCase();
-        }
-        return word[0].toUpperCase() + word.slice(1).toLowerCase();
-      })
-      .join(" ");
-  } else {
-    return "";
-  }
-}
-
-titleCase("First a of in", "an often into");

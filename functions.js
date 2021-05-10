@@ -428,6 +428,29 @@ function spinWords(string) {
     .join(" ");
 }
 
+// Title Case
+function titleCase(title, minorWords) {
+  if (title != "") {
+    return title
+      .split(" ")
+      .map((word, index) => {
+        if (
+          (minorWords || "")
+            .toLowerCase()
+            .split(" ")
+            .includes(word.toLowerCase()) &&
+          index != 0
+        ) {
+          return word.toLowerCase();
+        }
+        return word[0].toUpperCase() + word.slice(1).toLowerCase();
+      })
+      .join(" ");
+  } else {
+    return "";
+  }
+}
+
 // Printer Errors
 function printerError(s) {
   let numerator = 0;
