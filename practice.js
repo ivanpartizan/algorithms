@@ -320,6 +320,7 @@ let arr = [pete, john, mary];
 sortByAge(arr);
 
 // Shuffle an array
+function shuffle(array) {}
 
 // Get average age
 function getAverageAge(users) {
