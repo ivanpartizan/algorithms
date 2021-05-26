@@ -536,6 +536,20 @@ function comp(array1, array2) {
     : false;
 }
 
+// Which are in?
+function inArray(array1, array2) {
+  r = [];
+
+  let arrayTwoString = array2.join(", ");
+  for (let word of array1) {
+    if (arrayTwoString.includes(word)) {
+      r.push(word);
+    }
+  }
+
+  return r.sort();
+}
+
 // Lost number in number sequence
 function findDeletedNumber(arr, mixArr) {
   for (let number of arr) {
