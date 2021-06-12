@@ -19,3 +19,11 @@ function greetDevelopers(list) {
 function isRubyComing(list) {
   return list.some((developer) => developer.language === "Ruby");
 }
+
+// Coding Meetup #4 - Higher-Order Functions Series - Find the first Python developer
+function getFirstPython(list) {
+  const found = list.find((developer) => developer.language === "Python");
+  return found === undefined
+    ? `There will be no Python developers`
+    : `${found.firstName}, ${found.country}`;
+}
