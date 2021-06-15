@@ -27,3 +27,10 @@ function getFirstPython(list) {
     ? `There will be no Python developers`
     : `${found.firstName}, ${found.country}`;
 }
+
+// Coding Meetup #5 - Higher-Order Functions Series - Prepare the count of languages
+function countLanguages(list) {
+  const object = {};
+
+  return object;
+}
