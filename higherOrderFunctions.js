@@ -31,6 +31,8 @@ function getFirstPython(list) {
 // Coding Meetup #5 - Higher-Order Functions Series - Prepare the count of languages
 function countLanguages(list) {
   const object = {};
-
+  list.forEach((element) => {
+    console.log(element);
+  });
   return object;
 }
