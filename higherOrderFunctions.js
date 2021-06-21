@@ -40,3 +40,13 @@ function countLanguages(list) {
   });
   return object;
 }
+
+// Coding Meetup #6 - Higher-Order Functions Series - Can they code in the same language?
+function isSameLanguage(list) {
+  return list.every((developer) => developer.language === list[0].language);
+}
+
+// Coding Meetup #7 - Higher-Order Functions Series - Find the most senior developer
+function findSenior(list) {
+  // thank you for checking out the Coding Meetup kata :)
+}
