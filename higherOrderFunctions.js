@@ -48,6 +48,14 @@ function isSameLanguage(list) {
 
 // Coding Meetup #7 - Higher-Order Functions Series - Find the most senior developer
 function findSenior(list) {
-  const maxAge = Math.max(...list.map(developer => developer.age));
-  return list.filter(developer => developer.age == maxAge);
+  const maxAge = Math.max(...list.map((developer) => developer.age));
+  return list.filter((developer) => developer.age == maxAge);
+}
+
+// Coding Meetup #8 - Higher-Order Functions Series - Will all continents be represented?
+function allContinents(list) {
+  const continents = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+  return continents.every((continent) =>
+    list.some((developer) => developer.continent == continent)
+  );
 }
