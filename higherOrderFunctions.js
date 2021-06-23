@@ -48,5 +48,6 @@ function isSameLanguage(list) {
 
 // Coding Meetup #7 - Higher-Order Functions Series - Find the most senior developer
 function findSenior(list) {
-  // thank you for checking out the Coding Meetup kata :)
+  const maxAge = Math.max(...list.map(developer => developer.age));
+  return list.filter(developer => developer.age == maxAge);
 }
