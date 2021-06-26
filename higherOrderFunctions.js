@@ -59,3 +59,10 @@ function allContinents(list) {
     list.some((developer) => developer.continent == continent)
   );
 }
+
+function allContinents(list) {
+  const continents = list.map((x) => x.continent);
+  return continents.includes(
+    "Africa" && "Americas" && "Asia" && "Europe" && "Oceania"
+  );
+}
