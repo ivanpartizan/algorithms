@@ -59,3 +59,8 @@ function allContinents(list) {
     list.some((developer) => developer.continent == continent)
   );
 }
+
+// Coding Meetup #9 - Higher-Order Functions Series - Is the meetup age-diverse?
+function isAgeDiverse(list) {
+  // thank you for checking out the Coding Meetup kata :)
+}
