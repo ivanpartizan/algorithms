@@ -62,5 +62,5 @@ function allContinents(list) {
 
 // Coding Meetup #9 - Higher-Order Functions Series - Is the meetup age-diverse?
 function isAgeDiverse(list) {
-  // thank you for checking out the Coding Meetup kata :)
+  list.filter((developer) => developer.age);
 }
