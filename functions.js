@@ -347,6 +347,22 @@ function calc(x) {
   return total1Sum - total2Sum;
 }
 
+// Replace With Alphabet Position
+function alphabetPosition(text) {
+  let replacedText = "";
+  let lowerCasedString = text.toLowerCase();
+  for (let i = 0; i < lowerCasedString.length; i++) {
+    let position = lowerCasedString.charCodeAt(i) - 96;
+
+    if (position > 0 && position < 27) {
+      replacedText += `${position} `;
+    }
+  }
+  return replacedText.trimEnd();
+}
+
+alphabetPosition("The sunset sets at twelve o' clock.");
+
 // Reverse or rotate?
 function revrot(str, sz) {
   let newString = "";
