@@ -375,3 +375,14 @@ let users = [
 ];
 
 let usersById = groupById(users);
+
+// No oddities here
+function noOdds(values) {
+  let array = [];
+  for (let value of values) {
+    if (value % 2 == 0) {
+      array.push(value);
+    }
+  }
+  return array;
+}
