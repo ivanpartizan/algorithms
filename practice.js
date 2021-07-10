@@ -123,8 +123,7 @@ function Accumulator(startingValue) {
   this.value = startingValue;
 
   this.read = function () {
-    this.newValue = +prompt("Enter a number");
-    this.value += this.newValue;
+    this.value += +prompt("Enter a number");
   };
 }
 
