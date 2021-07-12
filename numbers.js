@@ -42,3 +42,19 @@ let b = +prompt("Enter second number");
 
 let sum = a + b;
 alert(`Sum of ${a} and ${b} is ${sum}`);
+
+function readNumber() {
+  let number;
+  do {
+    number = prompt("enter numeric value");
+  } while (!isFinite(number));
+  {
+    console.log(number);
+    if (number == "" || number == null) {
+      return null;
+    }
+    return +number;
+  }
+}
+
+readNumber();
