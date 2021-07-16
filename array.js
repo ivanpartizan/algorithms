@@ -303,6 +303,3 @@ const logAllPairs = (array) => {
 };
 
 logAllPairs(boxes);
-
-// practice
-function sumInput() {}
