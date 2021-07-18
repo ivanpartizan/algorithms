@@ -385,3 +385,5 @@ function noOdds(values) {
   }
   return array;
 }
+
+noOdds(5, 3, 4);
