@@ -305,6 +305,13 @@ let usersMapped = users.map((user) => ({
   id: user.id,
 }));
 
+let usersMapped = users.map((user) => {
+  return {
+    fullName: `${user.name} ${user.surname}`,
+    id: user.id,
+  };
+});
+
 // Sort users by age
 function sortByAge(arr) {
   return arr.sort((a, b) => a.age - b.age);
