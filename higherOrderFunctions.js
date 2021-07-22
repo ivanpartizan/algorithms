@@ -64,3 +64,10 @@ function allContinents(list) {
 function isAgeDiverse(list) {
   return list.filter((developer) => developer.age);
 }
+
+// Coding Meetup #11 - Higher-Order Functions Series - Find the average age
+function getAverageAge(list) {
+  return Math.round(
+    list.reduce((total, developer) => total + developer.age, 0) / list.length
+  );
+}
