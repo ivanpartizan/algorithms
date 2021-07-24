@@ -78,4 +78,3 @@ function findAdmin(list, lang) {
     (developer) => developer.language == lang && developer.githubAdmin == "yes"
   );
 }
-function test() {}
