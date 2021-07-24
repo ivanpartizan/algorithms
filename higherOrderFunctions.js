@@ -78,3 +78,23 @@ function findAdmin(list, lang) {
     (developer) => developer.language == lang && developer.githubAdmin == "yes"
   );
 }
+
+// Coding Meetup #14 - Higher-Order Functions Series - Order the food
+function orderFood(list) {
+  let object = {};
+  list
+    .map((developer) => developer.meal)
+    .forEach((value) =>
+      object[value] ? object[value]++ : (object[value] = 1)
+    );
+  return object;
+}
+
+// Coding Meetup #17 - Higher-Order Functions Series - Sort by programming language
+function sortByLanguage(list) {
+  return list.sort((a, b) =>
+    a.language == b.language
+      ? a.firstName.localeCompare(b.firstName)
+      : a.language.localeCompare(b.language)
+  );
+}
