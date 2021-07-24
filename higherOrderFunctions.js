@@ -71,3 +71,10 @@ function getAverageAge(list) {
     list.reduce((total, developer) => total + developer.age, 0) / list.length
   );
 }
+
+// Coding Meetup #12 - Higher-Order Functions Series - Find GitHub admins
+function findAdmin(list, lang) {
+  return list.filter(
+    (developer) => developer.language == lang && developer.githubAdmin == "yes"
+  );
+}
