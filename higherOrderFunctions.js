@@ -60,9 +60,17 @@ function allContinents(list) {
   );
 }
 
-// Coding Meetup #9 - Higher-Order Functions Series - Is the meetup age-diverse?
-function isAgeDiverse(list) {
-  return list.filter((developer) => developer.age);
+// Coding Meetup #10 - Higher-Order Functions Series - Create usernames
+function addUsername(list) {
+  list.forEach(
+    (developer) =>
+      (developer[
+        "username"
+      ] = `${developer.firstName.toLowerCase()}${developer.lastName[0].toLowerCase()}${
+        new Date().getFullYear() - developer.age
+      }`)
+  );
+  return list;
 }
 
 // Coding Meetup #11 - Higher-Order Functions Series - Find the average age
@@ -88,6 +96,21 @@ function orderFood(list) {
       object[value] ? object[value]++ : (object[value] = 1)
     );
   return object;
+}
+
+// Coding Meetup #15 - Higher-Order Functions Series - Find the odd names
+function findOddNames(list) {
+  let listOfOddNames = [];
+  list.forEach((developer) => {
+    let sum = 0;
+    for (let i = 0; i < developer.firstName.length; i++) {
+      sum += developer.firstName.codePointAt(i);
+    }
+    if (sum % 2 == 1) {
+      listOfOddNames.push(developer);
+    }
+  });
+  return listOfOddNames;
 }
 
 // Coding Meetup #17 - Higher-Order Functions Series - Sort by programming language
