@@ -113,6 +113,20 @@ function findOddNames(list) {
   return listOfOddNames;
 }
 
+// Coding Meetup #16 - Higher-Order Functions Series - Ask for missing details
+function askForMissingDetails(list) {
+  let missingDetails = [];
+  list.filter((developer) => {
+    for (let key in developer) {
+      if (developer[key] == null) {
+        developer["question"] = `Hi, could you please provide your ${key}.`;
+        missingDetails.push(developer);
+      }
+    }
+  });
+  return missingDetails;
+}
+
 // Coding Meetup #17 - Higher-Order Functions Series - Sort by programming language
 function sortByLanguage(list) {
   return list.sort((a, b) =>
@@ -121,3 +135,5 @@ function sortByLanguage(list) {
       : a.language.localeCompare(b.language)
   );
 }
+
+// 9, 13
