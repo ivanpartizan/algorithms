@@ -87,6 +87,30 @@ function findAdmin(list, lang) {
   );
 }
 
+// Coding Meetup #13 - Higher-Order Functions Series - Is the meetup language-diverse?
+function isLanguageDiverse(list) {
+  let counts = {};
+
+  list
+    .map((developer) => developer.language)
+    .forEach((language) =>
+      counts[language] ? counts[language]++ : (counts[language] = 1)
+    );
+
+  if (
+    counts.JavaScript / counts.Ruby > 2 ||
+    counts.JavaScript / counts.Python > 2 ||
+    counts.Python / counts.JavaScript > 2 ||
+    counts.Python / counts.Ruby > 2 ||
+    counts.Ruby / counts.JavaScript > 2 ||
+    counts.Ruby / counts.Python > 2
+  ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 // Coding Meetup #14 - Higher-Order Functions Series - Order the food
 function orderFood(list) {
   let object = {};
@@ -136,4 +160,4 @@ function sortByLanguage(list) {
   );
 }
 
-// 9, 13
+// 9
