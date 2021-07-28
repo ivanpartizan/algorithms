@@ -60,6 +60,62 @@ function allContinents(list) {
   );
 }
 
+// Coding Meetup #9 - Higher-Order Functions Series - Is the meetup age-diverse?
+function isAgeDiverse(list) {
+  let ageGroups = [];
+  list
+    .map((developer) => developer.age)
+    .forEach((value) => {
+      if (value < 20) {
+        ageGroups.push("teens");
+      }
+      if (value >= 20 && value < 30) {
+        ageGroups.push("twenties");
+      }
+      if (value >= 30 && value < 40) {
+        ageGroups.push("thirties");
+      }
+      if (value >= 40 && value < 50) {
+        ageGroups.push("forties");
+      }
+      if (value >= 50 && value < 60) {
+        ageGroups.push("fifties");
+      }
+      if (value >= 60 && value < 70) {
+        ageGroups.push("sixties");
+      }
+      if (value >= 70 && value < 80) {
+        ageGroups.push("seventies");
+      }
+      if (value >= 80 && value < 90) {
+        ageGroups.push("eighties");
+      }
+      if (value >= 90 && value < 100) {
+        ageGroups.push("nineties");
+      }
+      if (value >= 100) {
+        ageGroups.push("centenarian");
+      }
+    });
+
+  if (
+    ageGroups.includes("teens") &&
+    ageGroups.includes("twenties") &&
+    ageGroups.includes("thirties") &&
+    ageGroups.includes("forties") &&
+    ageGroups.includes("fifties") &&
+    ageGroups.includes("sixties") &&
+    ageGroups.includes("seventies") &&
+    ageGroups.includes("eighties") &&
+    ageGroups.includes("nineties") &&
+    ageGroups.includes("centenarian")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // Coding Meetup #10 - Higher-Order Functions Series - Create usernames
 function addUsername(list) {
   list.forEach(
@@ -159,5 +215,3 @@ function sortByLanguage(list) {
       : a.language.localeCompare(b.language)
   );
 }
-
-// 9
