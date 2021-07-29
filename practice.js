@@ -184,7 +184,6 @@ function sumInput() {
     sum += +number;
   }
 
-  console.log(values);
   return sum;
 }
 
