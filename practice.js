@@ -391,3 +391,15 @@ function noOdds(values) {
   }
   return array;
 }
+
+function readnumber() {
+  let a;
+  while (true) {
+    a = prompt("enter a number");
+
+    if (a === null || a === "" || isFinite(a)) {
+      break;
+    }
+  }
+  return +a;
+}
