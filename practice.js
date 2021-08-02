@@ -403,3 +403,8 @@ function readnumber() {
   }
   return +a;
 }
+function randominteger(min, max) {
+  return Math.round(Math.random() * (max - min)) + min;
+}
+
+randominteger(1, 5);
