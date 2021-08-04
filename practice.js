@@ -408,3 +408,72 @@ function randominteger(min, max) {
 }
 
 randominteger(1, 5);
+
+function ucFirst(str) {
+  if (str == "") return "";
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+ucFirst("ivam");
+
+function checkSpam(str) {
+  if (
+    str.toLowerCase().includes("viagra") ||
+    str.toLowerCase().includes("xxx")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+checkSpam("innocent rabbit");
+
+function extractCurrencyValue(str) {
+  let newstr = "";
+  for (let char of str) {
+    if (isFinite(char)) {
+      newstr += char;
+    }
+  }
+  return newstr;
+}
+
+extractCurrencyValue("$345sdad");
+
+function suimnupt() {
+  let array = [];
+  let sum = 0;
+  let a;
+  while (true) {
+    a = prompt("entr a number");
+    if (a == null || a === "" || !isFinite(a)) {
+      break;
+    }
+
+    array.push(a);
+  }
+  console.log(array);
+  for (let num of arr) {
+    sum += num;
+  }
+  return sum;
+}
+
+suimnupt();
+function getmaxsub(arr) {
+  let subsuum = 0;
+  let maxsum = 0;
+
+  for (let num of arr) {
+    subsuum += num;
+
+    if (subsuum > maxsum) {
+      maxsum = subsuum;
+    }
+    if (subsuum < 0) {
+      subsuum = 0;
+    }
+  }
+  return maxsum;
+}
+getMaxSubSum([-1, 2, 3, -9]);
