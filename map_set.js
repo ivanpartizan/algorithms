@@ -18,6 +18,17 @@ function unique(arr) {
 
 unique(values);
 
+// Another option
+function unique(arr) {
+  let set = new Set();
+
+  for (let value of arr) {
+    set.add(value);
+  }
+
+  return Array.from(set);
+}
+
 // Filter anagrams
 function aclean(arr) {
   let map = new Map();
