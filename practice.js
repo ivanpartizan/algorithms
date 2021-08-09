@@ -33,13 +33,6 @@ function mergeSortedArrays(array1, array2) {
 
 mergeSortedArrays([11, 88, 22, 5, 4], [33, 6, 7, 90]);
 
-// Output even numbers in the loop
-for (let i = 2; i <= 10; i++) {
-  if (i % 2 == 0) {
-    alert(i);
-  }
-}
-
 // Check the login
 let login = prompt("Who's there?");
 
@@ -66,6 +59,23 @@ while (true) {
     break;
   }
 }
+
+// Repeat until the input is a number
+function readNumber() {
+  let value;
+
+  do {
+    value = prompt("Please, enter a valid numeric value");
+  } while (!isFinite(value));
+
+  if (value === null || value === "") {
+    return null;
+  }
+
+  return +value;
+}
+
+readNumber();
 
 // Power
 let x = +prompt("Enter x");
@@ -131,23 +141,6 @@ let accumulator = new Accumulator(1);
 accumulator.read();
 accumulator.read();
 alert(accumulator.value);
-
-// Repeat until the input is a number
-function readNumber() {
-  let value;
-
-  do {
-    value = prompt("Please, enter a valid numeric value");
-  } while (!isFinite(value));
-
-  if (value === null || value === "") {
-    return null;
-  }
-
-  return +value;
-}
-
-readNumber();
 
 // A random number from min to max
 function random(min, max) {
@@ -392,30 +385,31 @@ function noOdds(values) {
   return array;
 }
 
-// JSON
-let user = {
-  name: "John Smith",
-  age: 35,
-};
+// Strings: swap vowels' case
+function swapVowelCase(str) {
+  let swapped = "";
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str.charCodeAt(i) == 97 ||
+      str.charCodeAt(i) == 101 ||
+      str.charCodeAt(i) == 105 ||
+      str.charCodeAt(i) == 111 ||
+      str.charCodeAt(i) == 117
+    ) {
+      swapped += String.fromCharCode(str.charCodeAt(i) - 32);
+    } else if (
+      str.charCodeAt(i) == 65 ||
+      str.charCodeAt(i) == 69 ||
+      str.charCodeAt(i) == 73 ||
+      str.charCodeAt(i) == 79 ||
+      str.charCodeAt(i) == 85
+    ) {
+      swapped += String.fromCharCode(str.charCodeAt(i) + 32);
+    } else {
+      swapped += str[i];
+    }
+  }
+  return swapped;
+}
 
-let obj = JSON.parse(JSON.stringify(user));
-
-let room = {
-  number: 23,
-};
-
-let meetup = {
-  title: "Conference",
-  occupiedBy: [{ name: "John" }, { name: "Alice" }],
-  place: room,
-};
-
-// circular references
-room.occupiedBy = meetup;
-meetup.self = meetup;
-
-alert(
-  JSON.stringify(meetup, function replacer(key, value) {
-    /* your code */
-  })
-);
+swapVowelCase("C Is AlIvE!");
