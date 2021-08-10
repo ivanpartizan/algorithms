@@ -51,7 +51,6 @@ function nthFibo(n) {
 }
 
 // Complete Fibonacci Series
-
 function fibonacci(n) {
   // Return Fibonacci array of n elements
   if (n <= 0) {
