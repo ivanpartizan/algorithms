@@ -1,3 +1,21 @@
+// Remove duplicate words
+function removeDuplicateWords(s) {
+  let array = s.split(" ");
+  let newArray = [];
+
+  for (let word of array) {
+    if (!newArray.includes(word)) {
+      newArray.push(word);
+    }
+  }
+
+  return newArray.join(" ");
+}
+
+removeDuplicateWords(
+  "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
+);
+
 // Counting Duplicates
 function duplicateCount(text) {
   let duplicatesCount = 0;
