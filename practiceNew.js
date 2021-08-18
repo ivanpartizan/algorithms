@@ -71,7 +71,7 @@ function tickets(peopleInLine) {
 }
 
 // parseInt() reloaded
-let mapNumbers = {
+let mapOne = {
   zero: 0,
   one: 1,
   two: 2,
@@ -101,7 +101,7 @@ let mapNumbers = {
   eighty: 80,
   ninety: 90,
 };
-let map2 = {
+let mapTwo = {
   hundred: 100,
   thousand: 1000,
   million: 1000000,
@@ -115,11 +115,11 @@ function parseInt(string) {
     .join(",")
     .split(",")
     .reduce((acc, value) => {
-      if (value in mapNumbers) {
-        acc += mapNumbers[value];
+      if (value in mapOne) {
+        acc += mapOne[value];
       }
-      if (value in map2) {
-        acc += map2[value] * (acc % map2[value]) - (acc % map2[value]);
+      if (value in mapTwo) {
+        acc += mapTwo[value] * (acc % mapTwo[value]) - (acc % mapTwo[value]);
       }
       console.log(mapNumbers[value]);
       console.log(map2[value]);
