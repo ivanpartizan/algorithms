@@ -1,6 +1,13 @@
 function printNumbers(from, to) {
-  for (let i = from; i <= to; i++) {
-    setInterval(printNumbers(1, 5), 1000);
-  }
+  let start = from;
+
+  let timer = setInterval(function () {
+    alert(start);
+    if (start == to) {
+      clearInterval(timer);
+    }
+    start++;
+  }, 1000);
 }
-setInterval(printNumbers, 1000);
+
+printNumbers(1, 10);
