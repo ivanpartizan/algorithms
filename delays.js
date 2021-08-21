@@ -3,7 +3,8 @@ function printNumbers(from, to) {
   let start = from;
 
   let timer = setInterval(function () {
-    alert(start);
+    // alert(start);
+    console.log(start);
     if (start == to) {
       clearInterval(timer);
     }
@@ -17,7 +18,7 @@ function printNumbers(from, to) {
   let start = from;
 
   setTimeout(function timer() {
-    alert(start);
+    // alert(start);
     if (start < to) {
       setTimeout(timer, 1000);
     }
