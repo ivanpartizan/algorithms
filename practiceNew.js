@@ -41,6 +41,27 @@ function duplicateCount(text) {
 
 duplicateCount("aabBcde");
 
+// Find the odd int
+function findOdd(A) {
+  let countNumbers = {};
+
+  for (let number of A) {
+    if (number in countNumbers) {
+      countNumbers[number]++;
+    } else {
+      countNumbers[number] = 1;
+    }
+  }
+
+  for (value in countNumbers) {
+    if (countNumbers[value] % 2 == 1) {
+      return +value;
+    }
+  }
+}
+
+findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]);
+
 // Vasya - Clerk
 function tickets(peopleInLine) {
   let bill25 = 0;
