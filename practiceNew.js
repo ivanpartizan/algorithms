@@ -1,3 +1,25 @@
+// Highest Scoring Word
+function high(x) {
+  let words = x.split(" ");
+  let obj = {};
+
+  words.forEach((word) => {
+    let points = 0;
+    for (let i = 0; i < word.length; i++) {
+      points += word.codePointAt(i) - 96;
+    }
+    obj[word] = points;
+  });
+
+  let highScoreWord = Object.keys(obj).reduce((a, b) =>
+    obj[a] >= obj[b] ? a : b
+  );
+
+  return highScoreWord;
+}
+
+high("what time are we climbing up the volcano");
+
 // Remove duplicate words
 function removeDuplicateWords(s) {
   let array = s.split(" ");
