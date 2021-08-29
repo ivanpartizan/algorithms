@@ -1,3 +1,10 @@
+// String ends with?
+function solution(str, ending) {
+  return str.endsWith(ending) ? true : false;
+}
+
+solution("abcde", "cde");
+
 // Reverse A String
 function reverse(str) {
   let reversed = "";
