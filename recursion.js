@@ -65,3 +65,27 @@ function fibonacci(n) {
 
   return arr.slice(0, n);
 }
+
+// Practice
+const person = {
+  name: "Ivan",
+  friend: {
+    name: "Joe",
+    friend: {
+      name: "Mike",
+      friend: {
+        name: "Kevin",
+      },
+    },
+  },
+};
+
+function printNames(object) {
+  if (object == null) return;
+  else {
+    console.log(object.name);
+    printNames(object.friend);
+  }
+}
+
+printNames(person);
