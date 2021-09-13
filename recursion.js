@@ -16,6 +16,7 @@ function sumTo(n) {
 sumTo(100);
 
 // Using a recursion
+function sumToRecursive(n) {}
 
 // Factorial
 function findFactorialIterative(number) {
