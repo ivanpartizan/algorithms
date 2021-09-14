@@ -16,7 +16,15 @@ function sumTo(n) {
 sumTo(100);
 
 // Using a recursion
-function sumToRecursive(n) {}
+function sumToRecursive(n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    sumToRecursive(n) + sumToRecursive(n - 1);
+  }
+}
+
+sumToRecursive(10);
 
 // Factorial
 function findFactorialIterative(number) {
