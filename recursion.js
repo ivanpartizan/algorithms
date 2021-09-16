@@ -17,10 +17,10 @@ sumTo(100);
 
 // Using a recursion
 function sumToRecursive(n) {
-  if (n == 1) {
-    return 1;
+  if (n == 0) {
+    return 0;
   } else {
-    sumToRecursive(n) + sumToRecursive(n - 1);
+    return (n += sumToRecursive(n - 1));
   }
 }
 
