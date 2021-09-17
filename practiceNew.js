@@ -189,3 +189,28 @@ function parseInt(string) {
 }
 
 parseInt("two hundred forty-six");
+
+// Series of integers from 0 to n
+function generateIntegers(n) {
+  let arrayOfIntegers = [];
+
+  for (let i = 0; i <= n; i++) {
+    arrayOfIntegers.push(i);
+  }
+
+  return arrayOfIntegers;
+}
+
+generateIntegers(3);
+
+function generateIntegers(m, n) {
+  let arrayOfIntegers = [];
+
+  for (let i = m; i <= n; i++) {
+    arrayOfIntegers.push(i);
+  }
+
+  return arrayOfIntegers;
+}
+
+generateIntegers(2, 5);
