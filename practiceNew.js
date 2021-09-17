@@ -203,6 +203,7 @@ function generateIntegers(n) {
 
 generateIntegers(3);
 
+// Series of integers from m to n
 function generateIntegers(m, n) {
   let arrayOfIntegers = [];
 
@@ -214,3 +215,18 @@ function generateIntegers(m, n) {
 }
 
 generateIntegers(2, 5);
+
+// Pairs of integers from 0 to n
+function generatePairs(n) {
+  let arrayOfPairs = [];
+
+  for (let i = 0; i <= n; i++) {
+    for (let j = i; j <= n; j++) {
+      arrayOfPairs.push([i, j]);
+    }
+  }
+
+  return arrayOfPairs;
+}
+
+generatePairs(2);
