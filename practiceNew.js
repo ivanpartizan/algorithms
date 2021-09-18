@@ -230,3 +230,18 @@ function generatePairs(n) {
 }
 
 generatePairs(2);
+
+// Pairs of integers from m to n
+function generatePairs(m, n) {
+  let arrayOfPairs = [];
+
+  for (let i = m; i <= n; i++) {
+    for (let j = i; j <= n; j++) {
+      arrayOfPairs.push([i, j]);
+    }
+  }
+
+  return arrayOfPairs;
+}
+
+generatePairs(2, 4);
