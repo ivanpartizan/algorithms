@@ -245,3 +245,17 @@ function generatePairs(m, n) {
 }
 
 generatePairs(2, 4);
+
+function getSectionIdFromScroll(scrollY, sizes) {
+  let totalSize = 0;
+  for (let i = 0; i < sizes.length; i++) {
+    totalSize += sizes[i];
+    if (scrollY < totalSize) {
+      return i;
+    } else if (scrollY == totalSize) {
+      return i + 1;
+    } else {
+      return -1;
+    }
+  }
+}
