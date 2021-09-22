@@ -130,6 +130,22 @@ function tickets(peopleInLine) {
   return "YES";
 }
 
+// Human Readable Time
+function humanReadable(seconds) {
+  let hours = parseInt(seconds / 3600);
+  let remainder = seconds % 3600;
+  let minutes = parseInt(remainder / 60);
+  let anotherRemainder = remainder % 60;
+  hours = hours > 9 ? hours : `0${hours}`;
+  minutes = minutes > 9 ? minutes : `0${minutes}`;
+  anotherRemainder =
+    anotherRemainder > 9 ? anotherRemainder : `0${anotherRemainder}`;
+
+  return `${hours}:${minutes}:${anotherRemainder}`;
+}
+
+humanReadable(359999);
+
 // parseInt() reloaded
 let mapOne = {
   zero: 0,
@@ -246,16 +262,16 @@ function generatePairs(m, n) {
 
 generatePairs(2, 4);
 
+// Which section did you scroll to?
 function getSectionIdFromScroll(scrollY, sizes) {
   let totalSize = 0;
   for (let i = 0; i < sizes.length; i++) {
     totalSize += sizes[i];
     if (scrollY < totalSize) {
       return i;
-    } else if (scrollY == totalSize) {
-      return i + 1;
-    } else {
-      return -1;
     }
   }
+  return -1;
 }
+
+getSectionIdFromScroll(299, [300, 200, 400, 600, 100]);
