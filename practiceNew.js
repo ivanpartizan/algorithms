@@ -275,3 +275,14 @@ function getSectionIdFromScroll(scrollY, sizes) {
 }
 
 getSectionIdFromScroll(299, [300, 200, 400, 600, 100]);
+
+var encryptThis = function (text) {
+  let words = text.split(" ");
+  return words.map((word) => {
+    let chars = word.split("");
+    chars[0] = word.charCodeAt(0);
+    return chars;
+  });
+};
+
+encryptThis("A wise old owl lived in an oak");
