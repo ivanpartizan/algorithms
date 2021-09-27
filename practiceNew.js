@@ -290,3 +290,19 @@ var encryptThis = function (text) {
 };
 
 encryptThis("A wise old owl lived in an oak");
+
+// Decipher this!
+function decipherThis(str) {
+  let words = str.split(" ");
+  console.log(words);
+
+  words.map((word) => {
+    // word = parseInt(word) + word
+    word =
+      String.fromCharCode(parseInt(word)) +
+      word.slice(String.fromCharCode(parseInt(word)).length);
+    console.log(word);
+  });
+}
+
+decipherThis("72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o");
