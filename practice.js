@@ -442,3 +442,10 @@ function isPrime(n) {
 }
 
 showPrimes(100);
+
+// Gauß needs help! (Sums of a lot of numbers).
+function f(n) {
+  return n > 0 && Number.isInteger(n) ? (n + 1) * (n / 2) : false;
+}
+
+f(100);
