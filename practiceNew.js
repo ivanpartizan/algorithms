@@ -311,3 +311,21 @@ function decipherThis(str) {
 }
 
 decipherThis("72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o");
+
+// Frequency sequence
+function freqSeq(str, sep) {
+  let obj = {};
+  for (let char of str) {
+    if (obj[char]) {
+      obj[char]++;
+    } else {
+      obj[char] = 1;
+    }
+  }
+  return str
+    .split("")
+    .map((char) => obj[char])
+    .join(sep);
+}
+
+freqSeq("hello world", "-");
