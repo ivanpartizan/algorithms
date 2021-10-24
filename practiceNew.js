@@ -312,6 +312,25 @@ function decipherThis(str) {
 
 decipherThis("72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o");
 
+// Duplicate Encoder
+function duplicateEncode(word) {
+  word = word.toLowerCase();
+  let obj = {};
+  for (let char of word) {
+    if (obj[char]) {
+      obj[char]++;
+    } else {
+      obj[char] = 1;
+    }
+  }
+  return word
+    .split("")
+    .map((char) => (obj[char] == 1 ? "(" : ")"))
+    .join("");
+}
+
+duplicateEncode("Success");
+
 // Frequency sequence
 function freqSeq(str, sep) {
   let obj = {};
