@@ -137,3 +137,99 @@ function chunk(array, size) {
   }
   return chunked;
 }
+
+// Anagrams
+// Solution 1
+function anagrams(stringA, stringB) {
+  return cleanString(stringA) === cleanString(stringB);
+}
+
+// Helper function
+function cleanString(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+}
+
+// Solution 2
+function anagrams(stringA, stringB) {
+  const aCharMap = buildCharMap(stringA);
+  const bCharMap = buildCharMap(stringB);
+
+  if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+    return false;
+  }
+
+  for (let char in aCharMap) {
+    if (aCharMap[char] !== bCharMap[char]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Helper function
+function buildCharMap(str) {
+  const charMap = {};
+
+  for (let char of str.replace(/[^\w]/g, "").toLowerCase()) {
+    charMap[char] = charMap[char] + 1 || 1;
+  }
+
+  return charMap;
+}
+
+// My Solution
+function anagrams(stringA, stringB) {
+  stringA = stringA.toLowerCase();
+  stringB = stringB.toLowerCase();
+  let anagramA = "";
+  let anagramB = "";
+
+  for (let i = 0; i < stringA.length; i++) {
+    if (stringA.codePointAt(i) > 96 && stringA.codePointAt(i) < 123) {
+      anagramA += stringA[i];
+    }
+  }
+
+  for (let i = 0; i < stringB.length; i++) {
+    if (stringB.codePointAt(i) > 96 && stringB.codePointAt(i) < 123) {
+      anagramB += stringB[i];
+    }
+  }
+
+  return anagramA.split("").sort().join("") ==
+    anagramB.split("").sort().join("")
+    ? "True"
+    : "False";
+}
+
+// Sentence Capitalization
+function capitalize(str) {
+  let result = str[0].toUpperCase();
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i - 1] === " ") {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
+  }
+
+  return result;
+}
+
+function capitalize(str) {
+  let words = [];
+  for (let word of str.split(" ")) {
+    words.push(word[0].toUpperCase() + word.slice(1));
+  }
+  return words.join(" ");
+}
+
+// My and Improved Solution
+function capitalize(str) {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+}
