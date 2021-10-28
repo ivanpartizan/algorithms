@@ -233,3 +233,123 @@ function capitalize(str) {
     .map((word) => word[0].toUpperCase() + word.slice(1))
     .join(" ");
 }
+
+// Printing Steps
+function steps(n) {
+  for (let row = 0; row < n; row++) {
+    let stair = "";
+    for (let column = 0; column < n; column++) {
+      if (column <= row) {
+        stair += "#";
+      } else {
+        stair += " ";
+      }
+    }
+    console.log(stair);
+  }
+}
+
+function steps(n, row = 0, stair = "") {
+  if (n == row) {
+    return;
+  }
+
+  if (n == stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
+  }
+
+  if (stair.length <= row) {
+    stair += "#";
+  } else {
+    stair += " ";
+  }
+
+  steps(n, row, stair);
+}
+
+// Two Sided Steps - Pyramids
+function pyramid(n) {
+  for (let row = 0; row < n; row++) {
+    let midpoint = Math.floor((n * 2 - 1) / 2);
+    let level = "";
+    for (let column = 0; column < n * 2 - 1; column++) {
+      if (midpoint - row <= column && midpoint + row >= column) {
+        level += "#";
+      } else {
+        level += " ";
+      }
+    }
+    console.log(level);
+  }
+}
+
+function pyramid(n, row = 0, level = "") {
+  if (row == n) {
+    return;
+  }
+  if (level.length == n * 2 - 1) {
+    console.log(level);
+    return pyramid(n, row + 1);
+  }
+
+  let midpoint = Math.floor((n * 2 - 1) / 2);
+  let add;
+  if (midpoint - row <= level.length && midpoint + row >= level.length) {
+    add = "#";
+  } else {
+    add = " ";
+  }
+
+  pyramid(n, row, level + add);
+}
+
+// My Solution
+function pyramid(n) {
+  for (let i = 1; i <= n; i++) {
+    let str1 = " ".repeat(n - i);
+    let str2 = "#".repeat(i * 2 - 1);
+    console.log(str1 + str2 + str1);
+  }
+}
+
+// Find The Vowels
+function vowels(str) {
+  let count = 0;
+  let checker = ["a", "e", "i", "o", "u"];
+
+  for (let char of str.toLowerCase()) {
+    if (checker.includes(char)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+function vowels(str) {
+  let matches = str.match(/[aeiou]/gi);
+  return matches ? matches.length : 0;
+}
+
+// My Solution
+function vowels(str) {
+  str = str.toLowerCase();
+  let numberOfVowels = 0;
+
+  for (let char of str) {
+    if (
+      char == "a" ||
+      char == "e" ||
+      char == "i" ||
+      char == "o" ||
+      char == "u"
+    ) {
+      numberOfVowels++;
+    }
+  }
+
+  return numberOfVowels;
+}
+
+// Matrix Spiral
