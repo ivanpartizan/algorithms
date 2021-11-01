@@ -101,6 +101,16 @@ const intDiff = (arr, n) => {
 
 intDiff([1, 1, 5, 6, 9, 16, 27], 4);
 
+// Difference between biggest 2 numbers
+function diffBig2(arr) {
+  let max1 = Math.max(...arr);
+  arr.splice(arr.indexOf(max1), 1);
+  let max2 = Math.max(...arr);
+  return max1 - max2;
+}
+
+diffBig2([10, 5, 2]);
+
 // Vasya - Clerk
 function tickets(peopleInLine) {
   let bill25 = 0;

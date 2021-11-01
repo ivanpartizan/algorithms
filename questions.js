@@ -268,6 +268,15 @@ function steps(n, row = 0, stair = "") {
   steps(n, row, stair);
 }
 
+// My Solution
+function steps(n) {
+  for (let i = 1; i <= n; i++) {
+    str1 = "#".repeat(i);
+    str2 = " ".repeat(n - i);
+    console.log(str1 + str2);
+  }
+}
+
 // Two Sided Steps - Pyramids
 function pyramid(n) {
   for (let row = 0; row < n; row++) {
@@ -353,3 +362,270 @@ function vowels(str) {
 }
 
 // Matrix Spiral
+function matrix(n) {
+  let results = [];
+
+  for (let i = 0; i < n; i++) {
+    results.push([]);
+  }
+
+  let counter = 1;
+  let startColumn = 0;
+  let endColumn = n - 1;
+  let startRow = 0;
+  let endRow = n - 1;
+
+  while (startColumn <= endColumn && startRow <= endRow) {
+    // Top row
+    for (let i = startColumn; i <= endColumn; i++) {
+      results[startRow][i] = counter;
+      counter++;
+    }
+    startRow++;
+
+    // Right column
+    for (let i = startRow; i <= endRow; i++) {
+      results[i][endColumn] = counter;
+      counter++;
+    }
+    endColumn--;
+
+    // Bottom row
+    for (let i = endColumn; i >= startColumn; i--) {
+      results[endRow][i] = counter;
+      counter++;
+    }
+    endRow--;
+
+    // Start column
+    for (let i = endRow; i >= startRow; i--) {
+      results[i][startColumn] = counter;
+      counter++;
+    }
+    startColumn++;
+  }
+
+  return results;
+}
+
+// Fibonacci
+// Recursive Solution
+function fib(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+
+// Iterative Solution
+function fib(n) {
+  let result = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    let a = result[i - 1];
+    let b = result[i - 2];
+    result.push(a + b);
+  }
+
+  return result[n];
+}
+
+// My Solution
+function fib(n) {
+  let fibNumbers = [0, 1];
+
+  for (let i = 1; i <= n; i++) {
+    fibNumbers.push(fibNumbers[i] + fibNumbers[i - 1]);
+  }
+
+  return fibNumbers[n - 1];
+}
+
+// Memoizer
+function memoize(fn) {
+  let cache = {};
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+
+    let result = fn.apply(this, args);
+    cache[args] = result;
+
+    return result;
+  };
+}
+
+function fib(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+
+fib = memoize(fib);
+fib(5);
+
+// The Queue
+class Queue {
+  constructor() {
+    this.data = [];
+  }
+
+  add(record) {
+    this.data.unshift(record);
+  }
+
+  remove() {
+    return this.data.pop();
+  }
+}
+
+// Queue Weaving
+// queue.js
+class Queue {
+  constructor() {
+    this.data = [];
+  }
+
+  add(record) {
+    this.data.unshift(record);
+  }
+
+  remove() {
+    return this.data.pop();
+  }
+
+  peek() {
+    return this.data[this.data.length - 1];
+  }
+}
+
+// index.js
+const Queue = require("./queue");
+
+function weave(sourceOne, sourceTwo) {
+  let q = new Queue();
+
+  while (sourceOne.peek() || sourceTwo.peek()) {
+    if (sourceOne.peek()) {
+      q.add(sourceOne.remove());
+    }
+    if (sourceTwo.peek()) {
+      q.add(sourceTwo.remove());
+    }
+  }
+
+  return q;
+}
+
+// Stack
+class Stack {
+  constructor() {
+    this.data = [];
+  }
+
+  push(record) {
+    this.data.push(record);
+  }
+
+  pop() {
+    return this.data.pop();
+  }
+
+  peek() {
+    return this.data[this.data.length - 1];
+  }
+}
+
+// Queue From Stack
+class Stack {
+  constructor() {
+    this.data = [];
+  }
+
+  push(record) {
+    this.data.push(record);
+  }
+
+  pop() {
+    return this.data.pop();
+  }
+
+  peek() {
+    return this.data[this.data.length - 1];
+  }
+}
+
+class Queue {
+  constructor() {
+    this.first = new Stack();
+    this.second = new Stack();
+  }
+
+  add(record) {
+    this.first.push(record);
+  }
+
+  remove() {
+    while (this.first.peek()) {
+      this.second.push(this.first.pop());
+    }
+
+    let record = this.second.pop();
+
+    while (this.second.peek()) {
+      this.first.push(this.second.pop());
+    }
+
+    return record;
+  }
+
+  peek() {
+    while (this.first.peek()) {
+      this.second.push(this.first.pop());
+    }
+
+    let record = this.second.peek();
+
+    while (this.second.peek()) {
+      this.first.push(this.second.pop());
+    }
+
+    return record;
+  }
+}
+
+// Find The Midpoint
+function midpoint(list) {
+  let slow = list.getFirst(); // OR list.head
+  let fast = list.getFirst(); // OR list.head
+
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+
+  return slow;
+}
+
+// Circular Lists
+function circular(list) {
+  let slow = list.getFirst(); // list.head
+  let fast = list.getFirst();
+
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// Step Back From The Tail
