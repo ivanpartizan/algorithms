@@ -449,3 +449,12 @@ function f(n) {
 }
 
 f(100);
+
+// Number of People in the Bus
+var number = function (busStops) {
+  let numberOfPeople = 0;
+  for (let stop of busStops) {
+    numberOfPeople = numberOfPeople + stop[0] - stop[1];
+  }
+  return numberOfPeople;
+};

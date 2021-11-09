@@ -98,11 +98,3 @@ function printNames(object) {
 }
 
 printNames(person);
-
-var number = function (busStops) {
-  let numberOfPeople = 0;
-  for (let stop of busStops) {
-    numberOfPeople = numberOfPeople + stop[0] - stop[1];
-  }
-  return numberOfPeople;
-};
