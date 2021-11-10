@@ -443,6 +443,21 @@ function isPrime(n) {
 
 showPrimes(100);
 
+// Is a number prime?
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+isPrime(73);
+
 // Gauß needs help! (Sums of a lot of numbers).
 function f(n) {
   return n > 0 && Number.isInteger(n) ? (n + 1) * (n / 2) : false;
