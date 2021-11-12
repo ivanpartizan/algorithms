@@ -4,6 +4,10 @@
 // Usually 2 returns, one for base case and one for recursive case
 
 // Sum all numbers till the given one
+function sumTo(n) {
+  return (n + 1) * (n / 2);
+}
+
 // Using a for loop
 function sumTo(n) {
   let sum = 0;
