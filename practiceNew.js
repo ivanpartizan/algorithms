@@ -272,6 +272,17 @@ function generatePairs(m, n) {
 
 generatePairs(2, 4);
 
+// Count the divisors of a number
+function getDivisorsCnt(n) {
+  let numberOfDivisors = 0;
+  for (let i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      numberOfDivisors++;
+    }
+  }
+  return numberOfDivisors;
+}
+
 // Which section did you scroll to?
 function getSectionIdFromScroll(scrollY, sizes) {
   let totalSize = 0;
