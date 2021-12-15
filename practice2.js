@@ -52,6 +52,39 @@ function isPrime(n) {
   return true;
 }
 
+// Round by 0.5 steps
+function solution(n) {
+  let integer = parseInt(n);
+  let decimalPart = n % 1;
+
+  if (decimalPart >= 0 && decimalPart < 0.25) {
+    return integer;
+  }
+  if (decimalPart >= 0.25 && decimalPart < 0.75) {
+    return integer + 0.5;
+  }
+  if (decimalPart >= 0.75 && decimalPart <= 1) {
+    return integer + 1;
+  }
+}
+
+solution(4.75);
+// OR Math.round(n * 2) / 2;
+
+// Maximum Product
+function adjacentElementsProduct(array) {
+  let products = [];
+
+  for (let i = 0; i < array.length - 1; i++) {
+    let subProduct = array[i] * array[i + 1];
+    products.push(subProduct);
+  }
+
+  return Math.max(...products);
+}
+
+adjacentElementsProduct([1, 2, 3]);
+
 // Padovan numbers
 function padovan(n) {
   if (n <= 2) {
