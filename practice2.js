@@ -93,3 +93,55 @@ function padovan(n) {
     return padovan(n - 2) + padovan(n - 3);
   }
 }
+
+// Birthday I - Cake
+function cake(candles, debris) {
+  let total = 0;
+
+  for (let i = 0; i < debris.length; i++) {
+    if (i % 2 == 0) {
+      total += debris.charCodeAt(i);
+    } else {
+      total += debris.charCodeAt(i) - 96;
+    }
+  }
+
+  let seventyPercent = (candles * 70) / 100;
+
+  return total > seventyPercent ? "Fire!" : "That was close!";
+}
+
+cake(900, "abcdef");
+
+// Birthday II - Presents
+function present(x, y) {
+  if (x == "goodpresent") {
+    let newString = "";
+    for (let i = 0; i < x.length; i++) {
+      newString += String.fromCodePoint(x.codePointAt(i) + y);
+    }
+    return newString;
+  }
+
+  if (x == "crap" || x == "empty") {
+    return [...x].sort().join("");
+  }
+
+  if (x == "bang") {
+    let sum = 0;
+    for (let i = 0; i < x.length; i++) {
+      sum += x.codePointAt(i) - y;
+    }
+    return sum;
+  }
+
+  if (x == "badpresent") {
+    return "Take this back!";
+  }
+
+  if (x == "dog") {
+    return `pass out from excitement ${y} times`;
+  }
+}
+
+present("goodpresent", 9);
