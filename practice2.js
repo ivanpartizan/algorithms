@@ -158,3 +158,35 @@ function trouble(x, t) {
 }
 
 trouble([4, 1, 1, 1, 4], 2);
+
+// Compare powers
+function comparePowers(n1, n2) {
+  let [base1, exponent1] = [...n1];
+  let [base2, exponent2] = [...n2];
+
+  let power1 = Math.pow(base1, exponent1);
+  let power2 = Math.pow(base2, exponent2);
+
+  return power1 > power2 ? -1 : power1 == power2 ? 0 : 1;
+}
+
+comparePowers([3, 9], [5, 6]);
+
+// Stanton measure
+function stantonMeasure(array) {
+  let numberOfOnes = 0;
+  for (let number of array) {
+    if (number == 1) {
+      numberOfOnes++;
+    }
+  }
+  let stantonNumber = 0;
+  for (let number of array) {
+    if (number == numberOfOnes) {
+      stantonNumber++;
+    }
+  }
+  return stantonNumber;
+}
+
+stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2]);
