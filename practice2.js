@@ -172,6 +172,27 @@ function comparePowers(n1, n2) {
 
 comparePowers([3, 9], [5, 6]);
 
+// Measuring Average Speed
+function calculateSpeed(distance, time) {
+  let distanceNumber = parseInt(distance);
+  let timeNumber = parseInt(time);
+
+  if (distance.includes("km")) {
+    distanceNumber *= 1000;
+  }
+  if (time.includes("min")) {
+    timeNumber *= 60;
+  }
+
+  let averageSpeedInMetrePerSecond = distanceNumber / timeNumber;
+  let averageSpeedInMilesPerHour = Math.round(
+    averageSpeedInMetrePerSecond * 2.23694
+  );
+  return `${averageSpeedInMilesPerHour}mph`;
+}
+
+calculateSpeed("573km", "39min");
+
 // Stanton measure
 function stantonMeasure(array) {
   let numberOfOnes = 0;
