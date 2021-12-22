@@ -52,6 +52,43 @@ function isPrime(n) {
   return true;
 }
 
+//
+function moreZeros(s) {
+  let array = [];
+
+  for (let i = 0; i < s.length; i++) {
+    let code = s[i].codePointAt();
+    let binaryNumber = convertToBinary(code);
+    console.log(binaryNumber);
+
+    if (countZerosAndOnes(binaryNumber) && !array.includes(s[i])) {
+      array.push(s[i]);
+    }
+  }
+
+  return array;
+}
+
+function convertToBinary(number) {
+  return number.toString(2);
+}
+
+function countZerosAndOnes(string) {
+  let zeros = 0;
+  let ones = 0;
+  for (let character of string) {
+    if (character == 0) {
+      zeros++;
+    }
+    if (character == 1) {
+      ones++;
+    }
+  }
+  return zeros > ones ? true : false;
+}
+
+moreZeros("abcde");
+
 // Round by 0.5 steps
 function solution(n) {
   let integer = parseInt(n);
@@ -231,3 +268,30 @@ function balance(left, right) {
 }
 
 balance("!!", "??");
+
+// Ones and Zeros
+const binaryArrayToNumber = (arr) => {
+  let sum = 0;
+  for (let i = arr.length - 1, b = 1; i >= 0; i--, b *= 2) {
+    let number = arr[i] * b;
+    sum += number;
+  }
+  return sum;
+};
+
+binaryArrayToNumber([0, 0, 0, 1]);
+
+// Simple Fun #154: Zero And One
+function zeroAndOne(s) {
+  for (let i = 0; i < s.length - 1; i++) {
+    if (s[i] != s[i + 1]) {
+      s = s.replace(s[i], "").replace(s[i + 1], " ");
+    }
+  }
+
+  s = s.replace(/[' ']/g, "");
+
+  return s.length;
+}
+
+zeroAndOne("01010");
