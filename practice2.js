@@ -211,3 +211,23 @@ function stantonMeasure(array) {
 }
 
 stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2]);
+
+// Exclamation marks series #17: Put the exclamation marks and question marks on the balance - are they balanced?
+function balance(left, right) {
+  let leftScore = 0;
+  let rightScore = 0;
+
+  for (let mark of left) {
+    mark == "!" ? (leftScore += 2) : (leftScore += 3);
+  }
+  for (let mark of right) {
+    mark == "!" ? (rightScore += 2) : (rightScore += 3);
+  }
+  return leftScore > rightScore
+    ? "Left"
+    : leftScore < rightScore
+    ? "Right"
+    : "Balance";
+}
+
+balance("!!", "??");
