@@ -52,14 +52,13 @@ function isPrime(n) {
   return true;
 }
 
-//
+// More Zeros than Ones
 function moreZeros(s) {
   let array = [];
 
   for (let i = 0; i < s.length; i++) {
     let code = s[i].codePointAt();
     let binaryNumber = convertToBinary(code);
-    console.log(binaryNumber);
 
     if (countZerosAndOnes(binaryNumber) && !array.includes(s[i])) {
       array.push(s[i]);
