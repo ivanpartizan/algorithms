@@ -294,3 +294,11 @@ function zeroAndOne(s) {
 }
 
 zeroAndOne("01010");
+
+// Converting Measures
+function convertRecipe(recipe) {
+  let stringToMatch = /\d+\stbsp|\d+?stsp/g;
+  return recipe.match(stringToMatch);
+}
+
+convertRecipe("2 tbsp of butter");
