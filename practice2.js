@@ -295,10 +295,26 @@ function zeroAndOne(s) {
 
 zeroAndOne("01010");
 
-// Converting Measures
-function convertRecipe(recipe) {
-  let stringToMatch = /\d+\stbsp|\d+?stsp/g;
-  return recipe.match(stringToMatch);
+//      Two Oldest Ages
+function twoOldestAges(ages) {
+  let twoMaxValues = [];
+
+  let maxValue = Math.max(...ages);
+
+  let countMaxValues = ages.filter((number) => number == maxValue);
+
+  if (countMaxValues.length >= 2) {
+    return countMaxValues.slice(0, 2);
+  }
+  if (countMaxValues.length == 1) {
+    twoMaxValues.unshift(maxValue);
+
+    let newAges = ages.filter((number) => number != maxValue);
+    let secondMaxValue = Math.max(...newAges);
+    twoMaxValues.unshift(secondMaxValue);
+
+    return twoMaxValues;
+  }
 }
 
-convertRecipe("2 tbsp of butter");
+twoOldestAges([1, 5, 87, 45, 8, 8]);
