@@ -295,12 +295,11 @@ function zeroAndOne(s) {
 
 zeroAndOne("01010");
 
-//      Two Oldest Ages
+// Two Oldest Ages
 function twoOldestAges(ages) {
   let twoMaxValues = [];
 
   let maxValue = Math.max(...ages);
-
   let countMaxValues = ages.filter((number) => number == maxValue);
 
   if (countMaxValues.length >= 2) {
@@ -308,7 +307,6 @@ function twoOldestAges(ages) {
   }
   if (countMaxValues.length == 1) {
     twoMaxValues.unshift(maxValue);
-
     let newAges = ages.filter((number) => number != maxValue);
     let secondMaxValue = Math.max(...newAges);
     twoMaxValues.unshift(secondMaxValue);
@@ -318,3 +316,31 @@ function twoOldestAges(ages) {
 }
 
 twoOldestAges([1, 5, 87, 45, 8, 8]);
+
+// Pair of gloves
+function numberOfPairs(gloves) {
+  let object = {};
+  let pairs = 0;
+
+  for (let glove of gloves) {
+    if (object[glove]) {
+      object[glove]++;
+    } else {
+      object[glove] = 1;
+    }
+  }
+
+  for (let color in object) {
+    if (object[color] >= 2) {
+      if (object[color] % 2 == 0) {
+        pairs += object[color] / 2;
+      } else {
+        pairs += Math.floor(object[color] / 2);
+      }
+    }
+  }
+  return pairs;
+}
+
+const myGloves = ["red", "green", "red", "blue", "blue"];
+numberOfPairs(myGloves);
