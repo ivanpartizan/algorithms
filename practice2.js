@@ -344,3 +344,58 @@ function numberOfPairs(gloves) {
 
 const myGloves = ["red", "green", "red", "blue", "blue"];
 numberOfPairs(myGloves);
+
+// Make the Deadfish swim
+function parse(data) {
+  let value = 0;
+  let array = [];
+  for (let character of data) {
+    switch (character) {
+      case "i":
+        value++;
+        break;
+      case "d":
+        value--;
+        break;
+      case "s":
+        value *= value;
+        break;
+      case "o":
+        array.push(value);
+        break;
+    }
+  }
+  return array;
+}
+
+parse("iiisxxxdoso");
+
+// A Gift Well Spent
+var buy = function (x, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++)
+      if (x - arr[i] == arr[j]) {
+        return [i, j];
+      }
+  }
+  return null;
+};
+
+buy(5, [1, 2, 3, 4, 5]);
+
+// Folding your way to the moon
+function foldTo(distance) {
+  let thickness = 0.0001;
+  let count = 0;
+  if (distance < 0) {
+    return null;
+  } else {
+    while (thickness < distance) {
+      thickness *= 2;
+      count++;
+    }
+  }
+  return count;
+}
+
+foldTo(384000000);
