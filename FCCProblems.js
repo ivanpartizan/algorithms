@@ -99,3 +99,153 @@ function translatePigLatin(str) {
 }
 
 translatePigLatin("consonant");
+
+// Search and Replace
+function myReplace(str, before, after) {
+  let beforeFirstChar = before.slice(0, 1);
+  if (beforeFirstChar === beforeFirstChar.toUpperCase()) {
+    after = after[0].toUpperCase() + after.slice(1);
+  } else {
+    after = after[0].toLowerCase() + after.slice(1);
+  }
+
+  return str.replace(before, after);
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "Jumped", "leaped");
+
+// DNA Pairing
+function pairElement(str) {
+  let pairs = [];
+
+  let array = str.split("");
+
+  for (let i = 0; i < array.length; i++) {
+    switch (array[i]) {
+      case "A":
+        pairs.push(["A", "T"]);
+        break;
+      case "C":
+        pairs.push(["C", "G"]);
+        break;
+      case "G":
+        pairs.push(["G", "C"]);
+        break;
+      case "T":
+        pairs.push(["T", "A"]);
+        break;
+    }
+  }
+
+  return pairs;
+}
+
+pairElement("GCG");
+
+// Missing letters
+function fearNotLetter(str) {
+  let firstLetter = str[0];
+  let lastLetter = str[str.length - 1];
+  let firstLetterCode = firstLetter.codePointAt(0);
+  let lastLetterCode = lastLetter.codePointAt(0);
+
+  let allLetters = [];
+  for (let i = firstLetterCode; i <= lastLetterCode; i++) {
+    allLetters.push(String.fromCodePoint(i));
+  }
+
+  let strArray = str.split("");
+
+  let missingLetter;
+
+  for (let i = 0; i < allLetters.length; i++) {
+    if (!strArray.includes(allLetters[i])) {
+      missingLetter = allLetters[i];
+    }
+  }
+
+  return missingLetter;
+}
+
+fearNotLetter("abce");
+
+// Sorted Union
+function uniteUnique(arr, ...rest) {
+  let unique = [];
+
+  for (let num of arr) {
+    if (!unique.includes(num)) {
+      unique.push(num);
+    }
+  }
+
+  for (let arr of rest) {
+    for (let num of arr) {
+      if (!unique.includes(num)) {
+        unique.push(num);
+      }
+    }
+  }
+
+  return unique;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// Convert HTML Entities
+function convertHTML(str) {
+  let ampersand = "&amp;";
+  let lessThan = "&lt;";
+  let greaterThan = "&gt;";
+  let doubleQuote = "&quot;";
+  let singleQuote = "&apos;";
+
+  let array = str.split("");
+
+  for (let i = 0; i < array.length; i++) {
+    switch (array[i]) {
+      case `&`:
+        array[i] = ampersand;
+        break;
+      case `<`:
+        array[i] = lessThan;
+        break;
+      case `>`:
+        array[i] = greaterThan;
+        break;
+      case `"`:
+        array[i] = doubleQuote;
+        break;
+      case `'`:
+        array[i] = singleQuote;
+        break;
+    }
+  }
+
+  return array.join("");
+}
+
+convertHTML("Dolce & Gabbana");
+
+// Sum All Odd Fibonacci Numbers
+function sumFibs(num) {
+  let fibonacciNumbers = [1, 1];
+
+  for (let i = 2; i <= num; i++) {
+    fibonacciNumbers[i] = fibonacciNumbers[i - 2] + fibonacciNumbers[i - 1];
+    if (fibonacciNumbers[i] > num) {
+      break;
+    }
+  }
+
+  let sum = 0;
+  for (let number of fibonacciNumbers) {
+    if (number % 2 == 1 && number <= num) {
+      sum += number;
+    }
+  }
+
+  return sum;
+}
+
+sumFibs(10);
