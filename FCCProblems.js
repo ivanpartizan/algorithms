@@ -249,3 +249,44 @@ function sumFibs(num) {
 }
 
 sumFibs(10);
+
+// Sum All Primes
+function sumPrimes(num) {
+  let primes = [];
+
+  for (let i = 2; i <= num; i++) {
+    if (isPrime(i)) {
+      primes.push(i);
+    }
+  }
+
+  let sum = primes.reduce((a, b) => a + b, 0);
+  return sum;
+}
+
+function isPrime(num) {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i == 0) return false;
+  }
+  return true;
+}
+
+sumPrimes(10);
+
+// Smallest Common Multiple
+function smallestCommons(arr) {
+  let numbers = [];
+  let min = Math.min(arr[0], arr[1]);
+  let max = Math.max(arr[0], arr[1]);
+  for (let i = min; i <= max; i++) {
+    numbers.push(i);
+  }
+
+  let smallestCommonMultiple = max;
+  while (!numbers.every((number) => smallestCommonMultiple % number == 0)) {
+    smallestCommonMultiple += max;
+  }
+  return smallestCommonMultiple;
+}
+
+smallestCommons([1, 5]);
