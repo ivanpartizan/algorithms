@@ -289,4 +289,160 @@ function smallestCommons(arr) {
   return smallestCommonMultiple;
 }
 
+// OR
+function smallestCommons(arr) {
+  let numbers = [];
+  let min = Math.min(arr[0], arr[1]);
+  let max = Math.max(arr[0], arr[1]);
+  for (let i = min; i <= max; i++) {
+    numbers.push(i);
+  }
+
+  let smallestCommonMultiple = max;
+  while (numbers.some((number) => smallestCommonMultiple % number !== 0)) {
+    smallestCommonMultiple += max;
+  }
+  return smallestCommonMultiple;
+}
+
 smallestCommons([1, 5]);
+
+// Drop it
+function dropElements(arr, func) {
+  while (arr.length && !func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+
+dropElements([1, 2, 3], function (n) {
+  return n < 3;
+});
+
+// Steamroller
+function steamrollArray(arr) {
+  let flatArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flatArray.push(...steamrollArray(arr[i]));
+    } else {
+      flatArray.push(arr[i]);
+    }
+  }
+
+  return flatArray;
+}
+
+// OR
+function steamrollArray(arr) {
+  return arr.reduce(
+    (flat, next) =>
+      flat.concat(Array.isArray(next) ? steamrollArray(next) : next),
+    []
+  );
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
+
+// Binary Agents
+function binaryAgent(str) {
+  let strArray = str.split(" ");
+  let sums = [];
+
+  for (let element of strArray) {
+    let sum = 0;
+    for (let i = element.length - 1, times = 1; i >= 0; i--, times *= 2) {
+      sum += times * element[i];
+    }
+    sums.push(sum);
+  }
+
+  let string = "";
+  for (let i = 0; i < sums.length; i++) {
+    string += String.fromCodePoint(sums[i]);
+  }
+
+  return string;
+}
+
+binaryAgent(
+  "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+);
+
+// Everything Be True
+function truthCheck(collection, pre) {
+  let trueValues = [];
+
+  for (let i = 0; i < collection.length; i++) {
+    if (collection[i][pre]) {
+      trueValues.push(true);
+    }
+  }
+
+  return trueValues.length === collection.length ? true : false;
+}
+
+truthCheck(
+  [
+    { user: "Tinky-Winky", sex: "male" },
+    { user: "Dipsy", sex: "male" },
+    { user: "Laa-Laa", sex: "female" },
+    { user: "Po", sex: "female" },
+  ],
+  "sex"
+);
+
+// Arguments Optional
+function addTogether() {
+  let [first, second] = arguments;
+  if (typeof first !== "number") {
+    return undefined;
+  } else if (second === undefined) {
+    function addSecond(second) {
+      if (typeof second !== "number") {
+        return undefined;
+      } else {
+        return first + second;
+      }
+    }
+    return addSecond;
+  } else if (typeof second !== "number") {
+    return undefined;
+  } else {
+    return first + second;
+  }
+}
+
+addTogether(2, 3);
+
+// Make a Person
+const Person = function (firstAndLast) {
+  let [firstName, lastName] = firstAndLast.split(" ");
+
+  this.getFirstName = function () {
+    return firstName;
+  };
+  this.getLastName = function () {
+    return lastName;
+  };
+  this.getFullName = function () {
+    return firstAndLast;
+  };
+  this.setFirstName = function (first) {
+    firstName = first;
+    firstAndLast = `${firstName} ${lastName}`;
+  };
+  this.setLastName = function (last) {
+    lastName = last;
+    firstAndLast = `${firstName} ${lastName}`;
+  };
+  this.setFullName = function (fullName) {
+    firstName = fullName.split(" ")[0];
+    lastName = fullName.split(" ")[1];
+    firstAndLast = fullName;
+  };
+};
+
+const bob = new Person("Bob Ross");
+bob.getFullName();
