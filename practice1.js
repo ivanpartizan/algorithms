@@ -369,3 +369,23 @@ function freqSeq(str, sep) {
 }
 
 freqSeq("hello world", "-");
+
+// Find the unique number
+function findUniq(arr) {
+  let object = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!object[arr[i]]) {
+      object[arr[i]] = 1;
+    } else {
+      object[arr[i]]++;
+    }
+  }
+
+  for (let key in object) {
+    if (object[key] == 1) {
+      return +key;
+    }
+  }
+}
+
+findUniq([1, 1, 1, 2, 1, 1]);

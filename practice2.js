@@ -268,6 +268,28 @@ function balance(left, right) {
 
 balance("!!", "??");
 
+// Convert ISBN-10 to ISBN-13
+function isbnConverter(isbn) {
+  let withoutLastCharacter = isbn.slice(0, isbn.length - 1);
+  let withPrefix = `978-${withoutLastCharacter}`;
+  let twelveDigits = withPrefix.match(/\d+/g).join("");
+
+  let sum = 0;
+  for (let i = 0; i < twelveDigits.length; i++) {
+    if (i % 2 == 0) {
+      sum += twelveDigits[i] * 1;
+    } else {
+      sum += twelveDigits[i] * 3;
+    }
+  }
+
+  let checkDigit = sum % 10 == 0 ? 0 : 10 - (sum % 10);
+  let newIsbn = `${withPrefix}${checkDigit}`;
+  return newIsbn;
+}
+
+isbnConverter("1-85326-158-0");
+
 // Ones and Zeros
 const binaryArrayToNumber = (arr) => {
   let sum = 0;
