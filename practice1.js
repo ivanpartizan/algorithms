@@ -389,3 +389,24 @@ function findUniq(arr) {
 }
 
 findUniq([1, 1, 1, 2, 1, 1]);
+
+// Find the unique string
+function findUniq(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let sorted = Array.from(new Set(arr[i].toLowerCase()))
+      .sort()
+      .join("")
+      .trim();
+    newArr.push(sorted);
+  }
+
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr.indexOf(newArr[i]) == newArr.lastIndexOf(newArr[i])) {
+      return arr[i];
+    }
+  }
+}
+
+findUniq(["Aa", "aaa", "aaaaa", "BbBb", "Aaaa", "AaAaAa", "a"]);
+findUniq(["Tom Marvolo Riddle", "I am Lord Voldemort", "Harry Potter"]);

@@ -421,3 +421,28 @@ function foldTo(distance) {
 }
 
 foldTo(384000000);
+
+// Simple Fun #238: Tennis Game Points
+function tennisGamePoints(score) {
+  let object = {
+    love: 0,
+    15: 1,
+    30: 2,
+    40: 3,
+  };
+
+  let points = 0;
+
+  if (score == "15-all") {
+    points += 2;
+  } else if (score == "30-all") {
+    points += 4;
+  } else {
+    let [firstPlayer, secondPlayer] = score.split("-");
+    points += object[firstPlayer] + object[secondPlayer];
+  }
+
+  return points;
+}
+
+tennisGamePoints("30-all");
