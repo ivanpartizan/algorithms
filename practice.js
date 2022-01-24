@@ -473,3 +473,91 @@ var number = function (busStops) {
   }
   return numberOfPeople;
 };
+
+// Driving Licence
+function driver(data) {
+  let surname = data[2].toUpperCase();
+  let surnameFirstFiveCharacters =
+    surname.length >= 5 ? surname.slice(0, 5) : surname.padEnd(5, "9");
+
+  let decadeDigitYearOfBirth = data[3].split("-")[2][2];
+
+  let monthOfBirth = data[3].split("-")[1];
+  let numberMonth;
+
+  switch (monthOfBirth) {
+    case "Jan":
+    case "January":
+      numberMonth = "01";
+      break;
+    case "Feb":
+    case "February":
+      numberMonth = "02";
+      break;
+    case "Mar":
+    case "March":
+      numberMonth = "03";
+      break;
+    case "Apr":
+    case "April":
+      numberMonth = "04";
+      break;
+    case "May":
+      numberMonth = "05";
+      break;
+    case "Jun":
+    case "Jun":
+      numberMonth = "06";
+      break;
+    case "Jul":
+    case "July":
+      numberMonth = "07";
+      break;
+    case "Aug":
+    case "August":
+      numberMonth = "08";
+      break;
+    case "Sep":
+    case "September":
+      numberMonth = "09";
+      break;
+    case "Oct":
+    case "October":
+      numberMonth = "10";
+      break;
+    case "Nov":
+    case "November":
+      numberMonth = "11";
+      break;
+    case "Dec":
+    case "December":
+      numberMonth = "12";
+      break;
+  }
+
+  let gender = data[4];
+
+  let monthOfBirthForLicence =
+    gender == "M"
+      ? `${numberMonth}`
+      : `${+numberMonth[0] + 5}${numberMonth[1]}`;
+
+  let dateWithinMonth = data[3].split("-")[0];
+
+  let yearDigitYearOfBirth = data[3].split("-")[2][3];
+
+  let firstName = data[0];
+  let middleName = data[1];
+  let firstTwoInitials = middleName
+    ? `${firstName[0]}${middleName[0]}`
+    : `${firstName[0]}9`;
+
+  let arbitraryDigit = 9;
+  let checkDigits = "AA";
+
+  let drivingNumber = `${surnameFirstFiveCharacters}${decadeDigitYearOfBirth}${monthOfBirthForLicence}${dateWithinMonth}${yearDigitYearOfBirth}${firstTwoInitials}${arbitraryDigit}${checkDigits}`;
+  return drivingNumber;
+}
+
+data = ["John", "James", "Smith", "01-Jan-2000", "M"];
+driver(data);
