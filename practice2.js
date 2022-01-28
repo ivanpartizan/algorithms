@@ -487,3 +487,30 @@ function withdraw(n) {
 }
 
 withdraw(370);
+
+// 16+18=214
+function add(num1, num2) {
+  let arr1 = [],
+    arr2 = [];
+  num1 = String(num1);
+  for (let i = num1.length - 1; i >= 0; i--) {
+    arr1.push(+num1[i]);
+  }
+  num2 = String(num2);
+  for (let i = num2.length - 1; i >= 0; i--) {
+    arr2.push(+num2[i]);
+  }
+
+  let numberOfLoops = arr1.length > arr2.length ? arr1.length : arr2.length;
+
+  let totalSum = [];
+  for (let i = 0; i < numberOfLoops; i++) {
+    if (arr1[i] == undefined) arr1[i] = 0;
+    if (arr2[i] == undefined) arr2[i] = 0;
+    totalSum.push(arr1[i] + arr2[i]);
+  }
+
+  return +totalSum.reverse().join("");
+}
+
+add(122, 81);
