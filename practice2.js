@@ -514,3 +514,14 @@ function add(num1, num2) {
 }
 
 add(122, 81);
+
+// Find The Parity Outlier
+function findOutlier(integers) {
+  let oddIntegers = integers.filter((integer) => Math.abs(integer % 2) == 1);
+  let evenIntegers = integers.filter((integer) => Math.abs(integer) % 2 == 0);
+
+  if (oddIntegers.length == 1) return oddIntegers[0];
+  if (evenIntegers.length == 1) return evenIntegers[0];
+}
+
+findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]);
