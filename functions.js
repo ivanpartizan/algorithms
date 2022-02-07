@@ -102,6 +102,45 @@ const romanEncoder = (number) => {
 
 romanEncoder(2020);
 
+// Roman Numerals Decoder
+function solution(roman) {
+  let romanNumbers = {
+    I: 1,
+    IV: 4,
+    V: 5,
+    IX: 9,
+    X: 10,
+    XL: 40,
+    L: 50,
+    XC: 90,
+    C: 100,
+    CD: 400,
+    D: 500,
+    CM: 900,
+    M: 1000,
+  };
+
+  let sum = 0;
+  for (let i = 0; i < roman.length; i++) {
+    if (
+      (roman[i] == "I" && roman[i + 1] == "V") ||
+      (roman[i] == "I" && roman[i + 1] == "X") ||
+      (roman[i] == "X" && roman[i + 1] == "L") ||
+      (roman[i] == "X" && roman[i + 1] == "C") ||
+      (roman[i] == "C" && roman[i + 1] == "D") ||
+      (roman[i] == "C" && roman[i + 1] == "M")
+    ) {
+      sum += romanNumbers[roman[i + 1]] - romanNumbers[roman[i]];
+      i++;
+    } else {
+      sum += romanNumbers[roman[i]];
+    }
+  }
+  return sum;
+}
+
+solution("MCMXC");
+
 // Sum of pairs
 function sumPairs(ints, s) {
   let numbers = {};

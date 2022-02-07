@@ -55,3 +55,81 @@ function sortArray(array) {
 }
 
 sortArray([5, 3, 2, 8, 1, 4]);
+
+// Sort odd and even numbers in different order
+function sortArray(array) {
+  let oddNumbers = array
+    .filter((number) => number % 2 == 1)
+    .sort((a, b) => a - b);
+  let evenNumbers = array
+    .filter((number) => number % 2 == 0)
+    .sort((a, b) => b - a);
+
+  return array.map((number) =>
+    number % 2 == 1 ? oddNumbers.shift() : evenNumbers.shift()
+  );
+}
+
+sortArray([5, 3, 2, 8, 1, 4, 11]);
+
+// Character Counter
+function validateWord(s) {
+  let object = {};
+  for (let character of s.toLowerCase()) {
+    if (object[character]) {
+      object[character]++;
+    } else {
+      object[character] = 1;
+    }
+  }
+
+  let allValues = Object.values(object);
+  let firstValue = Object.values(object)[0];
+  return allValues.every((number) => number == firstValue);
+}
+
+validateWord("abcabc");
+
+// Character counts
+String.prototype.characterCount = function (charsToCount) {
+  if (!charsToCount) return undefined;
+  let object = {};
+  for (let character of this) {
+    if (object[character]) {
+      object[character]++;
+    } else {
+      object[character] = 1;
+    }
+  }
+
+  let counts = [];
+  for (let char of charsToCount) {
+    counts.push(object[char]);
+  }
+
+  counts = counts.map((num) => {
+    return num === undefined ? 0 : num;
+  });
+
+  return counts.length == 1 ? +String(counts) : counts;
+};
+
+characterCount("booop-booop-deee-doo-dooop", "ado");
+
+// last digits of a number
+function lastDigit(n, d) {
+  let array = [];
+  let numberString = String(n);
+  if (numberString.length > d) {
+    for (let i = numberString.length - d; i < numberString.length; i++) {
+      array.push(+numberString[i]);
+    }
+  } else {
+    for (let i = 0; i < numberString.length; i++) {
+      array.push(+numberString[i]);
+    }
+  }
+  return array;
+}
+
+lastDigit(123767, 4);
