@@ -72,6 +72,15 @@ function sortArray(array) {
 
 sortArray([5, 3, 2, 8, 1, 4, 11]);
 
+// Get the Middle Character
+function getMiddle(s) {
+  return s.length % 2 == 1
+    ? s[Math.floor(s.length / 2)]
+    : `${s[s.length / 2 - 1]}${s[s.length / 2]}`;
+}
+
+getMiddle("testing");
+
 // Character Counter
 function validateWord(s) {
   let object = {};
