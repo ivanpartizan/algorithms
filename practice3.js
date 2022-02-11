@@ -142,3 +142,38 @@ function lastDigit(n, d) {
 }
 
 lastDigit(123767, 4);
+
+// Buying a car
+function nbMonths(
+  startPriceOld,
+  startPriceNew,
+  savingperMonth,
+  percentLossByMonth
+) {
+  let months = 0;
+  let moneyRemaining = 0;
+  let savings = 0;
+
+  if (startPriceOld >= startPriceNew) {
+    moneyRemaining = startPriceOld - startPriceNew;
+  } else {
+    for (
+      let i = 1, percent = percentLossByMonth;
+      savings + startPriceOld < startPriceNew;
+      i++
+    ) {
+      if (i % 2 == 0) {
+        percent += 0.5;
+      }
+      savings += savingperMonth;
+      startPriceOld = startPriceOld * ((100 - percent) / 100);
+      startPriceNew = startPriceNew * ((100 - percent) / 100);
+      moneyRemaining = savings + startPriceOld - startPriceNew;
+      months++;
+    }
+  }
+
+  return [months, Math.round(moneyRemaining)];
+}
+
+nbMonths(2000, 8000, 1000, 1.5);
