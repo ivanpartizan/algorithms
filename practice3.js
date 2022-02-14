@@ -177,3 +177,17 @@ function nbMonths(
 }
 
 nbMonths(2000, 8000, 1000, 1.5);
+
+// Happy Birthday
+function wrap(height, width, length) {
+  let array = [arguments[0], arguments[1], arguments[2]];
+  let sortedarray = array.sort((a, b) => b - a);
+  return (
+    sortedarray[0] +
+    (sortedarray[0] + 20) +
+    sortedarray[1] * 2 +
+    sortedarray[2] * 4
+  );
+}
+
+wrap(17, 32, 11);
