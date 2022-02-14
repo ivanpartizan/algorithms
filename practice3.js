@@ -143,6 +143,32 @@ function lastDigit(n, d) {
 
 lastDigit(123767, 4);
 
+// Find the divisors!
+function divisors(integer) {
+  let divisorsArray = [];
+  for (let i = 1; i <= integer; i++) {
+    if (isPrime(integer)) {
+      return `${integer} is prime`;
+    } else {
+      if (integer % i == 0 && i !== 1 && i !== integer) {
+        divisorsArray.push(i);
+      }
+    }
+  }
+  return divisorsArray;
+}
+
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+divisors(12);
+
 // Buying a car
 function nbMonths(
   startPriceOld,
