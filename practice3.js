@@ -125,6 +125,26 @@ String.prototype.characterCount = function (charsToCount) {
 
 characterCount("booop-booop-deee-doo-dooop", "ado");
 
+// "Very Even" Numbers.
+function isVeryEvenNumber(n) {
+  let string = String(n);
+  if (string.length == 1) {
+    return +string % 2 == 0 ? true : false;
+  } else {
+    let sum = 0;
+    for (let number of string) {
+      sum += +number;
+    }
+    if (String(sum).length == 1) {
+      return sum % 2 == 0 ? true : false;
+    } else {
+      return isVeryEvenNumber(sum);
+    }
+  }
+}
+
+isVeryEvenNumber(88);
+
 // last digits of a number
 function lastDigit(n, d) {
   let array = [];
@@ -217,6 +237,14 @@ function wrap(height, width, length) {
 }
 
 wrap(17, 32, 11);
+
+// Is n divisible by (...)?
+function isDivisible(n, ...divisors) {
+  let dividend = n;
+  return divisors.every((divisor) => dividend % divisor == 0);
+}
+
+isDivisible(100, 5, 4, 10, 25, 20);
 
 // Your order, please
 function order(words) {
