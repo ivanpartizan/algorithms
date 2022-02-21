@@ -1,3 +1,18 @@
+// Identical Elements
+function duplicateElements(m, n) {
+  if (m == [] || n == []) return false;
+  for (let i = 0; i < m.length; i++) {
+    if (n.includes(m[i])) {
+      return true;
+    } else {
+      continue;
+    }
+  }
+  return false;
+}
+
+duplicateElements([1, 2, 3, 4, 5], [1, 6, 7, 8, 9]);
+
 // The Barksdale Code
 function decode(string) {
   return string
