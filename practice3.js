@@ -140,6 +140,32 @@ String.prototype.characterCount = function (charsToCount) {
 
 characterCount("booop-booop-deee-doo-dooop", "ado");
 
+// Compress sentences
+function compress(sentence) {
+  let object = {};
+  let list = sentence.split(" ");
+  let casing = list.map((word) => word.toLowerCase());
+
+  for (let i = 0; i < casing.length; i++) {
+    if (!(casing[i] in object)) {
+      object[casing[i]] = i;
+    } else {
+      let repeated = casing.splice(i, 1);
+      i--;
+    }
+  }
+
+  return sentence
+    .split(" ")
+    .map((word) => word.toLowerCase())
+    .map((word) => object[word])
+    .join("");
+}
+
+compress(
+  "Ask not what your COUNTRY can do for you ASK WHAT YOU CAN DO FOR YOUR country"
+);
+
 // "Very Even" Numbers.
 function isVeryEvenNumber(n) {
   let string = String(n);
