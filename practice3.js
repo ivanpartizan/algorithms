@@ -87,6 +87,16 @@ function sortArray(array) {
 
 sortArray([5, 3, 2, 8, 1, 4, 11]);
 
+// Highest and Lowest
+function highAndLow(numbers) {
+  let arrayOfNumbers = numbers.split(" ");
+  let max = Math.max(...arrayOfNumbers);
+  let min = Math.min(...arrayOfNumbers);
+  return `${max} ${min}`;
+}
+
+highAndLow("1 2 3 4 5");
+
 // Get the Middle Character
 function getMiddle(s) {
   return s.length % 2 == 1
@@ -294,3 +304,27 @@ function order(words) {
 }
 
 order("is2 Thi1s T4est 3a");
+
+// Unlucky Days
+function unluckyDays(year) {
+  let nextYear = new Date(year + 1, 0, 1);
+  let blackFridays = 0;
+  let dates = [];
+
+  for (
+    let date = new Date(year, 0, 1);
+    date <= nextYear;
+    date.setDate(date.getDate() + 1)
+  ) {
+    dates.push(new Date(date));
+  }
+
+  dates.forEach((date) => {
+    if (date.getDate() == 13 && date.getDay() == 5) {
+      blackFridays++;
+    }
+  });
+  return blackFridays;
+}
+
+unluckyDays(2015);
