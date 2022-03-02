@@ -15,3 +15,15 @@ function isPalindrome(str) {
   str = str.replace(/\W/g, "").toLowerCase();
   return str == str.split("").reverse().join("");
 }
+
+// Write a function isInteger(x) that determines if x is an integer.
+function isInteger(x) {
+  return typeof x == "number" && x == Math.round(x) ? true : false;
+}
+
+isInteger("abc");
+
+// Their solution
+function isInteger(x) {
+  return typeof x === "number" && x % 1 === 0;
+}
