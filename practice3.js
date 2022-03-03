@@ -1,3 +1,23 @@
+// Data Reverse
+function dataReverse(data) {
+  let temp = [];
+  for (let i = 0; i < data.length; i += 8) {
+    temp.push(data.slice(i, i + 8));
+  }
+
+  let reversed = [];
+  for (let i = temp.length - 1; i >= 0; i--) {
+    reversed.push(...temp[i]);
+  }
+
+  return reversed;
+}
+
+dataReverse([
+  1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0,
+  1, 0, 1, 0, 1, 0,
+]);
+
 // Identical Elements
 function duplicateElements(m, n) {
   if (m == [] || n == []) return false;
