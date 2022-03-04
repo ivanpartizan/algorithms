@@ -170,6 +170,47 @@ String.prototype.characterCount = function (charsToCount) {
 
 characterCount("booop-booop-deee-doo-dooop", "ado");
 
+// Battle of the characters (Easy)
+function battle(x, y) {
+  let sumX = 0,
+    sumY = 0;
+  for (let i = 0; i < x.length; i++) {
+    sumX += x.charCodeAt(i) - 64;
+  }
+  for (let i = 0; i < y.length; i++) {
+    sumY += y.charCodeAt(i) - 64;
+  }
+  return sumX == sumY ? `Tie!` : sumX > sumY ? `${x}` : `${y}`;
+}
+
+battle("ONE", "TWO");
+
+// Battle of the characters (Medium)
+function battle(x, y) {
+  let sumX = 0,
+    sumY = 0;
+
+  for (let i = 0; i < x.length; i++) {
+    if (x.charCodeAt(i) >= 65 && x.charCodeAt(i) <= 90) {
+      sumX += x.charCodeAt(i) - 64;
+    } else {
+      sumX += (x.charCodeAt(i) - 96) / 2;
+    }
+  }
+
+  for (let i = 0; i < y.length; i++) {
+    if (y.charCodeAt(i) >= 65 && y.charCodeAt(i) <= 90) {
+      sumY += y.charCodeAt(i) - 64;
+    } else {
+      sumY += (y.charCodeAt(i) - 96) / 2;
+    }
+  }
+
+  return sumX == sumY ? `Tie!` : sumX > sumY ? `${x}` : `${y}`;
+}
+
+battle("One", "Two");
+
 // Compress sentences
 function compress(sentence) {
   let object = {};
