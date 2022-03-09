@@ -237,6 +237,24 @@ compress(
   "Ask not what your COUNTRY can do for you ASK WHAT YOU CAN DO FOR YOUR country"
 );
 
+// All Star Code Challenge #13 : Pig Latin Translator
+const translate = function (word) {
+  let vowels = /[aeiou]/;
+  if (word === "") return "";
+  if (word.length == 1) return word;
+  if (word.length >= 2) {
+    if (vowels.test(word[0])) {
+      word = `${word}ay`;
+      return word;
+    } else {
+      word = `${word.slice(1)}${word[0]}ay`;
+      return word;
+    }
+  }
+};
+
+translate("billy");
+
 // "Very Even" Numbers.
 function isVeryEvenNumber(n) {
   let string = String(n);
