@@ -407,3 +407,76 @@ function unluckyDays(year) {
 }
 
 unluckyDays(2015);
+
+// Tap Code Translation
+function tapCodeTranslation(text) {
+  let letters = [];
+  for (let i = 0; i < 26; i++) {
+    if (String.fromCodePoint(i + 97) == "k") continue;
+    letters.push(String.fromCodePoint(i + 97));
+  }
+  let object = {};
+  letters.map((letter, index) => {
+    let row, column;
+    if (
+      index + 1 == 1 ||
+      index + 1 == 6 ||
+      index + 1 == 11 ||
+      index + 1 == 16 ||
+      index + 1 == 21
+    )
+      column = 1;
+    else if (
+      index + 1 == 2 ||
+      index + 1 == 7 ||
+      index + 1 == 12 ||
+      index + 1 == 17 ||
+      index + 1 == 22
+    )
+      column = 2;
+    else if (
+      index + 1 == 3 ||
+      index + 1 == 8 ||
+      index + 1 == 13 ||
+      index + 1 == 18 ||
+      index + 1 == 23
+    )
+      column = 3;
+    else if (
+      index + 1 == 4 ||
+      index + 1 == 9 ||
+      index + 1 == 14 ||
+      index + 1 == 19 ||
+      index + 1 == 24
+    )
+      column = 4;
+    else if (
+      index + 1 == 5 ||
+      index + 1 == 10 ||
+      index + 1 == 15 ||
+      index + 1 == 20 ||
+      index + 1 == 25
+    )
+      column = 5;
+    if (index + 1 >= 1 && index + 1 <= 5) row = 1;
+    else if (index + 1 >= 6 && index + 1 <= 10) row = 2;
+    else if (index + 1 >= 11 && index + 1 <= 15) row = 3;
+    else if (index + 1 >= 16 && index + 1 <= 20) row = 4;
+    else if (index + 1 >= 21 && index + 1 <= 25) row = 5;
+    return (object[letter] = { value: letter, x: row, y: column });
+  });
+
+  let string = text;
+  let returnValue = "";
+
+  for (let letter of string) {
+    if (letter == "k") letter = "c";
+    returnValue +=
+      ".".repeat(object[letter]["x"]) +
+      " " +
+      ".".repeat(object[letter]["y"]) +
+      " ";
+  }
+
+  return returnValue.trim();
+}
