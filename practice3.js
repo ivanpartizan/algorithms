@@ -408,6 +408,28 @@ function unluckyDays(year) {
 
 unluckyDays(2015);
 
+// "Center yourself", says the monk.
+function center(strng, width, fill = " ") {
+  if (strng.length > width) return strng;
+  else {
+    let charsToAdd = width - strng.length;
+    if (charsToAdd % 2 == 1) {
+      let charsToAddOnLeftSide = Math.ceil(charsToAdd / 2);
+      let charsToAddOnRightSide = Math.floor(charsToAdd / 2);
+      return `${fill.repeat(charsToAddOnLeftSide)}${strng}${fill.repeat(
+        charsToAddOnRightSide
+      )}`;
+    } else {
+      let charsToAddOnBothSides = charsToAdd / 2;
+      return `${fill.repeat(charsToAddOnBothSides)}${strng}${fill.repeat(
+        charsToAddOnBothSides
+      )}`;
+    }
+  }
+}
+
+center("abc", 10, "_");
+
 // Tap Code Translation
 function tapCodeTranslation(text) {
   let letters = [];
