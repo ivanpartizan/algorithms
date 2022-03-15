@@ -44,3 +44,11 @@ function isEmpty(obj) {
 }
 
 isEmpty(user);
+
+function isEmpty(obj) {
+  if (key in obj) {
+    return false;
+  } else return true;
+}
+
+isEmpty(user);

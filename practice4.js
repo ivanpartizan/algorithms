@@ -21,3 +21,17 @@ function unusedDigits(...array) {
 }
 
 unusedDigits(2015, 8, 26);
+
+// Largest 5 digit number in a series
+function solution(digits) {
+  let largestNumber = 0;
+  for (let i = 0; i < digits.length; i++) {
+    let currentNumber = digits.slice(i, i + 5);
+    if (+currentNumber > largestNumber) {
+      largestNumber = currentNumber;
+    }
+  }
+  return +largestNumber;
+}
+
+solution("1234567898765");
