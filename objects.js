@@ -52,3 +52,21 @@ function isEmpty(obj) {
 }
 
 isEmpty(user);
+
+// Create a calculator
+let calculator = {
+  read() {
+    this.a = prompt("Enter first number");
+    this.b = prompt("Enter second number");
+  },
+  sum() {
+    return +this.a + +this.b;
+  },
+  mul() {
+    return +this.a * +this.b;
+  },
+};
+
+calculator.read();
+calculator.sum();
+calculator.mul();
