@@ -35,3 +35,15 @@ function solution(digits) {
 }
 
 solution("1234567898765");
+
+// Tetration
+function tetration(x, y) {
+  if (y == 0) return 1;
+  let result = x;
+  for (let i = 1; i < y; i++) {
+    result = x ** result;
+  }
+  return result;
+}
+
+tetration(5, 2);
