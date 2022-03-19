@@ -1,3 +1,10 @@
+// List Filtering
+function filter_list(l) {
+  return l.filter((item) => typeof item == "number");
+}
+
+filter_list([1, 2, "aasf", "1", "123", 123]);
+
 // Filter unused digits
 function unusedDigits(...array) {
   let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -47,3 +54,15 @@ function tetration(x, y) {
 }
 
 tetration(5, 2);
+
+// Responsible Drinking
+function hydrate(s) {
+  let regex = /\d/g;
+  let test = s.match(regex);
+
+  let sum = test.map((value) => +value).reduce((acc, value) => acc + value);
+
+  return sum == 1 ? `1 glass of water` : `${sum} glasses of water`;
+}
+
+hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer");
