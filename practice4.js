@@ -5,6 +5,13 @@ function filter_list(l) {
 
 filter_list([1, 2, "aasf", "1", "123", 123]);
 
+// Filter Long Words
+function filterLongWords(sentence, n) {
+  return sentence.split(" ").filter((word) => word.length > n);
+}
+
+filterLongWords("The quick brown fox jumps over the lazy dog", 4);
+
 // Filter unused digits
 function unusedDigits(...array) {
   let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -66,3 +73,43 @@ function hydrate(s) {
 }
 
 hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer");
+
+// FIRE and FURY
+var fireAndFury = function (tweet) {
+  let availableLetters = /[EFIRUY]/;
+  if (!tweet.split("").every((letter) => availableLetters.test(letter)))
+    return `Fake tweet.`;
+
+  let regex = /FURY|FIRE/g;
+  let test = tweet.match(regex) || 0;
+
+  let furyCount = 0;
+  let fireCount = 0;
+  let messages = [];
+
+  for (let i = 0; i < test.length; i++) {
+    if (test[i] == "FURY") {
+      furyCount++;
+      fireCount = 0;
+      if (test[i + 1] !== "FURY") {
+        messages.push(`I am ${`really `.repeat(furyCount - 1)}furious.`);
+      }
+    }
+    if (test[i] == "FIRE") {
+      fireCount++;
+      furyCount = 0;
+      if (test[i + 1] !== "FIRE") {
+        messages.push(
+          `You ${
+            fireCount == 1 ? `` : `and you `.repeat(fireCount - 1)
+          }are fired!`
+        );
+      }
+    }
+  }
+
+  if (messages.length == 0) return `Fake tweet.`;
+  return messages.join(" ");
+};
+
+fireAndFury("FIREYYFURYYFURYYFURRYFIRE");
