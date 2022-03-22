@@ -13,6 +13,15 @@ function readNumber() {
   return +number;
 }
 
+function readNumber() {
+  let num;
+  while (true) {
+    num = prompt("Enter valid numeric value");
+    if (num === "" || num === null) return null;
+    if (isFinite(num)) return +num;
+  }
+}
+
 readNumber();
 
 // A random number from min to max
