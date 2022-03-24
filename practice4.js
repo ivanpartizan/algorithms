@@ -50,6 +50,19 @@ function solution(digits) {
 
 solution("1234567898765");
 
+// How many pages in a book?
+function amountOfPages(summary) {
+  let pages = "";
+  let i = 1;
+  while (pages.length < summary) {
+    pages += String(i);
+    i++;
+  }
+  return i - 1;
+}
+
+amountOfPages(25);
+
 // Tetration
 function tetration(x, y) {
   if (y == 0) return 1;
