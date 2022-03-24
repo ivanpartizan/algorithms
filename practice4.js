@@ -62,6 +62,26 @@ function tetration(x, y) {
 
 tetration(5, 2);
 
+// Case swapping
+function swap(str) {
+  let swappedStr = "";
+  for (let char of str) {
+    if (char.codePointAt() >= 65 && char.codePointAt() <= 90) {
+      char = String.fromCodePoint(char.codePointAt() + 32);
+      swappedStr += char;
+    } else if (char.codePointAt() >= 97 && char.codePointAt() <= 122) {
+      char = String.fromCodePoint(char.codePointAt() - 32);
+      swappedStr += char;
+    } else {
+      swappedStr += char;
+    }
+  }
+
+  return swappedStr;
+}
+
+swap("HelloWorld");
+
 // Responsible Drinking
 function hydrate(s) {
   let regex = /\d/g;
