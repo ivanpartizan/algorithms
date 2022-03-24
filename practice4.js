@@ -133,3 +133,12 @@ var fireAndFury = function (tweet) {
 };
 
 fireAndFury("FIREYYFURYYFURYYFURRYFIRE");
+
+// Truncate a string!
+function truncateString(str, num) {
+  if (num <= 3) return `${str.slice(0, num)}...`;
+  else if (num > str.length || num == str.length) return str;
+  else return `${str.slice(0, num - 3)}...`;
+}
+
+truncateString("codewars", 7);
