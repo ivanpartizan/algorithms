@@ -125,6 +125,16 @@ function filterRangeInPlace(arr, a, b) {
 
 filterRangeInPlace(arr, 1, 4);
 
+// NEW
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < a || arr[i] > b) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+}
+
 // Sort in decreasing order
 let arr = [5, 2, 1, -10, 0, 8, 4];
 
@@ -141,6 +151,11 @@ function copySorted(arr) {
 let sorted = copySorted(arr);
 console.log(sorted);
 
+// NEW
+function copySorted(arr) {
+  return arr.slice().sort((a, b) => a.localeCompare(b));
+}
+
 // Create an extendable calculator
 function Calculator() {
   this.methods = {
@@ -148,21 +163,13 @@ function Calculator() {
     "-": (a, b) => a - b,
   };
 
-  this.calculate = function (str) {
-    let operands = str.split(" ");
-    let a = +operands[0];
-    let operator = operands[1];
-    let b = +operands[2];
-
-    if (!this.methods[operator] || isNaN(a) || isNaN(b)) {
-      return NaN;
-    }
-
-    return this.methods[operator](a, b);
-  };
-
   this.addMethod = function (name, func) {
     this.methods[name] = func;
+  };
+
+  this.calculate = function (str) {
+    let [first, operator, second] = str.split(" ");
+    return this.methods[operator](+first, +second);
   };
 }
 
