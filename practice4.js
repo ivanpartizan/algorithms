@@ -147,6 +147,17 @@ var fireAndFury = function (tweet) {
 
 fireAndFury("FIREYYFURYYFURYYFURRYFIRE");
 
+// Digits explosion
+function explode(s) {
+  let explodedString = "";
+  for (let digit of s) {
+    explodedString += digit.repeat(digit);
+  }
+  return explodedString;
+}
+
+explode("102269");
+
 // Truncate a string!
 function truncateString(str, num) {
   if (num <= 3) return `${str.slice(0, num)}...`;
@@ -155,3 +166,12 @@ function truncateString(str, num) {
 }
 
 truncateString("codewars", 7);
+
+// Thinkful - String Drills: Areacode extractor
+function areaCode(text) {
+  let regex = /\(\d+\)/;
+  let matched = text.match(regex);
+  return matched[0].slice(1, 4);
+}
+
+areaCode("The supplier's phone number is (555) 867-5309");

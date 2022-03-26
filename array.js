@@ -241,6 +241,20 @@ let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 shuffle(arr);
 
+function sort(array) {
+  let currentIndex = array.length;
+  let randomIndex;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+}
+
 // Get average age
 let john = { name: "John", age: 25 };
 let pete = { name: "Pete", age: 30 };
