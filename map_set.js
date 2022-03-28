@@ -35,8 +35,6 @@ function aclean(arr) {
 
   for (let word of arr) {
     let words = word.toLowerCase().split("").sort().join("");
-    // console.log(words)
-
     map.set(words, word);
   }
   return Array.from(map.values());
@@ -44,6 +42,12 @@ function aclean(arr) {
 
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 aclean(arr);
+
+// NEW
+function aclean(arr) {
+  let sorted = arr.map((word) => word.toLowerCase().split("").sort().join(""));
+  return Array.from(new Set(sorted));
+}
 
 // Iterable keys
 let map = new Map();

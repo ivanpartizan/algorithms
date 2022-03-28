@@ -75,6 +75,28 @@ function tetration(x, y) {
 
 tetration(5, 2);
 
+// Dot Calculator
+function dotCalculator(equation) {
+  let [firstNo, operator, secondNo] = equation.split(" ");
+
+  switch (operator) {
+    case "+":
+      return ".".repeat(firstNo.length + secondNo.length);
+      break;
+    case "-":
+      return ".".repeat(firstNo.length - secondNo.length);
+      break;
+    case "*":
+      return ".".repeat(firstNo.length * secondNo.length);
+      break;
+    case "//":
+      return ".".repeat(Math.trunc(firstNo.length / secondNo.length));
+      break;
+  }
+}
+
+dotCalculator("..... + ...............");
+
 // Case swapping
 function swap(str) {
   let swappedStr = "";
