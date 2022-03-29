@@ -197,3 +197,15 @@ function areaCode(text) {
 }
 
 areaCode("The supplier's phone number is (555) 867-5309");
+
+// Money Match: Double or Nothing
+function doubleOrNothing(cash, wager, losses) {
+  let moneyLost;
+  for (let i = 1; i <= losses; i++, wager *= 2) {
+    moneyLost = wager;
+  }
+
+  return moneyLost > cash ? "I'll pay you back later" : cash - moneyLost;
+}
+
+doubleOrNothing(66, 1, 7);
