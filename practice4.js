@@ -209,3 +209,17 @@ function doubleOrNothing(cash, wager, losses) {
 }
 
 doubleOrNothing(66, 1, 7);
+
+// Simple Fun #144: Distinct Digit Year
+function distinctDigitYear(year) {
+  while (true) {
+    year++;
+    let digits = new Set(String(year).split(""));
+
+    if (digits.size == 4) {
+      return year;
+    }
+  }
+}
+
+distinctDigitYear(1987);

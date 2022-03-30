@@ -39,6 +39,11 @@ function getLocalDay(date) {
 
 getLocalDay(new Date(2020, 9, 12));
 
+// NEW
+function getLocalDay(date) {
+  return date.getDay() == 0 ? 7 : date.getDay();
+}
+
 // Which day of month was many days ago?
 function getDateAgo(date, days) {
   let newDate = new Date(date);
@@ -58,6 +63,15 @@ function getLastDayOfMonth(year, month) {
 }
 
 getLastDayOfMonth(2020, 1);
+
+// NEW
+function getLastDayOfMonth(year, month) {
+  let nextMonth = new Date(year, month + 1);
+  let lastDayCurrentMonth = new Date(
+    nextMonth.setDate(nextMonth.getDate() - 1)
+  ).getDate();
+  return lastDayCurrentMonth;
+}
 
 // How many seconds have passed today?
 function getSecondsToday() {
