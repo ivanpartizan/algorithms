@@ -223,3 +223,17 @@ function distinctDigitYear(year) {
 }
 
 distinctDigitYear(1987);
+
+// Day of the Year
+function toDayOfYear(arr) {
+  let [day, month, year] = arr;
+
+  let firstDayOfYear = new Date(year, 0, 1);
+  let currentDayOfYear = new Date(year, month - 1, day);
+
+  return (
+    Math.round((currentDayOfYear - firstDayOfYear) / 1000 / 60 / 60 / 24) + 1
+  );
+}
+
+toDayOfYear([25, 12, 2017]);
