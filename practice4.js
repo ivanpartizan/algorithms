@@ -210,6 +210,25 @@ function doubleOrNothing(cash, wager, losses) {
 
 doubleOrNothing(66, 1, 7);
 
+// Frank's Sticky Calculator
+function stickyCalc(operation, val1, val2) {
+  val1 = Math.round(val1);
+  val2 = Math.round(val2);
+  let stringAddition = String(val1) + String(val2);
+
+  return operation == "+"
+    ? +stringAddition + val2
+    : operation == "-"
+    ? stringAddition - val2
+    : operation == "*"
+    ? stringAddition * val2
+    : operation == "/"
+    ? Math.round(stringAddition / val2)
+    : null;
+}
+
+stickyCalc("+", 50, 12);
+
 // Simple Fun #144: Distinct Digit Year
 function distinctDigitYear(year) {
   while (true) {
@@ -237,3 +256,120 @@ function toDayOfYear(arr) {
 }
 
 toDayOfYear([25, 12, 2017]);
+
+function pow(x, n) {
+  let result = x;
+  for (let i = 1; i <= n; i++) {
+    result *= x;
+  }
+  return result;
+}
+
+pow(2, 4);
+
+function pow1(x, n) {
+  if (n == 1) {
+    return x;
+  } else {
+    return x * pow1(x, n - 1);
+  }
+}
+
+pow1(2, 5);
+
+// Sum all numbers till the given one
+// Using a for loop.
+function sumTo(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
+}
+sumTo(100);
+// Using a recursion, cause sumTo(n) = n + sumTo(n-1) for n > 1.
+function sumTo(n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n + sumTo(n - 1);
+  }
+}
+
+// Using the arithmetic progression formula.
+function sumTo(n) {
+  return (n + 1) * (n / 2);
+}
+
+sumTo(100);
+
+function factorial(n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+factorial(5);
+
+// Fibonacci numbers
+function fib(n) {
+  let arr = [1, 1];
+  for (let i = 2; i < n; i++) {
+    arr.push(arr[i - 1] + arr[i - 2]);
+  }
+  console.log(arr);
+  return arr[n - 1];
+}
+
+fib(77);
+
+function printList(list) {
+  let temp = list;
+  while (temp) {
+    console.log(temp.value);
+    temp = temp.next;
+  }
+}
+
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null,
+      },
+    },
+  },
+};
+
+printList(list);
+
+function printList(list) {
+  let temp = list;
+  if (temp.next == null) {
+    return;
+  } else {
+    console.log(temp.value);
+    temp = temp.next;
+  }
+}
+
+function fib(n) {
+  let a = 0;
+  let b = 1;
+  if (n == 1) return 0;
+  if (n == 2) return 1;
+  for (let i = 2; i < n; i++) {
+    let c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}
+
+fib(5);
