@@ -50,6 +50,21 @@ function solution(digits) {
 
 solution("1234567898765");
 
+// Simple Fun #395: Fibonacci digit sequence
+function find(a, b, n) {
+  let string = "" + a + b;
+  n = +String(n).slice(-2);
+  while (string.length <= n) {
+    let lastDigit = +string.slice(-1);
+    let penultimateDigit = +string.slice(-2, -1);
+    string += lastDigit + penultimateDigit;
+  }
+
+  return +string[n];
+}
+
+find(7, 8, 9);
+
 // How many pages in a book?
 function amountOfPages(summary) {
   let pages = "";
@@ -256,6 +271,13 @@ function toDayOfYear(arr) {
 }
 
 toDayOfYear([25, 12, 2017]);
+
+// Remove All The Marked Elements of a List
+Array.prototype.remove_ = function (integer_list, values_list) {
+  return integer_list.filter((value) => !values_list.includes(value));
+};
+
+Array.prototype.remove_([1, 1, 2, 3, 1, 2, 3, 4], [1, 3]);
 
 function pow(x, n) {
   let result = x;
