@@ -53,7 +53,8 @@ solution("1234567898765");
 // Simple Fun #395: Fibonacci digit sequence
 function find(a, b, n) {
   let string = "" + a + b;
-  n = +String(n).slice(-2);
+  n = +String(n).slice(-4);
+
   while (string.length <= n) {
     let lastDigit = +string.slice(-1);
     let penultimateDigit = +string.slice(-2, -1);
