@@ -273,6 +273,17 @@ function toDayOfYear(arr) {
 
 toDayOfYear([25, 12, 2017]);
 
+// ASCII letters from Number
+function convert(number) {
+  let array = [];
+  for (let i = 0; i < number.length; i += 2) {
+    array.push(number.slice(i, i + 2));
+  }
+  return array.map((number) => String.fromCodePoint(number)).join("");
+}
+
+convert("73327673756932858080698267658369");
+
 // Remove All The Marked Elements of a List
 Array.prototype.remove_ = function (integer_list, values_list) {
   return integer_list.filter((value) => !values_list.includes(value));
