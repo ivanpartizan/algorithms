@@ -284,6 +284,29 @@ function convert(number) {
 
 convert("73327673756932858080698267658369");
 
+// ASCII Shift Encryption/Decryption
+function asciiEncrypt(plaintext) {
+  return plaintext
+    .split("")
+    .map((character, index) =>
+      String.fromCodePoint(character.codePointAt(0) + index)
+    )
+    .join("");
+}
+
+asciiEncrypt("PASSWORD");
+
+function asciiDecrypt(ciphertext) {
+  return ciphertext
+    .split("")
+    .map((character, index) =>
+      String.fromCodePoint(character.codePointAt(0) - index)
+    )
+    .join("");
+}
+
+asciiDecrypt("PBUV[TXK");
+
 // Remove All The Marked Elements of a List
 Array.prototype.remove_ = function (integer_list, values_list) {
   return integer_list.filter((value) => !values_list.includes(value));
