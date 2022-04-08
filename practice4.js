@@ -133,6 +133,35 @@ function swap(str) {
 
 swap("HelloWorld");
 
+// Numbers to Letters
+function switcher(x) {
+  let letters = [];
+  for (let i = 1; i <= 26; i++) {
+    letters.push(String.fromCodePoint(i + 96));
+  }
+  letters = letters.reverse();
+  letters.push("!", "?", " ");
+  letters.unshift(null);
+
+  return x.map((item) => letters[item]).join("");
+}
+
+switcher([
+  "25",
+  "7",
+  "8",
+  "4",
+  "14",
+  "23",
+  "8",
+  "25",
+  "23",
+  "29",
+  "16",
+  "16",
+  "4",
+]);
+
 // Responsible Drinking
 function hydrate(s) {
   let regex = /\d/g;
