@@ -5,6 +5,19 @@ function filter_list(l) {
 
 filter_list([1, 2, "aasf", "1", "123", 123]);
 
+// Dropcaps
+function dropCap(n) {
+  return n
+    .split(" ")
+    .map((word) => {
+      if (word.length <= 2) return word;
+      return word[0].toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(" ");
+}
+
+dropCap("more  than    one space between words");
+
 // Filter Long Words
 function filterLongWords(sentence, n) {
   return sentence.split(" ").filter((word) => word.length > n);
