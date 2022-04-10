@@ -146,6 +146,45 @@ function swap(str) {
 
 swap("HelloWorld");
 
+// Change it up
+function changer(str) {
+  return str
+    .split("")
+    .map((character) => {
+      if (
+        (character.codePointAt(0) >= 65 && character.codePointAt(0) <= 90) ||
+        (character.codePointAt(0) >= 97 && character.codePointAt(0) <= 122)
+      ) {
+        character = String.fromCodePoint(character.codePointAt(0) + 1);
+        if (character.codePointAt(0) == 91 || character.codePointAt(0) == 123) {
+          character = String.fromCodePoint(character.codePointAt(0) - 26);
+        }
+        if (
+          character == "a" ||
+          character == "e" ||
+          character == "i" ||
+          character == "o" ||
+          character == "u" ||
+          character == "A" ||
+          character == "E" ||
+          character == "I" ||
+          character == "O" ||
+          character == "U"
+        ) {
+          character = character.toUpperCase();
+        } else {
+          character = character.toLowerCase();
+        }
+        return character;
+      } else {
+        return character;
+      }
+    })
+    .join("");
+}
+
+changer("Cat30");
+
 // Numbers to Letters
 function switcher(x) {
   let letters = [];
