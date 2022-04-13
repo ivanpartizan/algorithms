@@ -149,31 +149,16 @@ swap("HelloWorld");
 // Change it up
 function changer(str) {
   return str
+    .toLowerCase()
     .split("")
     .map((character) => {
-      if (
-        (character.codePointAt(0) >= 65 && character.codePointAt(0) <= 90) ||
-        (character.codePointAt(0) >= 97 && character.codePointAt(0) <= 122)
-      ) {
+      if (character.codePointAt(0) >= 97 && character.codePointAt(0) <= 122) {
         character = String.fromCodePoint(character.codePointAt(0) + 1);
-        if (character.codePointAt(0) == 91 || character.codePointAt(0) == 123) {
+        if (character.codePointAt(0) == 123) {
           character = String.fromCodePoint(character.codePointAt(0) - 26);
         }
-        if (
-          character == "a" ||
-          character == "e" ||
-          character == "i" ||
-          character == "o" ||
-          character == "u" ||
-          character == "A" ||
-          character == "E" ||
-          character == "I" ||
-          character == "O" ||
-          character == "U"
-        ) {
+        if (/[aeiou]/.test(character)) {
           character = character.toUpperCase();
-        } else {
-          character = character.toLowerCase();
         }
         return character;
       } else {
@@ -387,6 +372,25 @@ function asciiDecrypt(ciphertext) {
 }
 
 asciiDecrypt("PBUV[TXK");
+
+// Palindrome Pairs
+const isPalindrome = (word) => {
+  if (word == word.split("").reverse().join("")) return true;
+};
+
+const palindromePairs = (words) => {
+  let pairs = [];
+  for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words.length; j++) {
+      if (i !== j && isPalindrome(String(words[i]) + String(words[j]))) {
+        pairs.push([i, j]);
+      }
+    }
+  }
+  return pairs;
+};
+
+palindromePairs(["abcd", "dcba", "lls", "s", "sssll"]);
 
 // Remove All The Marked Elements of a List
 Array.prototype.remove_ = function (integer_list, values_list) {
