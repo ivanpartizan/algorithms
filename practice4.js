@@ -170,6 +170,31 @@ function changer(str) {
 
 changer("Cat30");
 
+// Find the vowels
+function vowelIndices(word) {
+  let indices = [];
+
+  word
+    .toLowerCase()
+    .split("")
+    .forEach((letter, index) => {
+      if (
+        letter == "a" ||
+        letter == "e" ||
+        letter == "i" ||
+        letter == "o" ||
+        letter == "u" ||
+        letter == "y"
+      ) {
+        indices.push(index + 1);
+      }
+    });
+
+  return indices;
+}
+
+vowelIndices("YoMama");
+
 // Numbers to Letters
 function switcher(x) {
   let letters = [];
