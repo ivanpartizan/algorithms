@@ -195,6 +195,18 @@ function vowelIndices(word) {
 
 vowelIndices("YoMama");
 
+// Odd-heavy Array
+function isOddHeavy(n) {
+  let odds = n.filter((number) => number % 2 != 0);
+  let evens = n.filter((number) => number % 2 == 0);
+  let minOdd = Math.min(...odds);
+  let maxEven = Math.max(...evens);
+
+  return odds.length && minOdd > maxEven ? true : false;
+}
+
+isOddHeavy([11, 4, 9, 2, 3, 10]);
+
 // Numbers to Letters
 function switcher(x) {
   let letters = [];
