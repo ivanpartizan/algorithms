@@ -376,6 +376,27 @@ function toDayOfYear(arr) {
 
 toDayOfYear([25, 12, 2017]);
 
+// Simple string characters
+function solve(s) {
+  let uppercase = 0;
+  let lowercase = 0;
+  let numbers = 0;
+  let specials = 0;
+
+  s.split("").forEach((char) => {
+    if (char.codePointAt(0) >= 48 && char.codePointAt(0) <= 57) numbers++;
+    else if (char.codePointAt(0) >= 65 && char.codePointAt(0) <= 90)
+      uppercase++;
+    else if (char.codePointAt(0) >= 97 && char.codePointAt(0) <= 122)
+      lowercase++;
+    else specials++;
+  });
+
+  return [uppercase, lowercase, numbers, specials];
+}
+
+solve("*'&ABCDabcde12345");
+
 // ASCII letters from Number
 function convert(number) {
   let array = [];
