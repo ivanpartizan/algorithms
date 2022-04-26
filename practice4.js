@@ -573,3 +573,139 @@ function fib(n) {
 }
 
 fib(5);
+
+let stocks = {
+  fruit: ["strawberry", "banana", "raspberry", "vanilla"],
+  liqwuid: ["water", "ice"],
+  holders: ["cone", "cup", "stick"],
+  toppings: ["chocolate", "peanut"],
+};
+
+let isOpen = true;
+
+let order = (time, work) => {
+  return new Promise((resolve, reject) => {
+    if (isOpen) {
+      setTimeout(() => {
+        resolve(work());
+      }, time);
+    } else {
+      reject(console.log("the shop is closed"));
+    }
+  });
+};
+
+order(2000, () => console.log(`${stocks.fruit[0]} is taken`))
+  .then(() => {
+    return order(1000, () => console.log("production has strartre"));
+  })
+  .then(() => {
+    return order(2000, () => console.log("the food was chopped"));
+  })
+  .then(() => {
+    return order(1000, () =>
+      console.log(`${stocks.liqwuid[0]} and ${stocks.liqwuid[1]}} was selected`)
+    );
+  })
+  .then(() => {
+    return order(1000, () => console.log("star machine"));
+  })
+  .then(() => {
+    return order(2000, () => {
+      console.log(`ice cream placed on ${stocks.holders[0]}`);
+    });
+  })
+  .then(() => {
+    return order(3000, () => {
+      console.log(`${stocks.toppings[0]} was selected`);
+    });
+  })
+  .then(() => {
+    return order(1000, () => console.log("ice cream was served"));
+  })
+  .catch(() => {
+    console.log("customer left");
+  })
+  .finally(() => {
+    console.log("day ended, we are closed");
+  });
+
+async function order() {
+  try {
+    await abc;
+  } catch (error) {
+    console.log("abc doesnt exist", error);
+  } finally {
+    console.log("runs code anyway");
+  }
+}
+order();
+
+let toppingsChoice = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(console.log("which topping you want?"));
+    }, 3000);
+  });
+};
+
+async function kitchen() {
+  console.log("a");
+  console.log("b");
+  console.log("c");
+  await toppingsChoice();
+  console.log("d");
+  console.log("e");
+}
+
+kitchen();
+
+console.log("x");
+console.log("y");
+console.log("z");
+
+let stocks = {
+  fruit: ["strawberry", "banana", "raspberry", "vanilla"],
+  liqwuid: ["water", "ice"],
+  holders: ["cone", "cup", "stick"],
+  toppings: ["chocolate", "peanut"],
+};
+
+let isOpen = true;
+
+function time(ms) {
+  return new Promise((resolve, reject) => {
+    if (isOpen) {
+      setTimeout(resolve, ms);
+    } else {
+      reject(console.log("shop is closded"));
+    }
+  });
+}
+
+async function kitchen() {
+  try {
+    await time(2000);
+    console.log(`${stocks.fruit[0]}`);
+    await time(0000);
+    console.log(`start the productionj`);
+    await time(2000);
+    console.log(`cut the fruit`);
+    await time(1000);
+    console.log(`${stocks.liqwuid[0]}``amd ${stocks.liqwuid[1]}`);
+    await time(1000);
+    console.log(`start tehe machine`);
+    await time(2000);
+    console.log(`ice cream placed on ${stocks.holders[0]}`);
+    await time(3000);
+    console.log(`${stocks.toppings[0]} was added`);
+    await time(2000);
+    console.log(`srve ice cream`);
+  } catch (error) {
+    console.log("customer left", error);
+  } finally {
+    console.log("day ended, shp closed");
+  }
+}
+
+kitchen();
