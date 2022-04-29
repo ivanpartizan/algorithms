@@ -66,3 +66,18 @@ function momentOfTimeInSpace(moment) {
 }
 
 momentOfTimeInSpace("12:30 am");
+
+// Categorize New Member
+function openOrSenior(data) {
+  return data.map((pair) => {
+    if (pair[0] >= 55 && pair[1] > 7) return "Senior";
+    else return "Open";
+  });
+}
+
+openOrSenior([
+  [45, 12],
+  [55, 21],
+  [19, -2],
+  [104, 20],
+]);
