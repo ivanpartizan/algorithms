@@ -43,6 +43,18 @@ function isNarcissistic(n) {
 
 isNarcissistic(153);
 
+// Credit Card Mask
+function maskify(cc) {
+  let length = cc.length;
+  if (length < 5) return cc;
+  else {
+    let hashes = "#".repeat(length - 4);
+    return `${hashes}${cc.slice(-4)}`;
+  }
+}
+
+maskify("4556364607935616");
+
 // Simple Fun #193: Moment Of Time In Space
 function momentOfTimeInSpace(moment) {
   let past, present, future;
