@@ -55,6 +55,16 @@ function maskify(cc) {
 
 maskify("4556364607935616");
 
+// Feynman's square question
+function countSquares(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i * i;
+  }
+}
+
+countSquares(5);
+
 // Simple Fun #193: Moment Of Time In Space
 function momentOfTimeInSpace(moment) {
   let past, present, future;
