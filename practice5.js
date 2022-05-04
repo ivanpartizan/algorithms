@@ -61,6 +61,7 @@ function countSquares(n) {
   for (let i = 1; i <= n; i++) {
     sum += i * i;
   }
+  return sum;
 }
 
 countSquares(5);
@@ -88,6 +89,64 @@ function momentOfTimeInSpace(moment) {
 }
 
 momentOfTimeInSpace("12:30 am");
+
+// Simple Fun #30: Strings Construction
+function stringsConstruction(A, B) {
+  let lettersA = {};
+  let lettersB = {};
+
+  for (let letter of A) {
+    if (lettersA[letter]) {
+      lettersA[letter]++;
+    } else {
+      lettersA[letter] = 1;
+    }
+  }
+
+  lettersA = Object.keys(lettersA)
+    .sort()
+    .reduce((obj, key) => {
+      obj[key] = lettersA[key];
+      return obj;
+    }, {});
+
+  let matchingLetters = B.split("").filter((letter) => lettersA[letter]);
+
+  for (let letter of matchingLetters) {
+    if (lettersB[letter]) {
+      lettersB[letter]++;
+    } else {
+      lettersB[letter] = 1;
+    }
+  }
+
+  lettersB = Object.keys(lettersB)
+    .sort()
+    .reduce((obj, key) => {
+      obj[key] = lettersB[key];
+      return obj;
+    }, {});
+
+  let valuesA = Object.values(lettersA);
+  let valuesB = Object.values(lettersB);
+
+  let minValue;
+
+  if (
+    valuesA.length === 0 ||
+    valuesB.length === 0 ||
+    valuesA.length != valuesB.length
+  )
+    return 0;
+  else {
+    minValue = Math.floor(
+      Math.min(...valuesB.map((value, index) => value / valuesA[index]))
+    );
+  }
+  return minValue;
+}
+
+stringsConstruction("hnccv", "hncvohcjhdfnhonxddcocjncchnvohchnjohcvnhjdhihsn");
 
 // Categorize New Member
 function openOrSenior(data) {
