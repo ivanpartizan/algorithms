@@ -43,6 +43,7 @@ function isNarcissistic(n) {
 
 isNarcissistic(153);
 
+// Bingo ( Or Not )
 function bingo(a) {
   let letters = [];
   for (let i = 0; i < 26; i++) {
@@ -167,6 +168,27 @@ function stringsConstruction(A, B) {
 }
 
 stringsConstruction("hnccv", "hncvohcjhdfnhonxddcocjncchnvohchnjohcvnhjdhihsn");
+
+// WeIrD StRiNg CaSe
+function toWeirdCase(string) {
+  let array = string.split(" ");
+  return array
+    .map((word) => {
+      return word
+        .split("")
+        .map((letter, index) => {
+          if (index % 2 == 0) {
+            return letter.toUpperCase();
+          } else {
+            return letter.toLowerCase();
+          }
+        })
+        .join("");
+    })
+    .join(" ");
+}
+
+toWeirdCase("Weird string case");
 
 // Categorize New Member
 function openOrSenior(data) {
