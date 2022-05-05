@@ -43,6 +43,26 @@ function isNarcissistic(n) {
 
 isNarcissistic(153);
 
+function bingo(a) {
+  let letters = [];
+  for (let i = 0; i < 26; i++) {
+    letters.push(String.fromCodePoint(i + 65));
+  }
+
+  let selectedLetters = a.map((value) => letters[value - 1]);
+  if (
+    selectedLetters.includes("B") &&
+    selectedLetters.includes("I") &&
+    selectedLetters.includes("N") &&
+    selectedLetters.includes("G") &&
+    selectedLetters.includes("O")
+  ) {
+    return "WIN";
+  } else return "LOSE";
+}
+
+bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
 // Credit Card Mask
 function maskify(cc) {
   let length = cc.length;
