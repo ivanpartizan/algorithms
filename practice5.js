@@ -76,6 +76,57 @@ function maskify(cc) {
 
 maskify("4556364607935616");
 
+// You Got Change?
+function giveChange(amount) {
+  let array = [];
+
+  let bills1 = 0,
+    bills5 = 0,
+    bills10 = 0,
+    bills20 = 0,
+    bills50 = 0,
+    bills100 = 0;
+
+  let obj = {
+    oneDollar: 1,
+    fiveDollars: 5,
+    tenDollars: 10,
+    twentyDollars: 20,
+    fiftyDollars: 50,
+    oneHundredDollars: 100,
+  };
+
+  while (amount > 99) {
+    amount -= obj["oneHundredDollars"];
+    bills100++;
+  }
+  while (amount > 49) {
+    amount -= obj["fiftyDollars"];
+    bills50++;
+  }
+  while (amount > 19) {
+    amount -= obj["twentyDollars"];
+    bills20++;
+  }
+  while (amount > 9) {
+    amount -= obj["tenDollars"];
+    bills10++;
+  }
+  while (amount > 4) {
+    amount -= obj["fiveDollars"];
+    bills5++;
+  }
+  while (amount > 0) {
+    amount -= obj["oneDollar"];
+    bills1++;
+  }
+
+  array.push(bills1, bills5, bills10, bills20, bills50, bills100);
+  return array;
+}
+
+giveChange(365);
+
 // Feynman's square question
 function countSquares(n) {
   let sum = 0;
