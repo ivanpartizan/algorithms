@@ -76,6 +76,18 @@ function maskify(cc) {
 
 maskify("4556364607935616");
 
+// Don't give me five!
+function dontGiveMeFive(start, end) {
+  let counter = 0;
+  for (let i = start; i <= end; i++) {
+    if (String(i).includes("5")) continue;
+    counter++;
+  }
+  return counter;
+}
+
+dontGiveMeFive(1, 9);
+
 // You Got Change?
 function giveChange(amount) {
   let array = [];
