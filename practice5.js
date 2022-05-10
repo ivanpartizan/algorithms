@@ -253,6 +253,17 @@ function toWeirdCase(string) {
 
 toWeirdCase("Weird string case");
 
+// Jaden Casing Strings
+String.prototype.toJadenCase = function () {
+  return this.split(" ")
+    .map((word) => {
+      return word[0].toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+};
+
+String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real");
+
 // Categorize New Member
 function openOrSenior(data) {
   return data.map((pair) => {
