@@ -150,6 +150,23 @@ function countSquares(n) {
 
 countSquares(5);
 
+// Simple Fun #79: Delete a Digit
+function deleteDigit(n) {
+  let array = String(n).split("");
+
+  let numbers = [];
+  for (let i = 0; i < array.length; i++) {
+    numbers.push(
+      (array.slice(0, i) + array.slice(i + 1)).split(",").join("") * 1
+    );
+  }
+
+  let maxNumber = Math.max(...numbers);
+  return maxNumber;
+}
+
+deleteDigit(152);
+
 // Simple Fun #193: Moment Of Time In Space
 function momentOfTimeInSpace(moment) {
   let past, present, future;
