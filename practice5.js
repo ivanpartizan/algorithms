@@ -156,9 +156,7 @@ function deleteDigit(n) {
 
   let numbers = [];
   for (let i = 0; i < array.length; i++) {
-    numbers.push(
-      (array.slice(0, i) + array.slice(i + 1)).split(",").join("") * 1
-    );
+    numbers.push(+(array.slice(0, i) + array.slice(i + 1)).split(",").join(""));
   }
 
   let maxNumber = Math.max(...numbers);
@@ -248,6 +246,26 @@ function stringsConstruction(A, B) {
 }
 
 stringsConstruction("hnccv", "hncvohcjhdfnhonxddcocjncchnvohchnjohcvnhjdhihsn");
+
+// Alphabet symmetry
+function solve(arr) {
+  let letters = [];
+  for (let i = 0; i < 26; i++) {
+    letters.push(String.fromCodePoint(i + 65));
+  }
+
+  return arr
+    .map((word) => word.toUpperCase())
+    .map((word, index) => {
+      let number = 0;
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] == letters[i]) number++;
+      }
+      return number;
+    });
+}
+
+solve(["abode", "ABc", "xyzD"]);
 
 // WeIrD StRiNg CaSe
 function toWeirdCase(string) {
