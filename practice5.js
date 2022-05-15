@@ -88,6 +88,36 @@ function dontGiveMeFive(start, end) {
 
 dontGiveMeFive(1, 9);
 
+// Find all pairs
+function duplicates(array) {
+  if (array.length == 0 || array.length == 1) return 0;
+
+  let obj = {};
+  let pairs = 0;
+
+  for (let item of array) {
+    if (obj[item]) {
+      obj[item]++;
+    } else {
+      obj[item] = 1;
+    }
+  }
+
+  let values = Object.values(obj);
+
+  values.forEach((value) => {
+    if (value % 2 == 0) {
+      pairs += value / 2;
+    } else if (value > 1 && value % 2 == 1) {
+      pairs = +Math.floor(value / 2);
+    }
+  });
+
+  return pairs;
+}
+
+duplicates([1, 2, 5, 6, 5, 2]);
+
 // You Got Change?
 function giveChange(amount) {
   let array = [];
