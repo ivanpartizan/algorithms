@@ -109,7 +109,7 @@ function duplicates(array) {
     if (value % 2 == 0) {
       pairs += value / 2;
     } else if (value > 1 && value % 2 == 1) {
-      pairs = +Math.floor(value / 2);
+      pairs += Math.floor(value / 2);
     }
   });
 
