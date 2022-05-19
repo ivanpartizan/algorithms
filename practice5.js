@@ -205,6 +205,8 @@ var runLengthEncoding = function (str) {
   return array;
 };
 
+runLengthEncoding("hello world!");
+
 // Simple Fun #79: Delete a Digit
 function deleteDigit(n) {
   let array = String(n).split("");
