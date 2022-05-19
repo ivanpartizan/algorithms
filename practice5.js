@@ -180,6 +180,31 @@ function countSquares(n) {
 
 countSquares(5);
 
+// Run-length encoding
+var runLengthEncoding = function (str) {
+  let array = [];
+
+  for (let i = 0; i < str.length; i++) {
+    let subarray = [];
+    let num = 1;
+    if (str[i] == str[i + 1]) {
+      while (str[i] == str[i + 1]) {
+        num++;
+        i++;
+        if (str[i] !== str[i + 1]) {
+          subarray.push(num, str[i]);
+        }
+      }
+    } else {
+      subarray.push(num, str[i]);
+    }
+
+    array.push(subarray);
+  }
+
+  return array;
+};
+
 // Simple Fun #79: Delete a Digit
 function deleteDigit(n) {
   let array = String(n).split("");
