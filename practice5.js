@@ -358,16 +358,11 @@ String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real");
 
 // Consecutive items
 function consecutive(arr, a, b) {
-  for (let i = 0; i < arr.length; i++) {
-    let firstIndex = arr.indexOf(a);
-    let secondIndex = arr.indexOf(b);
-
-    if (firstIndex - secondIndex == 1 || firstIndex - secondIndex == -1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  let firstIndex = arr.indexOf(a);
+  let secondIndex = arr.indexOf(b);
+  return firstIndex - secondIndex == 1 || firstIndex - secondIndex == -1
+    ? true
+    : false;
 }
 
 consecutive([1, 3, 5, 7], 3, 7);
