@@ -283,3 +283,24 @@ accumulator.read(); // adds the user-entered value
 accumulator.read(); // adds the user-entered value
 
 alert(accumulator.value);
+
+function readNumber() {
+  while (true) {
+    let value = prompt("enter valid numeric value");
+
+    if (value == "" || value == null) return null;
+
+    if (isFinite(value)) {
+      console.log(value);
+      break;
+    }
+  }
+}
+
+readNumber();
+
+function random(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+}
+
+random(11, 15);
