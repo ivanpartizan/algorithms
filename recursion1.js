@@ -304,3 +304,37 @@ function random(min, max) {
 }
 
 random(11, 15);
+
+function ucFirst(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+ucFirst("john");
+
+function checkSpam(str) {
+  let lowercased = str.toLowerCase();
+  if (lowercased.includes("xxx") || lowercased.includes("viagra")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+checkSpam("buy ViAgRA now");
+
+function truncate(str, maxlength) {
+  if (str.length > maxlength) {
+    return str.slice(0, maxlength) + "…";
+  } else return str;
+}
+
+truncate("What I'd like to tell on this topic is:", 20);
+
+function extractCurrencyValue(str) {
+  let returned = "";
+  for (let char of str) {
+    if (typeof char == "number") returned += char;
+  }
+  return returned;
+}
+
+extractCurrencyValue("$120");
