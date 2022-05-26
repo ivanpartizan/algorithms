@@ -180,6 +180,21 @@ function countSquares(n) {
 
 countSquares(5);
 
+// Digital cypher
+function encode(str, n) {
+  n = String(n);
+  let array = [];
+
+  str.split("").map((letter, index) => {
+    let number = letter.codePointAt() - 96 + +n[index % n.length];
+    array.push(number);
+  });
+
+  return array;
+}
+
+encode("scout", 1939);
+
 // Run-length encoding
 var runLengthEncoding = function (str) {
   let array = [];
