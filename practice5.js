@@ -180,6 +180,63 @@ function countSquares(n) {
 
 countSquares(5);
 
+// Transposing a song
+function transpose(song, interval) {
+  let sharpNotation = [
+    "A",
+    "A#",
+    "B",
+    "C",
+    "C#",
+    "D",
+    "D#",
+    "E",
+    "F",
+    "F#",
+    "G",
+    "G#",
+  ];
+  let flatNotation = [
+    "A",
+    "Bb",
+    "B",
+    "C",
+    "Db",
+    "D",
+    "Eb",
+    "E",
+    "F",
+    "Gb",
+    "G",
+    "Ab",
+  ];
+  let newIndex;
+
+  return song.map((note, index) => {
+    if (sharpNotation.includes(note)) {
+      newIndex = sharpNotation.indexOf(note);
+
+      if (newIndex + interval >= 12) index = newIndex + interval - 12;
+      else if (newIndex + interval < 0) index = newIndex + interval + 12;
+      else if (newIndex + interval >= 0 || newIndex + interval < 12)
+        index = newIndex + interval;
+
+      return sharpNotation[index];
+    } else if (flatNotation.includes(note)) {
+      newIndex = flatNotation.indexOf(note);
+
+      if (newIndex + interval >= 12) index = newIndex + interval - 12;
+      else if (newIndex + interval < 0) index = newIndex + interval + 12;
+      else if (newIndex + interval >= 0 || newIndex + interval < 12)
+        index = newIndex + interval;
+
+      return sharpNotation[index];
+    }
+  });
+}
+
+transpose(["A#", "C#", "D", "D#", "A#", "F#", "D#"], -6);
+
 // Digital cypher
 function encode(str, n) {
   n = String(n);
