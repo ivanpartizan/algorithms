@@ -428,6 +428,18 @@ String.prototype.toJadenCase = function () {
 
 String.prototype.toJadenCase("How can mirrors be real if our eyes aren't real");
 
+// Ghostbusters (whitespace removal)
+function ghostBusters(building) {
+  let noSpaces = "";
+  for (let char of building) {
+    if (char !== " ") noSpaces += char;
+  }
+  if (building == noSpaces) return "You just wanted my autograph didn't you?";
+  return noSpaces;
+}
+
+ghostBusters("Sky scra per");
+
 // Consecutive items
 function consecutive(arr, a, b) {
   let firstIndex = arr.indexOf(a);
