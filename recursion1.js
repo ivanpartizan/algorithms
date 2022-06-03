@@ -338,3 +338,55 @@ function extractCurrencyValue(str) {
 }
 
 extractCurrencyValue("$120");
+
+function readNumber() {
+  while (true) {
+    let value = prompt("enter a number");
+    if (value == "" || value == null) return null;
+    if (isFinite(value)) return +value;
+  }
+}
+
+readNumber();
+
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+random(1, 5);
+
+function ucFirst(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+ucFirst("john");
+
+function checkSpam(str) {
+  str = str.toLowerCase();
+  if (str.includes("xxx") || str.includes("viagra")) return true;
+  return false;
+}
+
+checkSpam("buy ViAgRA now");
+
+function truncate(str, maxlength) {
+  if (str.length > maxlength) {
+    return str.slice(0, maxlength - 1) + "…";
+  }
+  return str;
+}
+
+truncate("What I'd like to tell on this topic is:", 20);
+
+truncate("Hi everyone!", 20);
+
+function extractCurrencyValue(str) {
+  let newStr = "";
+  for (let char of str) {
+    if (isFinite(char)) newStr += char;
+  }
+
+  return +newStr;
+}
+
+extractCurrencyValue("$120");
