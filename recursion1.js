@@ -390,3 +390,34 @@ function extractCurrencyValue(str) {
 }
 
 extractCurrencyValue("$120");
+
+let styles = [Jazz, Blues];
+console.log(styles);
+styles.push("Rock-n-Roll");
+console.log(styles);
+styles[Math.floor(styles.length / 2)] = "Classics";
+console.log(styles);
+let fiest = styles.shift();
+console.log(first);
+console.log(styles);
+styles.unshift("Rap", "Reaggeae");
+console.log(styles);
+
+function sumInput() {
+  let values = [];
+  let num;
+
+  while (true) {
+    num = prompt("enter a number");
+    if (num == "" || num == null || !isFinite(num)) break;
+    else values.push(+num);
+  }
+
+  let sum = 0;
+  for (let value of values) {
+    sum += value;
+  }
+  return sum;
+}
+
+sumInput();
