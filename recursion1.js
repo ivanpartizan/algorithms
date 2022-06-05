@@ -421,3 +421,17 @@ function sumInput() {
 }
 
 sumInput();
+
+function getMaxSubSum(arr) {
+  let subSum = 0;
+  let maxSum = 0;
+  for (let num of arr) {
+    subSum += num;
+    if (subSum < 0) subSum = 0;
+    if (subSum > maxSum) maxSum = subSum;
+  }
+
+  return maxSum;
+}
+
+getMaxSubSum([-1, 2, 3, -9]);
