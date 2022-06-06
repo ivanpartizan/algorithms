@@ -450,6 +450,42 @@ const palindromePairs = (words) => {
 
 palindromePairs(["abcd", "dcba", "lls", "s", "sssll"]);
 
+// Coprime Validator
+function isCoprime(x, y) {
+  let factorsX = [];
+  let factorsY = [];
+
+  for (let i = 1; i <= x; i++) {
+    if (x % i == 0) factorsX.push(i);
+  }
+  for (let i = 1; i <= y; i++) {
+    if (y % i == 0) factorsY.push(i);
+  }
+
+  let sharedFactors = [...factorsX, ...factorsY];
+  let obj = {};
+
+  for (let value of sharedFactors) {
+    if (obj[value]) {
+      obj[value]++;
+    } else {
+      obj[value] = 1;
+    }
+  }
+
+  let greatestSharedFactors = [];
+
+  for (let prop in obj) {
+    if (obj[prop] == 2) greatestSharedFactors.push(prop);
+  }
+
+  let greatestSharedFactor = Math.max(...greatestSharedFactors);
+
+  return greatestSharedFactor == 1 ? true : false;
+}
+
+isCoprime(20, 27);
+
 // Remove All The Marked Elements of a List
 Array.prototype.remove_ = function (integer_list, values_list) {
   return integer_list.filter((value) => !values_list.includes(value));
