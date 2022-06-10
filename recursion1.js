@@ -537,12 +537,100 @@ alert(arr[2].name); // Pete
 
 function shuffle(array) {
   for (let i = array.length - 1; i >= 0; i--) {
-    console.log(array[i]);
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
 }
 
 let arr = [1, 2, 3];
 
 shuffle(arr);
+
+function getAverageAge(users) {
+  let average =
+    users.reduce((acc, value) => {
+      return acc + value.age;
+    }, 0) / users.length;
+  return average;
+}
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 29 };
+
+let arr = [john, pete, mary];
+
+getAverageAge(arr);
+
+function unique(arr) {
+  let uniques = [];
+  for (let item of arr) {
+    if (!uniques.includes(item)) {
+      uniques.push(item);
+    }
+  }
+  return uniques;
+}
+
+let strings = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+unique(strings);
+
+let users = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "ann", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Peterson", age: 31 },
+];
+
+function groupById(arr) {
+  return arr.reduce((obj, item) => {
+    obj[item.id] = item;
+    return obj;
+  }, {});
+}
+
+let usersById = groupById(users);
+
+console.log(usersById);
+
+function Calculator() {
+  this.methods = {
+    "-": (a, b) => a - b,
+    "+": (a, b) => a + b,
+  };
+
+  this.calculate = function (string) {
+    let values = string.split(" ");
+    let a = +values[0];
+    let b = +values[2];
+    let operator = values[1];
+    return this.methods[operator](a, b);
+  };
+
+  this.addMethod = function (operator, func) {
+    this.methods[operator] = func;
+  };
+}
+
+let calc = new Calculator();
+
+calc.calculate("3 + 7");
+
+let powerCalc = new Calculator();
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
+
+let result = powerCalc.calculate("2 ** 3");
+alert(result); // 8
