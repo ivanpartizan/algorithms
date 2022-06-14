@@ -634,3 +634,13 @@ powerCalc.addMethod("**", (a, b) => a ** b);
 
 let result = powerCalc.calculate("2 ** 3");
 alert(result); // 8
+
+function multiplyStr(str, num) {
+  let newStr = "";
+  for (let i = 0; i < num; i++) {
+    newStr += char;
+  }
+  return newStr;
+}
+
+multiplyStr("john", 2);

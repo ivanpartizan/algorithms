@@ -451,6 +451,13 @@ function consecutive(arr, a, b) {
 
 consecutive([1, 3, 5, 7], 3, 7);
 
+// Testing 1-2-3
+var number = function (array) {
+  return array.map((value, index) => `${index + 1}: ${value}`);
+};
+
+number(["a", "b", "c"]);
+
 // Categorize New Member
 function openOrSenior(data) {
   return data.map((pair) => {
