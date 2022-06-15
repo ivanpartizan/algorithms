@@ -633,7 +633,7 @@ powerCalc.addMethod("/", (a, b) => a / b);
 powerCalc.addMethod("**", (a, b) => a ** b);
 
 let result = powerCalc.calculate("2 ** 3");
-alert(result); // 8
+console.log(result); // 8
 
 function multiplyStr(str, num) {
   let newStr = "";
