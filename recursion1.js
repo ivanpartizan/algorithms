@@ -699,3 +699,47 @@ let keys = Array.from(map.keys());
 // Error: keys.push is not a function
 keys.push("more");
 keys;
+
+let prices = {
+  banana: 1,
+  orange: 2,
+  meat: 4,
+};
+
+let doublePrices = Object.fromEntries(
+  // convert prices to array, map each key/value pair into another pair
+  // and then fromEntries gives back the object
+  Object.entries(prices).map((entry) => [entry[0] + "abc", entry[1] * 10])
+  // Object.entries(prices).map(entry => console.log(entry))
+);
+
+doublePrices;
+
+function sumSalaries(salaries) {
+  let result = 0;
+
+  let salariesValues = Object.values(salaries);
+
+  for (let value of salariesValues) result += value;
+
+  return result;
+}
+
+let salaries1 = {
+  John: 100,
+  Pete: 300,
+  Mary: 250,
+};
+
+sumSalaries(salaries1);
+
+function count(obj) {
+  return Object.entries(obj).length;
+}
+
+let user = {
+  name: "John",
+  age: 30,
+};
+
+count(user); // 2
