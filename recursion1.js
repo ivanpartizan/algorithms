@@ -644,3 +644,58 @@ function multiplyStr(str, num) {
 }
 
 multiplyStr("john", 2);
+
+function unique(arr) {
+  /* your code */
+  return Array.from(new Set(arr));
+}
+
+let values = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+unique(values); // Hare, Krishna, :-O
+
+//
+function aclean(arr) {
+  return Array.from(
+    new Set(arr.map((word) => word.toLowerCase().split("").sort().join("")))
+  );
+}
+
+let array = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+aclean(array);
+
+function aclean(arr) {
+  let map = new Map();
+  for (let word of arr) {
+    let key = word.toLowerCase().split("").sort().join("");
+
+    map.set(key, word);
+  }
+  console.log(map);
+  return Array.from(map.values());
+}
+
+let array = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+aclean(array);
+
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+
+// Error: keys.push is not a function
+keys.push("more");
+keys;
