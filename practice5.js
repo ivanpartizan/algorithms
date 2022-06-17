@@ -472,3 +472,19 @@ openOrSenior([
   [19, -2],
   [104, 20],
 ]);
+
+// Simple frequency sort
+function solve(arr) {
+  let obj = {};
+  for (let number of arr) {
+    if (obj[number]) {
+      obj[number]++;
+    } else {
+      obj[number] = 1;
+    }
+  }
+
+  return arr.sort((a, b) => obj[b] - obj[a] || a - b);
+}
+
+solve([2, 3, 5, 3, 7, 9, 5, 3, 7]);
