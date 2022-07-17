@@ -24,3 +24,16 @@ function sevenAte9(str) {
 }
 
 sevenAte9("79712312");
+
+// Speed Control
+function gps(s, x) {
+  let distances = [];
+  for (let i = 0; i < x.length; i++) {
+    if (isFinite(x[i + 1] - x[i])) distances.push(x[i + 1] - x[i]);
+  }
+
+  const speeds = distances.map((distance) => (3600 * distance) / s);
+  return Math.floor(Math.max(...speeds));
+}
+
+gps(20, [0.0, 0.23, 0.46, 0.69, 0.92, 1.15, 1.38, 1.61]);
