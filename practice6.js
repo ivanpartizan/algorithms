@@ -27,6 +27,7 @@ sevenAte9("79712312");
 
 // Speed Control
 function gps(s, x) {
+  if (x <= 1) return 0;
   let distances = [];
   for (let i = 0; i < x.length; i++) {
     if (isFinite(x[i + 1] - x[i])) distances.push(x[i + 1] - x[i]);
