@@ -38,3 +38,12 @@ function gps(s, x) {
 }
 
 gps(20, [0.0, 0.23, 0.46, 0.69, 0.92, 1.15, 1.38, 1.61]);
+
+// Heron's formula
+function heron(a, b, c) {
+  let s = (a + b + c) / 2;
+
+  return +Math.sqrt(s * (s - a) * (s - b) * (s - c)).toFixed(2);
+}
+
+heron(3, 4, 5);
