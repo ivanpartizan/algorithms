@@ -39,6 +39,17 @@ function gps(s, x) {
 
 gps(20, [0.0, 0.23, 0.46, 0.69, 0.92, 1.15, 1.38, 1.61]);
 
+// Predict your age!
+function predictAge(age1, age2, age3, age4, age5, age6, age7, age8) {
+  let list = [age1, age2, age3, age4, age5, age6, age7, age8];
+  let x = list
+    .map((number) => number * number)
+    .reduce((acc, number) => acc + number);
+  return Math.floor(Math.sqrt(x) / 2);
+}
+
+predictAge(65, 60, 75, 55, 60, 63, 64, 45);
+
 // Heron's formula
 function heron(a, b, c) {
   let s = (a + b + c) / 2;
