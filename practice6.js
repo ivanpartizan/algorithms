@@ -50,6 +50,15 @@ function predictAge(age1, age2, age3, age4, age5, age6, age7, age8) {
 
 predictAge(65, 60, 75, 55, 60, 63, 64, 45);
 
+// New £5 notes collectors!
+function getNewNotes(salary, bills) {
+  let billsTotal = bills.reduce((acc, value) => acc + value);
+  let notes = Math.floor((salary - billsTotal) / 5);
+  return salary - billsTotal < 5 ? 0 : notes;
+}
+
+getNewNotes(2000, [500, 160, 400]);
+
 // Heron's formula
 function heron(a, b, c) {
   let s = (a + b + c) / 2;
