@@ -52,7 +52,7 @@ predictAge(65, 60, 75, 55, 60, 63, 64, 45);
 
 // New £5 notes collectors!
 function getNewNotes(salary, bills) {
-  let billsTotal = bills.reduce((acc, value) => acc + value);
+  let billsTotal = bills.reduce((acc, value) => acc + value, 0);
   let notes = Math.floor((salary - billsTotal) / 5);
   return salary - billsTotal < 5 ? 0 : notes;
 }
