@@ -1,12 +1,48 @@
 // Loops
 
-// Repeat until the input is correct
 // Output prime numbers
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// isPrime(5)
+
+function outputPrimes(n) {
+  let primes = [];
+
+  for (let i = 2; i <= n; i++) {
+    if (isPrime(i)) {
+      primes.push(i);
+    }
+  }
+
+  return primes;
+}
+
+outputPrimes(10);
 
 // Functions
 
-// Function min(a, b)
 // Function pow(x,n)
+let x = +prompt("Enter x");
+let n = +prompt("Enter n");
+
+function pow(x, n) {
+  let result = 1;
+
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+pow(x, n);
 
 // Objects: the basics
 
@@ -113,3 +149,57 @@ accumulator.read();
 accumulator.read();
 
 alert(accumulator.value);
+
+// Numbers
+
+// Repeat until the input is a number
+function readNumber() {
+  let number;
+
+  while (true) {
+    number = prompt("Enter valid numeric value");
+
+    if (number === "" || number === null) {
+      return null;
+    }
+
+    if (isFinite(number)) {
+      return +number;
+    }
+  }
+}
+
+readNumber();
+
+// Course
+function readNumber() {
+  let num;
+
+  do {
+    num = prompt("Enter a number please?", 0);
+  } while (!isFinite(num));
+
+  if (num === null || num === "") return null;
+
+  return +num;
+}
+
+// A random number from min to max
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+random(1, 5);
+
+// A random integer from min to max
+function randomInteger(min, max) {
+  return Math.round(Math.random() * (max - min + 1) + min - 0.5);
+}
+
+randomInteger(1, 5);
+
+// Course
+function randomInteger(min, max) {
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
