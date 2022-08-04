@@ -68,6 +68,24 @@ function heron(a, b, c) {
 
 heron(3, 4, 5);
 
+// Mix Fruit Juice
+function mixFruit(arr) {
+  let five$ = ["banana", "orange", "apple", "lemon", "grapes"];
+  let seven$ = ["avocado", "strawberry", "mango"];
+
+  let total = arr
+    .map((value) => {
+      if (five$.includes(value.toLowerCase())) return 5;
+      if (seven$.includes(value.toLowerCase())) return 7;
+      else return 9;
+    })
+    .reduce((acc, value) => acc + value, 0);
+
+  return Math.round(total / arr.length);
+}
+
+mixFruit(["Mango", "Banana", "Avocado"]);
+
 // Help the Fruit Guy
 function removeRotten(bagOfFruits) {
   if (!bagOfFruits || bagOfFruits.length == 0) return [];

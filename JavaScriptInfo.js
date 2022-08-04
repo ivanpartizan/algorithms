@@ -203,3 +203,288 @@ function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
+
+// Strings
+
+// Uppercase the first character
+function ucFirst(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+ucFirst("john");
+
+// Check for spam
+function checkSpam(str) {
+  if (
+    str.toLowerCase().includes("viagra") ||
+    str.toLowerCase().includes("xxx")
+  ) {
+    return true;
+  }
+  return false;
+}
+
+checkSpam("buy ViAgRA now");
+
+// Truncate the text
+function truncate(str, maxlength) {
+  if (str.length > maxlength) {
+    return str.slice(0, maxlength - 1) + "…";
+  }
+  return str;
+}
+
+truncate("What I'd like to tell on this topic is:", 20);
+
+// Extract the money
+function extractCurrencyValue(str) {
+  let value = "";
+  for (let char of str) {
+    if (isFinite(char)) {
+      value += char;
+    }
+  }
+  return +value;
+}
+
+extractCurrencyValue("$120");
+
+// Arrays
+
+// Sum input numbers
+function sumInput() {
+  let numbers = [];
+  let sum = 0;
+
+  while (true) {
+    let value = prompt("Enter a number");
+    if (value === null || value === "" || !isFinite(value)) break;
+    if (isFinite(value)) {
+      numbers.push(+value);
+    }
+  }
+
+  for (let number of numbers) {
+    sum += number;
+  }
+  return sum;
+}
+
+sumInput();
+
+// A maximal subarray
+function getMaxSubSum(arr) {
+  let maxSum = 0;
+  let subSum = 0;
+
+  for (let number of arr) {
+    subSum += number;
+
+    if (subSum < 0) {
+      subSum = 0;
+    }
+    if (subSum > maxSum) {
+      maxSum = subSum;
+    }
+  }
+
+  return maxSum;
+}
+
+getMaxSubSum([2, -1, 2, 3, -9]);
+
+// Translate border-left-width to borderLeftWidth
+function camelize(str) {
+  return str
+    .split("-")
+    .map((word, index) =>
+      index === 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join("");
+}
+
+camelize("list-style-image");
+
+// Filter range
+function filterRange(arr, a, b) {
+  return arr.filter((value) => value >= a && value <= b);
+}
+
+let arr = [5, 3, 8, 1];
+let filtered = filterRange(arr, 1, 4);
+
+// Filter range "in place"
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < a || arr[i] > b) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+}
+
+let arr = [5, 3, 8, 1];
+filterRangeInPlace(arr, 1, 4);
+
+// Sort in decreasing order
+let arr = [5, 2, 1, -10, 8];
+
+arr.sort((a, b) => b - a);
+
+// Copy and sort array
+function copySorted(arr) {
+  return arr.slice().sort();
+}
+
+let arr = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(arr);
+
+// Create an extendable calculator
+function Calculator() {
+  this.methods = {
+    "-": (a, b) => a - b,
+    "+": (a, b) => a + b,
+  };
+
+  this.calculate = function (str) {
+    let split = str.split(" "),
+      a = +split[0],
+      op = split[1],
+      b = +split[2];
+
+    if (!this.methods[op] || isNaN(a) || isNaN(b)) {
+      return NaN;
+    }
+
+    return this.methods[op](a, b);
+  };
+
+  this.addMethod = function (name, func) {
+    this.methods[name] = func;
+  };
+}
+
+let calc = new Calculator();
+calc.calculate("3 + 7");
+
+let powerCalc = new Calculator();
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
+
+let result = powerCalc.calculate("2 ** 3");
+
+// Map to names
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [john, pete, mary];
+
+let names = users.map((user) => user.name);
+
+// Map to objects
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [john, pete, mary];
+
+let usersMapped = users.map((user) => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id,
+}));
+
+// Sort users by age
+function sortByAge(users) {
+  return users.sort((a, b) => a.age - b.age);
+}
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let arr = [pete, john, mary];
+
+sortByAge(arr);
+
+// Shuffle an array
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
+shuffle([1, 2, 3, 4, 5]);
+
+// Get average age
+function getAverageAge(users) {
+  return users.reduce((sum, value) => sum + value.age, 0) / users.length;
+}
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 29 };
+
+let arr = [john, pete, mary];
+
+getAverageAge(arr);
+
+//  Filter unique array members
+function unique(arr) {
+  let uniques = [];
+
+  for (let value of arr) {
+    if (!uniques.includes(value)) {
+      uniques.push(value);
+    }
+  }
+
+  return uniques;
+
+  // return [...new Set(arr)];
+}
+
+let strings = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+unique(strings);
+
+// Create keyed object from array
+function groupById(arr) {
+  return arr.reduce((acc, current) => {
+    acc[current.id] = current;
+    return acc;
+  }, {});
+}
+
+let users = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "ann", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Peterson", age: 31 },
+];
+
+let usersById = groupById(users);
