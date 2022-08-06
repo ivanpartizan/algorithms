@@ -488,3 +488,222 @@ let users = [
 ];
 
 let usersById = groupById(users);
+
+// Map, Set
+
+// Filter unique array members
+function unique(arr) {
+  return [...new Set(arr)];
+
+  // return Array.from(new Set(arr));
+}
+
+let values = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+unique(values);
+
+// Filter anagrams
+function aclean(arr) {
+  let map = new Map();
+
+  for (let word of arr) {
+    let key = word.toLowerCase().split("").sort().join("");
+    map.set(key, word);
+  }
+
+  return Array.from(map.values());
+}
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+aclean(arr);
+
+// Object.keys, values, entries
+
+// Sum the properties
+function sumSalaries(salaries) {
+  let sum = 0;
+
+  let salariesArray = Object.values(salaries);
+  for (let salary of salariesArray) {
+    sum += salary;
+  }
+
+  return sum;
+}
+
+let salaries = {
+  John: 100,
+  Pete: 300,
+  Mary: 250,
+};
+
+sumSalaries(salaries);
+
+// Count properties
+function count(obj) {
+  return Object.keys(obj).length;
+}
+
+let user = {
+  name: "John",
+  age: 30,
+};
+
+count(user);
+
+// Destructuring assignment
+
+// The maximal salary
+function topSalary(salaries) {
+  let maxSalary = 0;
+  let maxPaid;
+
+  let entries = Object.entries(salaries);
+  for (let [key, value] of entries) {
+    if (value > maxSalary) {
+      maxSalary = value;
+      maxPaid = key;
+    }
+  }
+
+  return maxPaid;
+}
+
+let salaries = {
+  John: 100,
+  Pete: 300,
+  Mary: 250,
+};
+
+topSalary(salaries);
+
+// Date and time
+
+// Show a weekday
+function getWeekDay(date) {
+  // let days = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+  // return days[date.getDay()];
+
+  let day = date.getDay();
+  switch (day) {
+    case 0:
+      return "SU";
+      break;
+    case 1:
+      return "MO";
+      break;
+    case 2:
+      return "TU";
+      break;
+    case 3:
+      return "WE";
+      break;
+    case 4:
+      return "TH";
+      break;
+    case 5:
+      return "FR";
+      break;
+    case 6:
+      return "SA";
+      break;
+  }
+}
+
+let date = new Date(2012, 0, 3);
+getWeekDay(date);
+
+// European weekday
+function getLocalDay(date) {
+  let day = date.getDay();
+  return day == 0 ? 7 : day;
+}
+
+let date = new Date(2012, 0, 3); // 3 Jan 2012
+getLocalDay(date);
+
+// Which day of month was many days ago?
+function getDateAgo(date, days) {
+  let dateDaysAgo = new Date(date);
+  dateDaysAgo.setDate(date.getDate() - days);
+  return dateDaysAgo.getDate();
+}
+
+let date = new Date(2015, 0, 2);
+getDateAgo(date, 1);
+
+// Last day of month?
+function getLastDayOfMonth(year, month) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+getLastDayOfMonth(2012, 1);
+
+// How many seconds have passed today?
+function getSecondsToday() {
+  let now = Date.now();
+  let today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return (now - today) / 1000;
+}
+
+getSecondsToday();
+
+// How many seconds till tomorrow?
+function getSecondsToTomorrow() {
+  let now = new Date();
+  let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
+  return (tomorrow - now) / 1000;
+}
+
+getSecondsToTomorrow();
+
+// Format the relative date
+function formatDate(date) {
+  let now = Date.now();
+
+  let difference = now - date;
+
+  if (difference < 1000) {
+    return `right now`;
+  } else if (difference < 60000) {
+    return `${Math.round(difference / 1000)} sec. ago`;
+  } else if (difference < 3600000) {
+    return `${Math.round(difference / 1000 / 60)} min. ago`;
+  } else {
+    return `${
+      new Date(date).getDate() > 9
+        ? `${new Date(date).getDate()}`
+        : `0${new Date(date).getDate()}`
+    }.${
+      new Date(date).getMonth() > 8
+        ? `${new Date(date).getMonth() + 1}`
+        : `0${new Date(date).getMonth() + 1}`
+    }.${new Date(date).getFullYear().toString().slice(-2)} ${
+      new Date(date).getHours() > 9
+        ? `${new Date(date).getHours()}`
+        : `0${new Date(date).getHours()}`
+    }:${
+      new Date(date).getMinutes() > 9
+        ? `${new Date(date).getMinutes()}`
+        : `0${new Date(date).getMinutes()}`
+    }`;
+  }
+}
+
+// formatDate(new Date(new Date() - 1));
+// formatDate(new Date(new Date() - 30 * 1000));
+// formatDate(new Date(new Date() - 5 * 60 * 1000));
+formatDate(new Date(new Date() - 86400 * 1000));
