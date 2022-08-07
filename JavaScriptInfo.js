@@ -707,3 +707,24 @@ function formatDate(date) {
 // formatDate(new Date(new Date() - 30 * 1000));
 // formatDate(new Date(new Date() - 5 * 60 * 1000));
 formatDate(new Date(new Date() - 86400 * 1000));
+
+// Recursion
+
+// Sum all numbers till the given one
+function sumTo(n) {
+  let sum = 0;
+
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  return sum;
+}
+
+sumTo(100);
+
+function sumTo(n) {
+  return (n + 1) * (n / 2);
+}
+
+sumTo(100);
