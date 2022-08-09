@@ -724,7 +724,75 @@ function sumTo(n) {
 sumTo(100);
 
 function sumTo(n) {
+  if (n == 1) return 1;
+  else {
+    return n + sumTo(n - 1);
+  }
+}
+
+sumTo(100);
+
+function sumTo(n) {
   return (n + 1) * (n / 2);
 }
 
 sumTo(100);
+
+// Calculate factorial
+function factorial(n) {
+  if (n == 1) return 1;
+  else {
+    return n * factorial(n - 1);
+  }
+}
+
+factorial(5);
+
+function factorial(n) {
+  let result = 1;
+
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+
+  return result;
+}
+
+factorial(5);
+
+// Fibonacci numbers
+function fib(n) {
+  let numbers = [1, 1];
+
+  for (let i = 2; i < n; i++) {
+    numbers.push(numbers[i - 1] + numbers[i - 2]);
+  }
+
+  return numbers[n - 1];
+}
+
+fib(77);
+
+function fib(n) {
+  if (n <= 2) return 1;
+  else {
+    return fib(n - 1) + fib(n - 2);
+  }
+}
+
+fib(7);
+
+function outer() {
+  let outervar = "outside";
+  function inner() {
+    console.log(outervar);
+  }
+  return inner;
+}
+
+function exec() {
+  const myinner = outer();
+  myinner();
+}
+
+exec();

@@ -98,3 +98,16 @@ function removeRotten(bagOfFruits) {
 }
 
 removeRotten(["apple", "banana", "kiwi", "melone", "orange"]);
+
+function bintodec(num) {
+  let str = String(num);
+  let sum = 0;
+  for (let i = str.length - 1, times = 1; i >= 0; times *= 2, i--) {
+    console.log(times, str[i]);
+    sum += str[i] * times;
+    console.log(sum);
+  }
+  return sum;
+}
+
+bintodec(100111);
