@@ -781,18 +781,3 @@ function fib(n) {
 }
 
 fib(7);
-
-function outer() {
-  let outervar = "outside";
-  function inner() {
-    console.log(outervar);
-  }
-  return inner;
-}
-
-function exec() {
-  const myinner = outer();
-  myinner();
-}
-
-exec();

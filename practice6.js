@@ -1,3 +1,22 @@
+// Collatz Conjecture Length
+function collatz(n) {
+  let arr = [n];
+  while (n > 0) {
+    if (n % 2 == 0) {
+      n /= 2;
+      arr.push(n);
+    } else {
+      n = n * 3 + 1;
+      arr.push(n);
+    }
+    if (n == 1) break;
+  }
+
+  return arr.length;
+}
+
+collatz(20);
+
 // Least Larger
 function leastLarger(a, i) {
   // let elementAtGivenIndex = a.at(i);
