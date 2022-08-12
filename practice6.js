@@ -44,6 +44,19 @@ function sevenAte9(str) {
 
 sevenAte9("79712312");
 
+// Multiply Word in String
+function modifyMultiply(str, loc, num) {
+  let words = str.split(" ");
+  let word = words[loc];
+  let wordArray = [];
+  for (let i = 0; i < num; i++) {
+    wordArray.push(word);
+  }
+  return wordArray.join("-");
+}
+
+modifyMultiply("This is a string", 3, 5);
+
 // Speed Control
 function gps(s, x) {
   if (x <= 1) return 0;
