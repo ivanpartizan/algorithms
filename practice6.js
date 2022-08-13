@@ -100,6 +100,15 @@ function heron(a, b, c) {
 
 heron(3, 4, 5);
 
+// Sum of two lowest positive integers
+function sumTwoSmallestNumbers(numbers) {
+  numbers = numbers.sort((a, b) => a - b);
+  let [lowestIntegerOne, lowestIntegerTwo] = [...numbers];
+  return lowestIntegerOne + lowestIntegerTwo;
+}
+
+sumTwoSmallestNumbers([19, 5, 42, 2, 77]);
+
 // Mix Fruit Juice
 function mixFruit(arr) {
   let five$ = ["banana", "orange", "apple", "lemon", "grapes"];
