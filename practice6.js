@@ -131,6 +131,27 @@ function removeRotten(bagOfFruits) {
 
 removeRotten(["apple", "banana", "kiwi", "melone", "orange"]);
 
+// All unique
+function hasUniqueChars(str) {
+  if (str === "") return true;
+  let obj = {};
+
+  for (let char of str) {
+    if (obj[char]) {
+      obj[char]++;
+    } else {
+      obj[char] = 1;
+    }
+  }
+
+  let values = Object.values(obj);
+  let maxValue = Math.max(...values);
+  console.log(obj);
+  return maxValue == 1 ? true : false;
+}
+
+hasUniqueChars("  nAa");
+
 function bintodec(num) {
   let str = String(num);
   let sum = 0;
