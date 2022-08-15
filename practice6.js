@@ -100,6 +100,30 @@ function heron(a, b, c) {
 
 heron(3, 4, 5);
 
+// Complementary DNA
+function DNAStrand(dna) {
+  let complementary = "";
+  for (let symbol of dna) {
+    switch (symbol) {
+      case "A":
+        complementary += "T";
+        break;
+      case "T":
+        complementary += "A";
+        break;
+      case "C":
+        complementary += "G";
+        break;
+      case "G":
+        complementary += "C";
+        break;
+    }
+  }
+  return complementary;
+}
+
+DNAStrand("ATTGC");
+
 // Sum of two lowest positive integers
 function sumTwoSmallestNumbers(numbers) {
   numbers = numbers.sort((a, b) => a - b);
@@ -155,7 +179,7 @@ function hasUniqueChars(str) {
 
   let values = Object.values(obj);
   let maxValue = Math.max(...values);
-  console.log(obj);
+
   return maxValue == 1 ? true : false;
 }
 
