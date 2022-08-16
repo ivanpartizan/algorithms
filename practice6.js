@@ -133,6 +133,20 @@ function sumTwoSmallestNumbers(numbers) {
 
 sumTwoSmallestNumbers([19, 5, 42, 2, 77]);
 
+// Square Every Digit
+function squareDigits(num) {
+  num = String(num);
+  let squared = "";
+
+  for (let digit of num) {
+    squared += digit * digit;
+  }
+
+  return +squared;
+}
+
+squareDigits(3212);
+
 // Mix Fruit Juice
 function mixFruit(arr) {
   let five$ = ["banana", "orange", "apple", "lemon", "grapes"];
