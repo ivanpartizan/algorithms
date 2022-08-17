@@ -147,6 +147,16 @@ function squareDigits(num) {
 
 squareDigits(3212);
 
+// Make acronym
+function toAcronym(inp) {
+  return inp
+    .split(" ")
+    .map((word, index) => word[0].toUpperCase())
+    .join("");
+}
+
+toAcronym("Code wars");
+
 // Mix Fruit Juice
 function mixFruit(arr) {
   let five$ = ["banana", "orange", "apple", "lemon", "grapes"];
