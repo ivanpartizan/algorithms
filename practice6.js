@@ -133,6 +133,22 @@ function sumTwoSmallestNumbers(numbers) {
 
 sumTwoSmallestNumbers([19, 5, 42, 2, 77]);
 
+// Round up to the next multiple of 5
+function roundToNext5(n) {
+  if (n % 5 == 0) {
+    return n;
+  } else {
+    while (n % 5 != 0) {
+      n++;
+      if (n % 5 == 0) {
+        return n;
+      }
+    }
+  }
+}
+
+roundToNext5(5);
+
 // Square Every Digit
 function squareDigits(num) {
   num = String(num);
