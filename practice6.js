@@ -100,6 +100,32 @@ function heron(a, b, c) {
 
 heron(3, 4, 5);
 
+// Sort and Star
+function twoSort(s) {
+  let sorted = s.sort();
+  return sorted[0]
+    .split("")
+    .map((char, index) => {
+      return index === 0 ? char : `***${char}`;
+    })
+    .join("");
+}
+
+twoSort([
+  "turns",
+  "out",
+  "random",
+  "test",
+  "cases",
+  "are",
+  "easier",
+  "than",
+  "writing",
+  "out",
+  "basic",
+  "ones",
+]);
+
 // Complementary DNA
 function DNAStrand(dna) {
   let complementary = "";
