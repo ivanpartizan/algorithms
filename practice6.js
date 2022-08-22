@@ -263,3 +263,23 @@ function bintodec(num) {
 }
 
 bintodec(100111);
+
+// Next Prime
+function nextPrime(n) {
+  if (n < 2) return 2;
+  let i = n + 1;
+  if (isPrime(i)) return i;
+  while (!isPrime(i)) {
+    i++;
+    if (isPrime(i)) return i;
+  }
+}
+
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
