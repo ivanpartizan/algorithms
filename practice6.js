@@ -230,6 +230,27 @@ function removeRotten(bagOfFruits) {
 
 removeRotten(["apple", "banana", "kiwi", "melone", "orange"]);
 
+// Isograms
+function isIsogram(str) {
+  str = str.toLowerCase();
+  let obj = {};
+
+  for (let char of str) {
+    if (obj[char]) {
+      obj[char]++;
+    } else {
+      obj[char] = 1;
+    }
+  }
+
+  for (let key in obj) {
+    if (obj[key] > 1) return false;
+  }
+  return true;
+}
+
+isIsogram("Dermatoglyphics");
+
 // All unique
 function hasUniqueChars(str) {
   if (str === "") return true;
@@ -283,3 +304,15 @@ function isPrime(n) {
   }
   return true;
 }
+
+function pow(x, n) {
+  x = prompt("enter x");
+  n = prompt("enter n");
+  let result = x;
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+  return result;
+}
+
+pow();
