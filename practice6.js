@@ -272,6 +272,13 @@ function hasUniqueChars(str) {
 
 hasUniqueChars("  nAa");
 
+// Small enough? - Beginner
+function smallEnough(a, limit) {
+  return a.every((value) => value <= limit);
+}
+
+smallEnough([66, 101], 200);
+
 function bintodec(num) {
   let str = String(num);
   let sum = 0;
