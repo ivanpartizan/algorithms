@@ -781,3 +781,38 @@ function fib(n) {
 }
 
 fib(7);
+
+function Calculator() {
+  this.read = function () {
+    this.a = +prompt("enter first number");
+    this.b = +prompt("enter second number");
+  };
+  this.sum = function () {
+    return this.a + this.b;
+  };
+  this.mul = function () {
+    return this.a * this.b;
+  };
+}
+
+let calculator = new Calculator();
+calculator.read();
+
+console.log("Sum=" + calculator.sum());
+console.log("Mul=" + calculator.mul());
+
+function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = function () {
+    this.num = +prompt("add value");
+    this.value += this.num;
+  };
+}
+
+let accumulator = new Accumulator(1); // initial value 1
+
+accumulator.read(); // adds the user-entered value
+accumulator.read(); // adds the user-entered value
+
+console.log(accumulator.value);
