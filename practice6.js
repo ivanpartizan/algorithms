@@ -279,6 +279,17 @@ function smallEnough(a, limit) {
 
 smallEnough([66, 101], 200);
 
+// esreveR
+function reverse(array) {
+  let reversed = [];
+  for (let item of array) {
+    reversed.unshift(item);
+  }
+  return reversed;
+}
+
+reverse([1, null, 14, "two"]);
+
 function bintodec(num) {
   let str = String(num);
   let sum = 0;
