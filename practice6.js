@@ -230,6 +230,34 @@ function removeRotten(bagOfFruits) {
 
 removeRotten(["apple", "banana", "kiwi", "melone", "orange"]);
 
+// Highest Rank Number in an Array 6kyu
+function highestRank(arr) {
+  let obj = {};
+
+  for (let number of arr) {
+    if (obj[number]) {
+      obj[number]++;
+    } else {
+      obj[number] = 1;
+    }
+  }
+
+  let maxValue = 0;
+  let mostFrequentNumbers = [];
+
+  for (let [key, value] of Object.entries(obj)) {
+    if (value > maxValue) maxValue = value;
+  }
+
+  for (let [key, value] of Object.entries(obj)) {
+    if (obj[key] == maxValue) mostFrequentNumbers.push(key);
+  }
+
+  return Math.max(...mostFrequentNumbers);
+}
+
+highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12]);
+
 // Isograms
 function isIsogram(str) {
   str = str.toLowerCase();
