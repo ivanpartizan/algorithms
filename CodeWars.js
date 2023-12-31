@@ -72,6 +72,15 @@ function evenNumbers(array, number) {
 
 evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)
 
+// How many e-mails we sent today? 7kyu
+function getPercentage(sent, limit = 1000) {
+  if (sent == 0) return "No e-mails sent";
+  if (sent >= limit) return "Daily limit is reached";
+  else return `${Math.trunc(sent / limit * 100)}%`;
+}
+
+getPercentage(101, 1000)
+
 // max diff - easy 7kyu
 function maxDiff(list) {
   if (list.length == 1 || list.length == 0) return 0;
