@@ -460,6 +460,20 @@ function sortByLength(array) {
   return array.sort((a, b) => a.length - b.length)
 }
 
+// Smallest value of an array 7kyu
+function min(arr, toReturn) {
+  if (toReturn == 'value') return Math.min(...arr);
+  if (toReturn == 'index') {
+    let smallestValue = Infinity;
+    for (let num of arr) {
+      if (num < smallestValue) smallestValue = num;
+    }
+    return arr.indexOf(smallestValue);
+  }
+}
+
+min([1, 2, 3, 4, 5], 'value')
+
 // Exes and Ohs 7kyu
 function XO(str) {
   let x = [], o = [];
