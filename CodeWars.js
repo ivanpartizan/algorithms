@@ -11,14 +11,14 @@ function sumDigits(number) {
 // Sum of integers in string 7kyu
 function sumOfIntegersInString(s) {
   let integers = [];
-  let currentInteger = '';
+  let currentInteger = "";
 
   for (let char of s) {
     if (isFinite(char)) {
       currentInteger += char;
     } else if (currentInteger.length > 0) {
       integers.push(currentInteger);
-      currentInteger = '';
+      currentInteger = "";
     }
   }
 
@@ -35,18 +35,33 @@ function sumOfIntegersInString(s) {
   return sum;
 }
 
-sumOfIntegersInString("h3ll0w0rld")
+sumOfIntegersInString("h3ll0w0rld");
 
 // Sum - Square Even, Root Odd 7kyu
-const sumSquareEvenRootOdd = nums => {
-  let newNums = nums.map(num => num % 2 ? Math.sqrt(num) : num * num);
+const sumSquareEvenRootOdd = (nums) => {
+  let newNums = nums.map((num) => (num % 2 ? Math.sqrt(num) : num * num));
 
   let sum = newNums.reduce((acc, value) => acc + value, 0);
 
   return Math.round(sum * 100) / 100;
 };
 
-sumSquareEvenRootOdd([4,5,7,8,1,2,3,0])
+sumSquareEvenRootOdd([4, 5, 7, 8, 1, 2, 3, 0]);
+
+// Reduce My Fraction 7kyu
+function reduce(fraction) {
+  let min = Math.min(...fraction);
+  let max = Math.max(...fraction);
+  let divisor = 1;
+
+  for (let i = 1; i <= min; i++) {
+    if (min % i == 0 && max % i == 0) divisor = i;
+  }
+
+  return [fraction[0] / divisor, fraction[1] / divisor];
+}
+
+reduce([45, 120]);
 
 // Odd or Even? 7kyu
 function oddOrEven(array) {
@@ -54,10 +69,10 @@ function oddOrEven(array) {
   for (let number of array) {
     sum += number;
   }
-  return sum % 2 ? 'odd' : 'even';
+  return sum % 2 ? "odd" : "even";
 }
 
-oddOrEven([0, 1, 5])
+oddOrEven([0, 1, 5]);
 
 // Even numbers in an array 7kyu
 function evenNumbers(array, number) {
@@ -70,16 +85,16 @@ function evenNumbers(array, number) {
   return evens.reverse();
 }
 
-evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)
+evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3);
 
 // How many e-mails we sent today? 7kyu
 function getPercentage(sent, limit = 1000) {
   if (sent == 0) return "No e-mails sent";
   if (sent >= limit) return "Daily limit is reached";
-  else return `${Math.trunc(sent / limit * 100)}%`;
+  else return `${Math.trunc((sent / limit) * 100)}%`;
 }
 
-getPercentage(101, 1000)
+getPercentage(101, 1000);
 
 // max diff - easy 7kyu
 function maxDiff(list) {
@@ -89,18 +104,21 @@ function maxDiff(list) {
   let smallestValue = Math.min(...list);
 
   return largestValue - smallestValue;
-};
+}
 
-maxDiff([0, 1, 2, 3, 4, 5, 6])
+maxDiff([0, 1, 2, 3, 4, 5, 6]);
 
 // Numbers Which Sum of Powers of Its Digits Is The Same Number 7kyu
 function eqSumPowdig(hMax, exp) {
   let numbers = [];
 
   for (let i = 2; i <= hMax; i++) {
-    let hMaxNew = String(i).split('').map(num => +num).map(num => num**exp);
+    let hMaxNew = String(i)
+      .split("")
+      .map((num) => +num)
+      .map((num) => num ** exp);
     let hMaxNewSum = hMaxNew.reduce((acc, value) => acc + value, 0);
-  
+
     if (i === hMaxNewSum) {
       numbers.push(i);
     }
@@ -109,11 +127,12 @@ function eqSumPowdig(hMax, exp) {
   return numbers;
 }
 
-eqSumPowdig(1500, 3)
+eqSumPowdig(1500, 3);
 
 // The Most Amicable of Numbers 7kyu
 function amicableNumbers(num1, num2) {
-  let divisors1 = [], divisors2 = [];
+  let divisors1 = [],
+    divisors2 = [];
 
   for (let i = 1; i < num1; i++) {
     if (num1 % i == 0) {
@@ -133,45 +152,47 @@ function amicableNumbers(num1, num2) {
   return num1 == sum2 && num2 == sum1 ? true : false;
 }
 
-amicableNumbers(220, 284)
+amicableNumbers(220, 284);
 
 // Product of Largest Pair 7kyu
 function maxProduct(a) {
   let largestNumber = Math.max(...a);
-  let filtered = a.filter(num => num != largestNumber);
-  let secondLargestNumber = Math.max(...filtered); 
+  let filtered = a.filter((num) => num != largestNumber);
+  let secondLargestNumber = Math.max(...filtered);
 
   return largestNumber * secondLargestNumber;
 }
 
-maxProduct([56, 335, 195, 443, 6, 494, 252])
+maxProduct([56, 335, 195, 443, 6, 494, 252]);
 
 // Area of a Circle 7kyu
 function circleArea(radius) {
-  if (radius <= 0) throw new Error;
+  if (radius <= 0) throw new Error();
   return radius * radius * Math.PI;
 }
 
-circleArea(1)
+circleArea(1);
 
 // Sort rectangles and circles by area II 7kyu
 function sortByArea(array) {
-  let areas = array.map((object, index) => {
-    let area;
-    if (object.length === 2) {
-      area = object[0] * object[1];
-    } else {
-      area = object * object * Math.PI;
-    }
-    return { area, index };
-  }).sort((a, b) => a.area - b.area);
+  let areas = array
+    .map((object, index) => {
+      let area;
+      if (object.length === 2) {
+        area = object[0] * object[1];
+      } else {
+        area = object * object * Math.PI;
+      }
+      return { area, index };
+    })
+    .sort((a, b) => a.area - b.area);
 
-  let sortedArray = areas.map(item => array[item.index]);
+  let sortedArray = areas.map((item) => array[item.index]);
 
   return sortedArray;
 }
 
-sortByArea([ [4.23, 6.43], 1.23, 3.444, [1.342, 3.212] ])
+sortByArea([[4.23, 6.43], 1.23, 3.444, [1.342, 3.212]]);
 
 // noobCode 04: HOT SINGLES...compare two arrays, return the unpaired items ! 7kyu
 function hotSingles(arr1, arr2) {
@@ -192,23 +213,23 @@ function hotSingles(arr1, arr2) {
   return [...new Set(singles)];
 }
 
-hotSingles([1, 2, 3, 3], [3, 2, 1, 4, 5])
+hotSingles([1, 2, 3, 3], [3, 2, 1, 4, 5]);
 
 // Selective fear of numbers 7kyu
 function AmIAfraid(day, num) {
-  if (day == 'Monday' && num == 12) return true;
-  if (day == 'Tuesday' && num > 95) return true;
-  if (day == 'Wednesday' && num == 34) return true;
-  if (day == 'Thursday' && num == 0) return true;
-  if (day == 'Friday' && num % 2 == 0) return true;
-  if (day == 'Saturday' && num == 56) return true;
-  if (day == 'Sunday' && num == 666) return true;
-  if (day == 'Sunday' && num == -666) return true;
-  
+  if (day == "Monday" && num == 12) return true;
+  if (day == "Tuesday" && num > 95) return true;
+  if (day == "Wednesday" && num == 34) return true;
+  if (day == "Thursday" && num == 0) return true;
+  if (day == "Friday" && num % 2 == 0) return true;
+  if (day == "Saturday" && num == 56) return true;
+  if (day == "Sunday" && num == 666) return true;
+  if (day == "Sunday" && num == -666) return true;
+
   return false;
 }
 
-AmIAfraid("Monday", 13)
+AmIAfraid("Monday", 13);
 
 // Perfect squares, perfect fun 7kyu
 function squareIt(int) {
@@ -223,35 +244,38 @@ function squareIt(int) {
   if (!Number.isInteger(squareRoot)) {
     return "Not a perfect square!";
   } else {
-    for (let i = 0; i < intLength; i+= squareRoot) {
+    for (let i = 0; i < intLength; i += squareRoot) {
       newString += `${string.slice(i, i + squareRoot)}\n`;
     }
     return newString.trim();
   }
 }
 
-squareIt(1212)
+squareIt(1212);
 
 // Fix My Phone Numbers! 7kyu
 function isItANum(str) {
-  let number = str.split('').map(char => {
-    if (Number.isInteger(+char) && char !== ' ') {
-      return char
-    }
-  }).join('')
+  let number = str
+    .split("")
+    .map((char) => {
+      if (Number.isInteger(+char) && char !== " ") {
+        return char;
+      }
+    })
+    .join("");
 
   if (number.length == 11 && number[0] == 0) {
-    return number
+    return number;
   } else {
-    return "Not a phone number"
+    return "Not a phone number";
   }
 }
 
-isItANum("S:)0207ERGQREG88349F82!efRF)")
+isItANum("S:)0207ERGQREG88349F82!efRF)");
 
 // Cryptanalysis Word Patterns 7kyu
 function wordPattern(word) {
-  let simpleWord = '';
+  let simpleWord = "";
 
   for (let char of word.toLowerCase()) {
     if (!simpleWord.includes(char)) simpleWord += char;
@@ -261,72 +285,93 @@ function wordPattern(word) {
 
   for (let char of word.toLowerCase()) {
     array.push(simpleWord.indexOf(char));
-  } 
+  }
 
-  return array.join('.');
+  return array.join(".");
 }
 
-wordPattern("helLo")
+wordPattern("helLo");
 
 // Remove anchor from URL 7kyu
 function removeUrlAnchor(url) {
-  if (url.includes('#')) {
-    let split = url.split('#');
+  if (url.includes("#")) {
+    let split = url.split("#");
     return split[0];
   } else {
     return url;
   }
 }
 
-removeUrlAnchor('www.codewars.com#about')
+removeUrlAnchor("www.codewars.com#about");
 
 // NATO Phonetic Alphabet 7kyu
 function nato(word) {
-  return word.toUpperCase().split('').map(char => letters[char]).join(' ');
+  return word
+    .toUpperCase()
+    .split("")
+    .map((char) => letters[char])
+    .join(" ");
 }
 
-let letters =  {
-  "A": "Alpha",  "B": "Bravo",   "C": "Charlie",
-  "D": "Delta",  "E": "Echo",    "F": "Foxtrot",
-  "G": "Golf",   "H": "Hotel",   "I": "India",
-  "J": "Juliett","K": "Kilo",    "L": "Lima",
-  "M": "Mike",   "N": "November","O": "Oscar",
-  "P": "Papa",   "Q": "Quebec",  "R": "Romeo",
-  "S": "Sierra", "T": "Tango",   "U": "Uniform",
-  "V": "Victor", "W": "Whiskey", "X": "X-ray",
-  "Y": "Yankee", "Z": "Zulu"
-}
+let letters = {
+  A: "Alpha",
+  B: "Bravo",
+  C: "Charlie",
+  D: "Delta",
+  E: "Echo",
+  F: "Foxtrot",
+  G: "Golf",
+  H: "Hotel",
+  I: "India",
+  J: "Juliett",
+  K: "Kilo",
+  L: "Lima",
+  M: "Mike",
+  N: "November",
+  O: "Oscar",
+  P: "Papa",
+  Q: "Quebec",
+  R: "Romeo",
+  S: "Sierra",
+  T: "Tango",
+  U: "Uniform",
+  V: "Victor",
+  W: "Whiskey",
+  X: "X-ray",
+  Y: "Yankee",
+  Z: "Zulu",
+};
 
-nato('abc')
+nato("abc");
 
 // Longest vowel chain 7kyu
 function solve(s) {
   let array = [];
-  let substring = '';
+  let substring = "";
 
   for (let char of s) {
     if (/[aeiou]/.test(char)) {
       substring += char;
     } else {
       array.push(substring);
-      substring = '';
+      substring = "";
     }
   }
 
-  let substringLength = array.map(substring => substring.length);
+  let substringLength = array.map((substring) => substring.length);
   return Math.max(...substringLength);
 }
 
-solve("codewarriors")
+solve("codewarriors");
 
 // Shortest Word 7kyu
 function findShort(s) {
   let words = s.split(" ");
-  let lengths = words.map(word => word.length);
-  return Math.min(...lengths);  
+  let lengths = words.map((word) => word.length);
+  return Math.min(...lengths);
 }
 
-findShort("bitcoin take over the world maybe who knows perhaps")
+findShort("bitcoin take over the world maybe who knows perhaps");
 
 // Find the capitals 7kyu
 function capitals(word) {
@@ -339,57 +384,62 @@ function capitals(word) {
   }
 
   return capitalIndexes;
-};
+}
 
-capitals('CodEWaRs')
+capitals("CodEWaRs");
 
 // Break camelCase 6kyu
 function solution(string) {
-  return string.split('').map(char => {
-    if (char == char.toUpperCase()) {
-      return ` ${char}`
-    } else {
-      return char
-    }
-  }).join('')
+  return string
+    .split("")
+    .map((char) => {
+      if (char == char.toUpperCase()) {
+        return ` ${char}`;
+      } else {
+        return char;
+      }
+    })
+    .join("");
 }
 
-solution('camelCasingTest')
+solution("camelCasingTest");
 
 // Alternate case 7kyu
 function alternateCase(s) {
-  let newString = '';
+  let newString = "";
 
   for (let char of s) {
-    char === char.toUpperCase() ? newString += char.toLowerCase() : newString += char.toUpperCase();
+    char === char.toUpperCase()
+      ? (newString += char.toLowerCase())
+      : (newString += char.toUpperCase());
   }
 
   return newString;
 }
 
-alternateCase("Hello World")
+alternateCase("Hello World");
 
 // Simple Fun #176: Reverse Letter 7kyu
 function reverseLetter(str) {
-  let reversed = '';
+  let reversed = "";
 
   for (let i = 0; i < str.length; i++) {
     if (str.codePointAt(i) > 96 && str.codePointAt(i) < 123) {
       reversed += str[i];
     }
   }
-  
-  reversed = reversed.split('').reverse().join('');
+
+  reversed = reversed.split("").reverse().join("");
   return reversed;
 }
 
-reverseLetter("ab23c")
+reverseLetter("ab23c");
 
 // Replace every nth 7kyu
 function replaceNth(text, n, oldValue, newValue) {
   if (n < 1) return text;
 
-  let array = text.split('');
+  let array = text.split("");
   let indexes = [];
   for (let i = 0; i < text.length; i++) {
     if (text[i] == oldValue) {
@@ -400,24 +450,27 @@ function replaceNth(text, n, oldValue, newValue) {
   for (let i = n - 1; i < indexes.length; i += n) {
     array[indexes[i]] = newValue;
   }
- 
- return array.join('');
+
+  return array.join("");
 }
 
-replaceNth("Vader said: No, I am your father!", 2, 'a', 'o')
+replaceNth("Vader said: No, I am your father!", 2, "a", "o");
 
 // Disemvowel Trolls 7kyu
 function disemvowel(str) {
-  return str.split('').map(char => {
-    if (/[AEIOUaeiou]/.test(char)) {
-      return '';
-    } else {
-      return char;
-    }
-  }).join('');
+  return str
+    .split("")
+    .map((char) => {
+      if (/[AEIOUaeiou]/.test(char)) {
+        return "";
+      } else {
+        return char;
+      }
+    })
+    .join("");
 }
 
-disemvowel("This website is for losers LOL!")
+disemvowel("This website is for losers LOL!");
 
 // Regex validate PIN code 7kyu
 function validatePIN(pin) {
@@ -426,7 +479,7 @@ function validatePIN(pin) {
   return regex1.test(pin) || regex2.test(pin) ? true : false;
 }
 
-validatePIN("a234")
+validatePIN("a234");
 
 // Leap Years 7kyu
 function isLeapYear(year) {
@@ -439,31 +492,35 @@ function isLeapYear(year) {
   }
 }
 
-isLeapYear(2020)
+isLeapYear(2020);
 
 // What century is it? 6kyu
 function whatCentury(year) {
   let century = Math.ceil(year / 100);
   let ending = String(century).at(1);
 
-  return century < 21 ? `${century}th` : 
-    ending == 1 ? `${century}st` : 
-    ending == 2 ? `${century}nd` :
-    ending == 3 ? `${century}rd` :
-    `${century}th`; 
+  return century < 21
+    ? `${century}th`
+    : ending == 1
+    ? `${century}st`
+    : ending == 2
+    ? `${century}nd`
+    : ending == 3
+    ? `${century}rd`
+    : `${century}th`;
 }
 
-whatCentury(1999)
+whatCentury(1999);
 
 // Sort array by string length 7kyu
 function sortByLength(array) {
-  return array.sort((a, b) => a.length - b.length)
+  return array.sort((a, b) => a.length - b.length);
 }
 
 // Smallest value of an array 7kyu
 function min(arr, toReturn) {
-  if (toReturn == 'value') return Math.min(...arr);
-  if (toReturn == 'index') {
+  if (toReturn == "value") return Math.min(...arr);
+  if (toReturn == "index") {
     let smallestValue = Infinity;
     for (let num of arr) {
       if (num < smallestValue) smallestValue = num;
@@ -472,74 +529,81 @@ function min(arr, toReturn) {
   }
 }
 
-min([1, 2, 3, 4, 5], 'value')
+min([1, 2, 3, 4, 5], "value");
 
 // Exes and Ohs 7kyu
 function XO(str) {
-  let x = [], o = [];
+  let x = [],
+    o = [];
   for (let char of str) {
-    char == 'x' || char == 'X' ? x.push(char) : char == 'o' || char == 'O' ? o.push(char) : null; 
+    char == "x" || char == "X"
+      ? x.push(char)
+      : char == "o" || char == "O"
+      ? o.push(char)
+      : null;
   }
   return x.length == o.length ? true : false;
 }
 
-XO("xxOo")
+XO("xxOo");
 
 // What time is it? 7kyu
 function getMilitaryTime(input) {
-  let str = '';
-  let arr = input.split(':');
+  let str = "";
+  let arr = input.split(":");
   arr[2] = arr[2].slice(0, 2);
 
-  if (input.includes('AM')) {
-    if (arr[0] === '12') {
-      arr[0] = '00';
+  if (input.includes("AM")) {
+    if (arr[0] === "12") {
+      arr[0] = "00";
     }
     str = `${arr[0]}:${arr[1]}:${arr[2]}`;
   }
 
-  if (input.includes('PM')) {
-    if (arr[0] !== '12') {
+  if (input.includes("PM")) {
+    if (arr[0] !== "12") {
       arr[0] = String(Number(arr[0]) + 12);
     }
     str = `${arr[0]}:${arr[1]}:${arr[2]}`;
   }
 
   return str;
-} 
+}
 
-getMilitaryTime('12:00:01AM') 
+getMilitaryTime("12:00:01AM");
 
 // Converting 12-hour time to 24-hour time 7kyu
 function to24hourtime(hour, minute, period) {
   let h;
 
-  if (hour == 12 && period == 'am') h = 0;
-  if (hour == 12 && period == 'pm') h = 12;
-  if (hour != 12 && period == 'am') h = hour;
-  if (hour != 12 && period == 'pm') h = hour + 12;
+  if (hour == 12 && period == "am") h = 0;
+  if (hour == 12 && period == "pm") h = 12;
+  if (hour != 12 && period == "am") h = hour;
+  if (hour != 12 && period == "pm") h = hour + 12;
 
   return `${h < 10 ? `0${h}` : h}${minute < 10 ? `0${minute}` : minute}`;
 }
 
-to24hourtime(9, 45, "pm")
+to24hourtime(9, 45, "pm");
 
 // Easy Time Convert 7kyu
-function timeConvert(num) { 
-  if (num <= 0) return '00:00';
+function timeConvert(num) {
+  if (num <= 0) return "00:00";
 
   let hours = Math.floor(num / 60);
   let minutes = num % 60;
 
-  return `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
+  return `${hours < 10 ? `0${hours}` : hours}:${
+    minutes < 10 ? `0${minutes}` : minutes
+  }`;
 }
 
-timeConvert(75)
+timeConvert(75);
 
 // Running out of space 7kyu
 function spacey(array) {
   let result = [];
-  let word = '';
+  let word = "";
   for (let i = 0; i < array.length; i++) {
     word = word + array[i];
     result.push(word);
@@ -558,7 +622,7 @@ function twoArePositive(a, b, c) {
   return positiveNumbers.length == 2 ? true : false;
 }
 
-twoArePositive(2, 4, -3)
+twoArePositive(2, 4, -3);
 
 // Simple remove duplicates 7kyu
 function solve(arr) {
@@ -573,7 +637,7 @@ function solve(arr) {
   return newArr.reverse();
 }
 
-solve([3, 4, 4, 3, 6, 3])
+solve([3, 4, 4, 3, 6, 3]);
 
 // Remove duplication 7kyu
 function removeDuplication(arr) {
@@ -582,7 +646,7 @@ function removeDuplication(arr) {
 
   for (let number of arr) {
     if (isFinite(number)) {
-      countNumbers[number] = countNumbers[number] + 1 || 1;      
+      countNumbers[number] = countNumbers[number] + 1 || 1;
     }
   }
 
@@ -592,7 +656,7 @@ function removeDuplication(arr) {
     }
   }
 
-  return newArray.map(num => +num);
+  return newArray.map((num) => +num);
 }
 
 // Count characters in your string 6kyu
@@ -610,29 +674,30 @@ function count(string) {
   return obj;
 }
 
-count('aba')
+count("aba");
 
 // Vampire Numbers 7kyu
 function vampireTest(a, b) {
   let product = a * b;
 
-  let obj1 = {}, obj2 = {};
+  let obj1 = {},
+    obj2 = {};
 
   for (let char of String(a)) {
-    obj1[char] = ((obj1[char] || 0) + 1);
+    obj1[char] = (obj1[char] || 0) + 1;
   }
   for (let char of String(b)) {
-    obj1[char] = ((obj1[char] || 0) + 1);
+    obj1[char] = (obj1[char] || 0) + 1;
   }
 
   for (let char of String(product)) {
-    obj2[char] = ((obj2[char] || 0) + 1);
+    obj2[char] = (obj2[char] || 0) + 1;
   }
 
-  return JSON.stringify(obj1) === JSON.stringify(obj2); 
+  return JSON.stringify(obj1) === JSON.stringify(obj2);
 }
 
-vampireTest(30, -51)
+vampireTest(30, -51);
 
 // Maximum Multiple 7kyu
 function maxMultiple(divisor, bound) {
@@ -643,7 +708,7 @@ function maxMultiple(divisor, bound) {
   return multiples.at(-1);
 }
 
-maxMultiple(37, 200)
+maxMultiple(37, 200);
 
 // Factorial 7kyu
 function factorial(n) {
@@ -666,30 +731,85 @@ function sumFactorial(arr) {
 
 // Friend or Foe? 7kyu
 function friend(friends) {
-  return friends.filter(name => name.length == 4);
+  return friends.filter((name) => name.length == 4);
 }
 
-friend(["Ryan", "Kieran", "Mark"])
+friend(["Ryan", "Kieran", "Mark"]);
 
 // Replace letters 6kyu
-const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
-const vowels = ['a', 'e', 'i', 'o', 'u'];
+const alphabet = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+const consonants = [
+  "b",
+  "c",
+  "d",
+  "f",
+  "g",
+  "h",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+const vowels = ["a", "e", "i", "o", "u"];
 
 function replaceLetters(word) {
-  new_word = '';
+  new_word = "";
 
   for (let letter of word) {
     let position = alphabet.indexOf(letter);
-      
+
     if (vowels.indexOf(letter) > -1) {
-      let consonant = letter == 'a' ? 'z' : alphabet[position - 1];
+      let consonant = letter == "a" ? "z" : alphabet[position - 1];
       new_word += consonant;
     } else {
-      let vowel = position > 0 && position < 4 ? 'e' : 
-      position > 4 && position < 8 ? 'i' : 
-      position > 8 && position < 14 ? 'o' : 
-      position > 14 && position < 20 ? 'u' : 'a'; 
+      let vowel =
+        position > 0 && position < 4
+          ? "e"
+          : position > 4 && position < 8
+          ? "i"
+          : position > 8 && position < 14
+          ? "o"
+          : position > 14 && position < 20
+          ? "u"
+          : "a";
       new_word += vowel;
     }
   }
@@ -697,12 +817,12 @@ function replaceLetters(word) {
   return new_word;
 }
 
-replaceLetters('abcdtuvwxyz')
+replaceLetters("abcdtuvwxyz");
 
 // All Star Code Challenge #3 7kyu
-var removeVowels = function(str){
-  let vowels = ['a', 'e', 'i', 'o', 'u'];
-  let withoutVowels = '';
+var removeVowels = function (str) {
+  let vowels = ["a", "e", "i", "o", "u"];
+  let withoutVowels = "";
 
   for (let char of str) {
     if (!vowels.includes(char)) {
@@ -711,9 +831,9 @@ var removeVowels = function(str){
   }
 
   return withoutVowels;
-}
+};
 
-removeVowels('drake')
+removeVowels("drake");
 
 // Jubilee Year 7kyu
 function isJubilee(year) {
@@ -721,12 +841,12 @@ function isJubilee(year) {
   return date.getDay() === 0 ? true : false;
 }
 
-isJubilee(2020) 
+isJubilee(2020);
 
 // The unknown but known variables: Addition 7kyu
 function theVar(theVariables) {
-  let [first, second] = theVariables.split('+');
-  return (first.codePointAt(0) - 96) + (second.codePointAt(0) - 96);
+  let [first, second] = theVariables.split("+");
+  return first.codePointAt(0) - 96 + (second.codePointAt(0) - 96);
 }
 
-theVar('d+g')
+theVar("d+g");
