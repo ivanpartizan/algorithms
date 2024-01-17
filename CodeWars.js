@@ -850,3 +850,11 @@ function theVar(theVariables) {
 }
 
 theVar("d+g");
+
+// Determine if the poker hand is flush 7kyu
+function isFlush(cards) {
+  let suits = cards.map((card) => card[card.length - 1]);
+  return suits.every((card) => card == suits[0]);
+}
+
+isFlush(["AS", "3S", "9S", "KS", "4S"]);
