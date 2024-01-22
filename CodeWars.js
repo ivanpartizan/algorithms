@@ -456,6 +456,23 @@ function replaceNth(text, n, oldValue, newValue) {
 
 replaceNth("Vader said: No, I am your father!", 2, "a", "o");
 
+// shorter concat [reverse longer] 7kyu
+function shorterReverseLonger(a, b) {
+  return a.length >= b.length
+    ? `${b}${a.split("").reverse().join("")}${b}`
+    : `${a}${b.split("").reverse().join("")}${a}`;
+}
+
+function shorterReverseLonger(a, b) {
+  if (a.length >= b.length) {
+    return `${b}${a.split("").reverse().join("")}${b}`;
+  } else {
+    return `${a}${b.split("").reverse().join("")}${a}`;
+  }
+}
+
+shorterReverseLonger("first", "abcde");
+
 // Disemvowel Trolls 7kyu
 function disemvowel(str) {
   return str
