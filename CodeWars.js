@@ -108,6 +108,20 @@ function maxDiff(list) {
 
 maxDiff([0, 1, 2, 3, 4, 5, 6]);
 
+// Plus - minus - plus - plus - ... - Count 7kyu
+function catchSignChange(arr) {
+  let count = 0;
+  if (arr.length == 0) return 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i] >= 0 && arr[i + 1] < 0) || (arr[i] < 0 && arr[i + 1] >= 0))
+      count++;
+  }
+  return count;
+}
+
+catchSignChange([1, -3, -4, 0, 5]);
+
 // Numbers Which Sum of Powers of Its Digits Is The Same Number 7kyu
 function eqSumPowdig(hMax, exp) {
   let numbers = [];
