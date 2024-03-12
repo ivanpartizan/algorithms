@@ -229,6 +229,37 @@ function hotSingles(arr1, arr2) {
 
 hotSingles([1, 2, 3, 3], [3, 2, 1, 4, 5]);
 
+// Naughty or Nice? 7kyu
+function whatListAmIOn(actions) {
+  let naughty = [],
+    nice = [];
+
+  for (let action of actions) {
+    if (
+      action.startsWith("b") ||
+      action.startsWith("f") ||
+      action.startsWith("k")
+    ) {
+      naughty.push(action);
+    }
+    if (
+      action.startsWith("g") ||
+      action.startsWith("s") ||
+      action.startsWith("n")
+    ) {
+      nice.push(action);
+    }
+  }
+
+  return naughty.length >= nice.length ? "naughty" : "nice";
+}
+
+whatListAmIOn([
+  "broke a vending machine",
+  "never got into a fight",
+  "tied someone's shoes",
+]);
+
 // Selective fear of numbers 7kyu
 function AmIAfraid(day, num) {
   if (day == "Monday" && num == 12) return true;
