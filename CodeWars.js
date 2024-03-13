@@ -260,6 +260,21 @@ whatListAmIOn([
   "tied someone's shoes",
 ]);
 
+// From A to Z 7kyu
+function gimmeTheLetters(lettersRange) {
+  let start = lettersRange.codePointAt(0);
+  let end = lettersRange.codePointAt(lettersRange.length - 1);
+  let letters = "";
+
+  for (let i = start; i <= end; i++) {
+    letters += String.fromCodePoint(i);
+  }
+
+  return letters;
+}
+
+gimmeTheLetters("Q-Z");
+
 // Selective fear of numbers 7kyu
 function AmIAfraid(day, num) {
   if (day == "Monday" && num == 12) return true;
