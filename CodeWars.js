@@ -313,6 +313,17 @@ function squareIt(int) {
 
 squareIt(1212);
 
+// Find the next perfect square! 7kyu
+function findNextSquare(sq) {
+  if (Math.sqrt(sq) != Math.round(Math.sqrt(sq))) return -1;
+  else {
+    let number = Math.sqrt(sq);
+    return (number + 1) ** 2;
+  }
+}
+
+findNextSquare(121);
+
 // Fix My Phone Numbers! 7kyu
 function isItANum(str) {
   let number = str
