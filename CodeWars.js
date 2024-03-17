@@ -747,6 +747,27 @@ function removeDuplication(arr) {
   return newArray.map((num) => +num);
 }
 
+// Simple Fun #147: Find The Missing Tree 7kyu
+function findTheMissingTree(trees) {
+  let obj = {};
+
+  for (let tree of trees) {
+    obj[tree] == undefined ? (obj[tree] = 1) : obj[tree]++;
+  }
+
+  let values = Object.values(obj);
+
+  let unique = values.filter(
+    (value, index, array) => array.indexOf(value) == array.lastIndexOf(value)
+  );
+
+  for (let key in obj) {
+    if (obj[key] == unique) return +key;
+  }
+}
+
+findTheMissingTree([11, 2, 3, 3, 3, 11, 2, 2]);
+
 // Count characters in your string 6kyu
 function count(string) {
   let obj = {};
