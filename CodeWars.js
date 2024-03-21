@@ -967,3 +967,26 @@ function isFlush(cards) {
 }
 
 isFlush(["AS", "3S", "9S", "KS", "4S"]);
+
+// Frog's Dinner 7kyu
+function frogContest(n) {
+  function sum(n) {
+    let numbers = [];
+
+    for (let i = 1; i <= n; i++) {
+      numbers.push(i);
+    }
+
+    return numbers.reduce((acc, value) => acc + value);
+  }
+
+  let fliesEatenByChris = sum(n);
+  let TomsNumber = Math.floor(fliesEatenByChris / 2);
+  let fliesEatenByTom = sum(TomsNumber);
+  let CatsNumber = fliesEatenByChris + fliesEatenByTom;
+  let fliesEatenByCat = sum(CatsNumber);
+
+  return `Chris ate ${fliesEatenByChris} flies, Tom ate ${fliesEatenByTom} flies and Cat ate ${fliesEatenByCat} flies`;
+}
+
+frogContest(8);
