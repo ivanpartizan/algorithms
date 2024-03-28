@@ -1,3 +1,4 @@
+// Sum of the first nth term of Series 7kyu
 function SeriesSum(n) {
   let series = [];
 
@@ -10,6 +11,22 @@ function SeriesSum(n) {
 }
 
 SeriesSum(5);
+
+// Odd-Even String Sort 7kyu
+function sortMyString(S) {
+  let evenIndexed = "";
+  let oddIndexed = "";
+
+  let letters = S.split("");
+
+  letters.forEach((letter, index) => {
+    index % 2 ? (oddIndexed += letter) : (evenIndexed += letter);
+  });
+
+  return `${evenIndexed} ${oddIndexed}`;
+}
+
+sortMyString("CodeWars");
 
 // Turn any word into a beef taco 7kyu
 function tacofy(word) {
