@@ -71,3 +71,13 @@ function tacofy(word) {
 }
 
 tacofy("ogl");
+
+// Is it a letter? 7kyu
+function isItLetter(character) {
+  let code = character.codePointAt(0);
+  return (code >= 65 && code <= 90) || (code >= 97 && code <= 122)
+    ? true
+    : false;
+}
+
+isItLetter("a");
