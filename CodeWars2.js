@@ -81,3 +81,24 @@ function isItLetter(character) {
 }
 
 isItLetter("a");
+
+// Rock Paper Scissors Lizard Spock 7kyu
+function rpsls(pl1, pl2) {
+  if (pl1 == pl2) return "Draw!";
+  else if (
+    (pl1 == "Scissors" && pl2 == "Paper") ||
+    (pl1 == "Paper" && pl2 == "Rock") ||
+    (pl1 == "Rock" && pl2 == "Lizard") ||
+    (pl1 == "Lizard" && pl2 == "Spock") ||
+    (pl1 == "Spock" && pl2 == "Scissors") ||
+    (pl1 == "Scissors" && pl2 == "Lizard") ||
+    (pl1 == "Lizard" && pl2 == "Paper") ||
+    (pl1 == "Paper" && pl2 == "Spock") ||
+    (pl1 == "Spock" && pl2 == "Rock") ||
+    (pl1 == "Rock" && pl2 == "Scissors")
+  ) {
+    return "Player 1 Won!";
+  } else return "Player 2 Won!";
+}
+
+rpsls("spock", "lizard");
