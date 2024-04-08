@@ -49,6 +49,32 @@ function sortMyString(S) {
 
 sortMyString("CodeWars");
 
+// Histogram - H1 7kyu
+function histogram(results) {
+  let six = `6|${"#".repeat(results[5])}${
+    results[5] > 0 ? ` ${results[5]}` : ""
+  }`;
+  let five = `5|${"#".repeat(results[4])}${
+    results[4] > 0 ? ` ${results[4]}` : ""
+  }`;
+  let four = `4|${"#".repeat(results[3])}${
+    results[3] > 0 ? ` ${results[3]}` : ""
+  }`;
+  let three = `3|${"#".repeat(results[2])}${
+    results[2] > 0 ? ` ${results[2]}` : ""
+  }`;
+  let two = `2|${"#".repeat(results[1])}${
+    results[1] > 0 ? ` ${results[1]}` : ""
+  }`;
+  let one = `1|${"#".repeat(results[0])}${
+    results[0] > 0 ? ` ${results[0]}` : ""
+  }`;
+
+  return `${six}\n${five}\n${four}\n${three}\n${two}\n${one}\n`;
+}
+
+histogram([7, 3, 10, 1, 0, 5]);
+
 // Turn any word into a beef taco 7kyu
 function tacofy(word) {
   let array = word.split("");
