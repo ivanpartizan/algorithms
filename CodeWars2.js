@@ -75,6 +75,31 @@ function histogram(results) {
 
 histogram([7, 3, 10, 1, 0, 5]);
 
+// Colored Hexes! 7kyu
+function hexColor(codes) {
+  let [red, green, blue] = codes.split(" ").map((number) => +number);
+
+  if (!codes || (red == 0 && green == 0 && blue == 0)) {
+    return "black";
+  } else if (red == green && green == blue && blue == red) {
+    return "white";
+  } else if (red > green && red > blue) {
+    return "red";
+  } else if (green > red && green > blue) {
+    return "green";
+  } else if (blue > red && blue > green) {
+    return "blue";
+  } else if (red == blue) {
+    return "magenta";
+  } else if (green == red) {
+    return "yellow";
+  } else if (blue == green) {
+    return "cyan";
+  }
+}
+
+hexColor("121 245 255");
+
 // Turn any word into a beef taco 7kyu
 function tacofy(word) {
   let array = word.split("");
