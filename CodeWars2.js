@@ -123,6 +123,62 @@ function tacofy(word) {
 
 tacofy("ogl");
 
+// Number encrypting: cypher 7kyu
+function cypher(string) {
+  let cyphered = "";
+
+  for (let char of string) {
+    switch (char) {
+      case "I":
+      case "l":
+        cyphered += 1;
+        break;
+      case "R":
+      case "z":
+        cyphered += 2;
+        break;
+      case "E":
+      case "e":
+        cyphered += 3;
+        break;
+      case "A":
+      case "a":
+        cyphered += 4;
+        break;
+      case "S":
+      case "s":
+        cyphered += 5;
+        break;
+      case "G":
+      case "b":
+        cyphered += 6;
+        break;
+      case "T":
+      case "t":
+        cyphered += 7;
+        break;
+      case "B":
+        cyphered += 8;
+        break;
+      case "g":
+        cyphered += 9;
+        break;
+      case "O":
+      case "o":
+        cyphered += 0;
+        break;
+
+      default:
+        cyphered += char;
+        break;
+    }
+  }
+
+  return cyphered;
+}
+
+cypher("Hello World");
+
 // Is it a letter? 7kyu
 function isItLetter(character) {
   let code = character.codePointAt(0);
