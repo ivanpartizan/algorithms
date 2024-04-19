@@ -90,6 +90,29 @@ function histogram(results) {
 
 histogram([7, 3, 10, 1, 0, 5]);
 
+// Pig Sursurunga 6kyu
+function sursurungal(txt) {
+  let regex = /(\d+)\s+(\w+)/g;
+
+  let pigSursurungal = txt.replace(regex, (match, number, string) => {
+    if (parseInt(number) == 2) {
+      return `${number} bu${string.slice(0, -1)}`;
+    }
+    if (parseInt(number) >= 3 && parseInt(number) <= 9) {
+      return `${number} ${string.slice(0, -1)}zo`;
+    }
+    if (parseInt(number) > 9) {
+      return `${number} ga${string.slice(0, -1)}ga`;
+    }
+
+    return match;
+  });
+
+  return pigSursurungal;
+}
+
+sursurungal("5 lions and 15 zebras");
+
 // Colored Hexes! 7kyu
 function hexColor(codes) {
   let [red, green, blue] = codes.split(" ").map((number) => +number);
