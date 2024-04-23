@@ -19,6 +19,13 @@ matrix([
   [-3, 2, 1, -5, 6],
 ]);
 
+// Thinkful - List and Loop Drills: Inverse Slicer 7kyu
+function inverseSlice(items, a, b) {
+  return items.filter((item, index) => index < a || index >= b);
+}
+
+inverseSlice([12, 14, 63, 72, 55, 24], 2, 4);
+
 // Sum of the first nth term of Series 7kyu
 function SeriesSum(n) {
   let series = [];
