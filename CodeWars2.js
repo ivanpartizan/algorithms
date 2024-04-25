@@ -71,6 +71,26 @@ function sortMyString(S) {
 
 sortMyString("CodeWars");
 
+// Sort the Vowels! 7kyu
+function sortVowels(s) {
+  if (typeof s == "number" || s === null || s === undefined) return "";
+
+  let sorted = "";
+
+  for (let char of s) {
+    if (/[aeiou]/i.test(char)) {
+      sorted += `|${char}\n`;
+    } else {
+      sorted += `${char}|\n`;
+    }
+  }
+
+  sorted = sorted.replace(/\n$/, "");
+  return sorted;
+}
+
+sortVowels("Codewars");
+
 // Histogram - H1 7kyu
 function histogram(results) {
   let six = `6|${"#".repeat(results[5])}${
