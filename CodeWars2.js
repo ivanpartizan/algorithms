@@ -254,6 +254,24 @@ function isItLetter(character) {
 
 isItLetter("a");
 
+// A Letter's Best Friend 7kyu
+function bestFriend(txt, a, b) {
+  if (!txt.includes(a)) return true;
+  if (!txt.includes(b)) return false;
+
+  let pairs = [];
+
+  for (let i = 0; i < txt.length; i++) {
+    if (txt[i] == a) {
+      pairs.push(`${txt[i]}${txt[i + 1]}`);
+    }
+  }
+
+  return pairs.every((pair) => pair[0] == a && pair[1] == b);
+}
+
+bestFriend("he headed to the store", "h", "e");
+
 // Rock Paper Scissors Lizard Spock 7kyu
 function rpsls(pl1, pl2) {
   if (pl1 == pl2) return "Draw!";
