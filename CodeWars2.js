@@ -40,6 +40,31 @@ function SeriesSum(n) {
 
 SeriesSum(5);
 
+// Simple Maths Test 7kyu
+function numberProperty(n) {
+  let isPrime, isEven, isMultipleOf10;
+
+  if (n < 2) {
+    isPrime = false;
+  } else {
+    isPrime = true;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i == 0) {
+        isPrime = false;
+        break;
+      }
+    }
+  }
+
+  isEven = n % 2 == 0 ? true : false;
+
+  isMultipleOf10 = n % 10 == 0 || n % 10 == -0 ? true : false;
+
+  return [isPrime, isEven, isMultipleOf10];
+}
+
+numberProperty(7);
+
 // Simple consecutive pairs 7kyu
 function pairs(ar) {
   let count = 0;
