@@ -40,6 +40,25 @@ function SeriesSum(n) {
 
 SeriesSum(5);
 
+// Sum it continuously 7kyu
+function add(arr) {
+  let sums = arr.map((number, index) => {
+    if (index == 0) {
+      return number;
+    } else {
+      let currentSum = arr[0];
+      for (let i = 1; i <= index; i++) {
+        currentSum += arr[i];
+      }
+      return currentSum;
+    }
+  });
+
+  return sums;
+}
+
+add([1, 2, 3, 4, 5]);
+
 // Simple Maths Test 7kyu
 function numberProperty(n) {
   let isPrime, isEven, isMultipleOf10;
