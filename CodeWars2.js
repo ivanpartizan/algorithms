@@ -232,6 +232,41 @@ function tacofy(word) {
 
 tacofy("ogl");
 
+// De-Emojify 7kyu
+function deEmojify(emojiString) {
+  if (emojiString === "") return "";
+
+  let table = {
+    ":)": 0,
+    ":D": 1,
+    ">(": 2,
+    ">:C": 3,
+    ":/": 4,
+    ":|": 5,
+    ":O ": 6,
+    ";)": 7,
+    "^.^": 8,
+    ":(": 9,
+  };
+
+  let split = emojiString.split("  ");
+
+  let numbers = split.map((chain) => {
+    let digits = chain
+      .split(" ")
+      .map((char) => table[char])
+      .join("");
+    return +digits;
+  });
+
+  let letters = numbers.map((number) => String.fromCodePoint(number));
+  return letters.join("");
+}
+
+deEmojify(
+  ";) >(  :D :) :D  :D :) ^.^  :D :) ^.^  :D :D :D  >:C >(  :D :D :(  :D :D :D  :D :D :/  :D :) ^.^  :D :) :)  >:C >:C"
+);
+
 // Number encrypting: cypher 7kyu
 function cypher(string) {
   let cyphered = "";
