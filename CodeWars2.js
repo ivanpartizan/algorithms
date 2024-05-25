@@ -19,6 +19,13 @@ matrix([
   [-3, 2, 1, -5, 6],
 ]);
 
+// Simple beads count 7kyu
+function countRedBeads(n) {
+  return n < 2 ? 0 : n * 2 - 2;
+}
+
+countRedBeads(5);
+
 // Thinkful - List and Loop Drills: Inverse Slicer 7kyu
 function inverseSlice(items, a, b) {
   return items.filter((item, index) => index < a || index >= b);
