@@ -19,6 +19,20 @@ matrix([
   [-3, 2, 1, -5, 6],
 ]);
 
+// Sort an array by value and index 7kyu
+function sortByValueAndIndex(array) {
+  let products = array.map((value, index) => {
+    return { value: value, product: value * (index + 1) };
+  });
+
+  let sorted = products
+    .sort((a, b) => a.product - b.product)
+    .map((value) => value.value);
+  return sorted;
+}
+
+sortByValueAndIndex([23, 2, 3, 4, 5]);
+
 // Simple beads count 7kyu
 function countRedBeads(n) {
   return n < 2 ? 0 : n * 2 - 2;
