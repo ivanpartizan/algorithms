@@ -33,6 +33,23 @@ function sortByValueAndIndex(array) {
 
 sortByValueAndIndex([23, 2, 3, 4, 5]);
 
+// Check the exam 7kyu
+function checkExam(array1, array2) {
+  let score = 0;
+  for (let i = 0; i < array2.length; i++) {
+    if (array2[i] === "") score += 0;
+    else if (array2[i] === array1[i]) {
+      score += 4;
+    } else {
+      score -= 1;
+    }
+  }
+
+  return score <= 0 ? 0 : score;
+}
+
+checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]);
+
 // Simple beads count 7kyu
 function countRedBeads(n) {
   return n < 2 ? 0 : n * 2 - 2;
