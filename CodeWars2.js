@@ -122,6 +122,23 @@ function numberProperty(n) {
 
 numberProperty(7);
 
+// Divisible by previous digit? 7kyu
+function divisibleByLast(n) {
+  let stringN = String(n);
+  let numbersArray = stringN.split("");
+
+  let isDivisible = numbersArray.map((number, index) => {
+    if (index === 0) return false;
+    else {
+      return numbersArray[index] % numbersArray[index - 1] === 0 ? true : false;
+    }
+  });
+
+  return isDivisible;
+}
+
+divisibleByLast(73312);
+
 // Simple consecutive pairs 7kyu
 function pairs(ar) {
   let count = 0;
