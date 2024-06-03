@@ -19,6 +19,30 @@ matrix([
   [-3, 2, 1, -5, 6],
 ]);
 
+// Each n-th element of list 6kyu
+function each(n, xs) {
+  if (n == 0) return [];
+
+  let list = [];
+
+  if (n > 0) {
+    for (let i = n - 1; i < xs.length; i += n) {
+      list.push(xs[i]);
+    }
+  }
+
+  if (n < 0) {
+    n = Math.abs(n);
+    for (let i = xs.length - n; i >= 0; i -= n) {
+      list.push(xs[i]);
+    }
+  }
+
+  return list;
+}
+
+each(-2, [1, 2, 3, 4, 5, 6]);
+
 // Sort an array by value and index 7kyu
 function sortByValueAndIndex(array) {
   let products = array.map((value, index) => {
