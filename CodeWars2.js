@@ -450,3 +450,53 @@ function rpsls(pl1, pl2) {
 }
 
 rpsls("spock", "lizard");
+
+// Temperature converter 6kyu
+function convertTemp(temp, from_scale, to_scale) {
+  function toKelvin(temp, from_scale) {
+    if (from_scale == "C") {
+      return temp + 273.15;
+    } else if (from_scale == "F") {
+      return ((temp + 459.67) * 5) / 9;
+    } else if (from_scale == "R") {
+      return (temp * 5) / 9;
+    } else if (from_scale == "De") {
+      return 373.15 - (temp * 2) / 3;
+    } else if (from_scale == "N") {
+      return (temp * 100) / 33 + 273.15;
+    } else if (from_scale == "Re") {
+      return (temp * 5) / 4 + 273.15;
+    } else if (from_scale == "Ro") {
+      return ((temp - 7.5) * 40) / 21 + 273.15;
+    } else {
+      return temp;
+    }
+  }
+
+  const kelvinTemp = toKelvin(temp, from_scale);
+
+  function fromKelvin(kelvinTemp, to_scale) {
+    if (to_scale == "C") {
+      return kelvinTemp - 273.15;
+    } else if (to_scale == "F") {
+      return (kelvinTemp * 9) / 5 - 459.67;
+    } else if (to_scale == "R") {
+      return (kelvinTemp * 9) / 5;
+    } else if (to_scale == "De") {
+      return ((373.15 - temp) * 3) / 2;
+    } else if (to_scale == "N") {
+      return ((kelvinTemp - 273.15) * 33) / 100;
+    } else if (to_scale == "Re") {
+      return ((kelvinTemp - 273.15) * 4) / 5;
+    } else if (to_scale == "Ro") {
+      return ((kelvinTemp - 273.15) * 21) / 40 + 7.5;
+    } else {
+      return temp;
+    }
+  }
+
+  const result = fromKelvin(kelvinTemp, to_scale);
+  return Math.round(result);
+}
+
+convertTemp(-30, "De", "K");
