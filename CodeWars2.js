@@ -74,6 +74,17 @@ function checkExam(array1, array2) {
 
 checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]);
 
+// Partial Word Searching 7kyu
+function wordSearch(query, seq) {
+  let found = seq.filter((string) =>
+    string.toLowerCase().includes(query.toLowerCase())
+  );
+
+  return found.length ? found : ["Empty"];
+}
+
+wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"]);
+
 // Simple beads count 7kyu
 function countRedBeads(n) {
   return n < 2 ? 0 : n * 2 - 2;
@@ -483,7 +494,7 @@ function convertTemp(temp, from_scale, to_scale) {
     } else if (to_scale == "R") {
       return (kelvinTemp * 9) / 5;
     } else if (to_scale == "De") {
-      return ((373.15 - temp) * 3) / 2;
+      return ((373.15 - kelvinTemp) * 3) / 2;
     } else if (to_scale == "N") {
       return ((kelvinTemp - 273.15) * 33) / 100;
     } else if (to_scale == "Re") {
@@ -491,7 +502,7 @@ function convertTemp(temp, from_scale, to_scale) {
     } else if (to_scale == "Ro") {
       return ((kelvinTemp - 273.15) * 21) / 40 + 7.5;
     } else {
-      return temp;
+      return kelvinTemp;
     }
   }
 
