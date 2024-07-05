@@ -74,6 +74,19 @@ function checkExam(array1, array2) {
 
 checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]);
 
+// Sort with a sorting array 7kyu
+function sort(initialArray, sortingArray) {
+  let sortedArray = [];
+
+  sortingArray.forEach(
+    (item, index) => (sortedArray[item] = initialArray[index])
+  );
+
+  return sortedArray;
+}
+
+sort([1, 2, 3, 4, 5], [0, 2, 1, 4, 3]);
+
 // Partial Word Searching 7kyu
 function wordSearch(query, seq) {
   let found = seq.filter((string) =>
