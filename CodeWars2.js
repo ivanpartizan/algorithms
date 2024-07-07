@@ -87,6 +87,25 @@ function sort(initialArray, sortingArray) {
 
 sort([1, 2, 3, 4, 5], [0, 2, 1, 4, 3]);
 
+// How many are smaller than me? 7kyu
+function smaller(nums) {
+  let smallerThanNumberArray = nums.map((number, index) => {
+    let numberOfSmallerNumbers = 0;
+
+    for (let i = index + 1; i < nums.length; i++) {
+      if (number > nums[i]) {
+        numberOfSmallerNumbers++;
+      }
+    }
+
+    return numberOfSmallerNumbers;
+  });
+
+  return smallerThanNumberArray;
+}
+
+smaller([5, 4, 3, 2, 1]);
+
 // Partial Word Searching 7kyu
 function wordSearch(query, seq) {
   let found = seq.filter((string) =>
