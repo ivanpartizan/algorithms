@@ -543,3 +543,19 @@ function convertTemp(temp, from_scale, to_scale) {
 }
 
 convertTemp(-30, "De", "K");
+
+// All Star Code Challenge #17 7kyu
+function findYear(month, dayOfWeek) {
+  if (month < 0 || month > 11) return 0;
+  if (dayOfWeek < 0 || dayOfWeek > 6) return 0;
+
+  for (let i = 2014; i <= 2050; i++) {
+    const date = new Date(i, month, 1);
+
+    if (date.getDay() == dayOfWeek) {
+      return i;
+    }
+  }
+}
+
+findYear(11, 2);
