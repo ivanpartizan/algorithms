@@ -164,6 +164,24 @@ function add(arr) {
 
 add([1, 2, 3, 4, 5]);
 
+// Difference Of Squares 7kyu
+function differenceOfSquares(n) {
+  let squareOfSumOfNumbers = 0;
+  let sumOfSquaresOfNumbers = 0;
+  let difference = 0;
+
+  for (let i = 1; i <= n; i++) {
+    squareOfSumOfNumbers += i;
+    sumOfSquaresOfNumbers += i ** 2;
+  }
+  squareOfSumOfNumbers **= 2;
+
+  difference = squareOfSumOfNumbers - sumOfSquaresOfNumbers;
+  return difference;
+}
+
+differenceOfSquares(10);
+
 // Simple Maths Test 7kyu
 function numberProperty(n) {
   let isPrime, isEven, isMultipleOf10;
