@@ -239,6 +239,19 @@ function pairs(ar) {
 
 pairs([1, 2, 5, 8, -4, -3, 7, 6, 5]);
 
+// Number Pairs 7kyu
+function getLargerNumbers(arr1, arr2) {
+  let newArray = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    arr1[i] >= arr2[i] ? newArray.push(arr1[i]) : newArray.push(arr2[i]);
+  }
+
+  return newArray;
+}
+
+getLargerNumbers([13, 64, 15, 17, 88], [23, 14, 53, 17, 80]);
+
 // Odd-Even String Sort 7kyu
 function sortMyString(S) {
   let evenIndexed = "";
