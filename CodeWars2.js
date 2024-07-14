@@ -252,6 +252,16 @@ function getLargerNumbers(arr1, arr2) {
 
 getLargerNumbers([13, 64, 15, 17, 88], [23, 14, 53, 17, 80]);
 
+// The highest profit wins! 7kyu
+function minMax(arr) {
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+
+  return [min, max];
+}
+
+minMax([1, 2, 3, 4, 5]);
+
 // Odd-Even String Sort 7kyu
 function sortMyString(S) {
   let evenIndexed = "";
