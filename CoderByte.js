@@ -24,3 +24,20 @@ function LongestWord(sen) {
 }
 
 LongestWord("fun&!! time");
+
+// Find Intersection - easy
+function FindIntersection(strArr) {
+  let firstArray = strArr[0].split(", ");
+  let secondArray = strArr[1].split(", ");
+
+  let longerArray =
+    firstArray.length > secondArray.length ? firstArray : secondArray;
+  let shorterArray =
+    firstArray.length > secondArray.length ? secondArray : firstArray;
+
+  let intersection = longerArray.filter((item) => shorterArray.includes(item));
+
+  return intersection.length === 0 ? false : intersection.join(",");
+}
+
+FindIntersection(["1, 3, 9, 10, 17, 18", "1, 4, 9, 10"]);
