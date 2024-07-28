@@ -600,3 +600,30 @@ function findYear(month, dayOfWeek) {
 }
 
 findYear(11, 2);
+
+// Fizz Buzz Cuckoo Clock 7kyu
+function fizzBuzzCuckooClock(time) {
+  let result = "";
+
+  let [hour, minute] = time.split(":");
+  hour = hour % 12 == 0 ? 12 : hour % 12;
+  minute = +minute;
+
+  if (minute == 0) {
+    result = "Cuckoo ".repeat(hour).trimEnd();
+  } else if (minute == 30) {
+    result = "Cuckoo";
+  } else if (minute % 15 == 0) {
+    result = "Fizz Buzz";
+  } else if (minute % 3 == 0) {
+    result = "Fizz";
+  } else if (minute % 5 == 0) {
+    result = "Buzz";
+  } else {
+    result = "tick";
+  }
+
+  return result;
+}
+
+fizzBuzzCuckooClock("12:00");
