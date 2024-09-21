@@ -633,31 +633,23 @@ function ownedCatAndDog(catYears, dogYears) {
   let ownedCat = 0,
     ownedDog = 0;
 
-  while (catYears > 0) {
-    if (catYears >= 15 && ownedCat === 0) {
-      catYears -= 15;
-      ownedCat++;
-    } else if (catYears >= 9 && ownedCat === 1) {
-      catYears -= 9;
-      ownedCat++;
-    } else {
-      catYears -= 4;
-      ownedCat++;
-    }
+  if (catYears < 15) {
+    ownedCat = 0;
+  } else if (catYears < 24) {
+    ownedCat = 1;
+  } else {
+    ownedCat = 2 + Math.floor((catYears - 24) / 4);
   }
 
-  while (dogYears > 0) {
-    if (dogYears >= 15 && ownedDog === 0) {
-      dogYears -= 15;
-      ownedDog++;
-    } else if (dogYears >= 9 && ownedDog === 1) {
-      dogYears -= 9;
-      ownedDog++;
-      ownedDog++;
-    }
+  if (dogYears < 15) {
+    ownedDog = 0;
+  } else if (dogYears < 24) {
+    ownedDog = 1;
+  } else {
+    ownedDog = 2 + Math.floor((dogYears - 24) / 5);
   }
 
   return [ownedCat, ownedDog];
 }
 
-ownedCatAndDog(65, 15);
+ownedCatAndDog(56, 64);
