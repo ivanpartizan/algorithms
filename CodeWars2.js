@@ -627,3 +627,37 @@ function fizzBuzzCuckooClock(time) {
 }
 
 fizzBuzzCuckooClock("12:00");
+
+// Cat Years, Dog Years (2) 7kyu
+function ownedCatAndDog(catYears, dogYears) {
+  let ownedCat = 0,
+    ownedDog = 0;
+
+  while (catYears > 0) {
+    if (catYears >= 15 && ownedCat === 0) {
+      catYears -= 15;
+      ownedCat++;
+    } else if (catYears >= 9 && ownedCat === 1) {
+      catYears -= 9;
+      ownedCat++;
+    } else {
+      catYears -= 4;
+      ownedCat++;
+    }
+  }
+
+  while (dogYears > 0) {
+    if (dogYears >= 15 && ownedDog === 0) {
+      dogYears -= 15;
+      ownedDog++;
+    } else if (dogYears >= 9 && ownedDog === 1) {
+      dogYears -= 9;
+      ownedDog++;
+      ownedDog++;
+    }
+  }
+
+  return [ownedCat, ownedDog];
+}
+
+ownedCatAndDog(65, 15);
