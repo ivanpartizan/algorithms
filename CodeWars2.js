@@ -106,6 +106,23 @@ function smaller(nums) {
 
 smaller([5, 4, 3, 2, 1]);
 
+// Most digits 7kyu
+function findLongest(array) {
+  let mostDigits = 0;
+  let numberWithMostDigits = 0;
+
+  for (let number of array) {
+    if (String(number).length > mostDigits) {
+      mostDigits = String(number).length;
+      numberWithMostDigits = number;
+    }
+  }
+
+  return numberWithMostDigits;
+}
+
+findLongest([9000, 8, 800]);
+
 // Partial Word Searching 7kyu
 function wordSearch(query, seq) {
   let found = seq.filter((string) =>
