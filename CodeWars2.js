@@ -364,6 +364,22 @@ function sursurungal(txt) {
 
 sursurungal("5 lions and 15 zebras");
 
+// C.Wars 7kyu
+function initials(n) {
+  let words = n.split(" ");
+  let name = words.map((word, index) => {
+    if (index < words.length - 1) {
+      return word[0].toUpperCase();
+    } else {
+      return word[0].toUpperCase() + word.slice(1);
+    }
+  });
+
+  return name.join(".");
+}
+
+initials("Barack hussain obama");
+
 // Colored Hexes! 7kyu
 function hexColor(codes) {
   let [red, green, blue] = codes.split(" ").map((number) => +number);
