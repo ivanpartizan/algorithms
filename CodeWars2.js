@@ -428,6 +428,30 @@ function tacofy(word) {
 
 tacofy("ogl");
 
+// Airport itinerary 7kyu
+function itinerary(travel) {
+  let cities = [];
+
+  for (let part of travel) {
+    cities.push(...Object.values(part));
+  }
+
+  let uniqueCities = [];
+
+  cities.forEach((city, index) => {
+    if (index === 0 || uniqueCities[uniqueCities.length - 1] !== city) {
+      uniqueCities.push(city);
+    }
+  });
+
+  return uniqueCities.join("-");
+}
+
+itinerary([
+  { in: "TRN", out: "FCO" },
+  { in: "FCO", out: "TRN" },
+]);
+
 // De-Emojify 7kyu
 function deEmojify(emojiString) {
   if (emojiString === "") return "";
