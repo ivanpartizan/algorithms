@@ -452,6 +452,24 @@ itinerary([
   { in: "FCO", out: "TRN" },
 ]);
 
+// Dinner Plans 7kyu
+function commonGround(s1, s2) {
+  let words1 = s1.split(" ");
+  let words2 = s2.split(" ");
+
+  let commonWords = [];
+
+  for (let word of words2) {
+    if (words1.includes(word) && !commonWords.includes(word)) {
+      commonWords.push(word);
+    }
+  }
+
+  return commonWords.length === 0 ? "death" : commonWords.join(" ");
+}
+
+commonGround("eat a burger and drink a coke", "drink a coke");
+
 // De-Emojify 7kyu
 function deEmojify(emojiString) {
   if (emojiString === "") return "";
