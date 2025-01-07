@@ -181,6 +181,20 @@ function add(arr) {
 
 add([1, 2, 3, 4, 5]);
 
+// Gradually Adding Parameters 7kyu
+function add(...args) {
+  let numbers = [...args];
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i] * (i + 1);
+  }
+
+  return sum;
+}
+
+add(100, 200, 300);
+
 // Difference Of Squares 7kyu
 function differenceOfSquares(n) {
   let squareOfSumOfNumbers = 0;
