@@ -19,6 +19,22 @@ matrix([
   [-3, 2, 1, -5, 6],
 ]);
 
+// Javascript filter - 1 7kyu
+function searchNames(logins) {
+  let filteredLogins = logins.filter((login) => {
+    if (login[0].endsWith("_")) {
+      return login;
+    }
+  });
+
+  return filteredLogins;
+}
+
+searchNames([
+  ["foo", "foo@foo.com"],
+  ["bar_", "bar@bar.com"],
+]);
+
 // Each n-th element of list 6kyu
 function each(n, xs) {
   if (n == 0) return [];
