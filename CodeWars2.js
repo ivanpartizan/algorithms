@@ -1,3 +1,10 @@
+// Sum of angles 7kyu
+function angle(n) {
+  return (n - 2) * 180;
+}
+
+angle(3);
+
 // Change two-dimensional array 7kyu
 function matrix(array) {
   array.forEach((row, rowIndex) => {
