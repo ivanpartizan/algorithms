@@ -352,6 +352,19 @@ function sortVowels(s) {
 
 sortVowels("Codewars");
 
+// Nickname Generator 7kyu
+function nicknameGenerator(name) {
+  if (name.length <= 3) return "Error: Name too short";
+
+  if (/[aeiou]/.test(name[2])) {
+    return name.slice(0, 4);
+  } else {
+    return name.slice(0, 3);
+  }
+}
+
+nicknameGenerator("Kimberly");
+
 // Histogram - H1 7kyu
 function histogram(results) {
   let six = `6|${"#".repeat(results[5])}${
