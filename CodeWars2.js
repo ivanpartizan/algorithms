@@ -110,6 +110,22 @@ function sort(initialArray, sortingArray) {
 
 sort([1, 2, 3, 4, 5], [0, 2, 1, 4, 3]);
 
+// Sorted Union 7kyu
+function uniteUnique(...args) {
+  let allValues = args.flat();
+  let uniqueValues = [];
+
+  for (let value of allValues) {
+    if (!uniqueValues.includes(value)) {
+      uniqueValues.push(value);
+    }
+  }
+
+  return uniqueValues;
+}
+
+uniteUnique([], [1, 2, 1, 2], [2, 1, 1, 2, 1]);
+
 // How many are smaller than me? 7kyu
 function smaller(nums) {
   let smallerThanNumberArray = nums.map((number, index) => {
