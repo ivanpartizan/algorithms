@@ -42,6 +42,47 @@ searchNames([
   ["bar_", "bar@bar.com"],
 ]);
 
+// ToLeetSpeak 7kyu
+function toLeetSpeak(str) {
+  let object = {
+    A: "@",
+    B: "8",
+    C: "(",
+    D: "D",
+    E: "3",
+    F: "F",
+    G: "6",
+    H: "#",
+    I: "!",
+    J: "J",
+    K: "K",
+    L: "1",
+    M: "M",
+    N: "N",
+    O: "0",
+    P: "P",
+    Q: "Q",
+    R: "R",
+    S: "$",
+    T: "7",
+    U: "U",
+    V: "V",
+    W: "W",
+    X: "X",
+    Y: "Y",
+    Z: "2",
+  };
+  let leet = "";
+
+  for (let char of str) {
+    char === " " ? (leet += " ") : (leet += object[char]);
+  }
+
+  return leet;
+}
+
+toLeetSpeak("CODEWARS");
+
 // Each n-th element of list 6kyu
 function each(n, xs) {
   if (n == 0) return [];
