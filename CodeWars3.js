@@ -1,3 +1,30 @@
+// Merge two arrays 7kyu
+function mergeArrays(a, b) {
+  let newArray = [];
+  let number = a.length <= b.length ? a.length : b.length;
+
+  for (let i = 0; i < number; i++) {
+    newArray.push(a[i]);
+    newArray.push(b[i]);
+  }
+
+  if (a.length > number) {
+    for (let i = number; i < a.length; i++) {
+      newArray.push(a[i]);
+    }
+  }
+
+  if (b.length > number) {
+    for (let i = number; i < b.length; i++) {
+      newArray.push(b[i]);
+    }
+  }
+
+  return newArray;
+}
+
+mergeArrays([1, 2, 3, 4, 5, 6, 7, 8], ["a", "b", "c", "d", "e"]);
+
 // String average 6kyu
 function averageString(str) {
   let object = {
