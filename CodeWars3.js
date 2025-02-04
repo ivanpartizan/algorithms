@@ -25,6 +25,28 @@ function mergeArrays(a, b) {
 
 mergeArrays([1, 2, 3, 4, 5, 6, 7, 8], ["a", "b", "c", "d", "e"]);
 
+// Transpose two strings in an array 7kyu
+function transposeTwoStrings(array) {
+  let firstWord = array[0];
+  let secondWord = array[1];
+  let number =
+    firstWord.length >= secondWord.length
+      ? firstWord.length
+      : secondWord.length;
+
+  let string = "";
+
+  for (let i = 0; i < number; i++) {
+    string += `${firstWord[i] === undefined ? " " : firstWord[i]} ${
+      secondWord[i] === undefined ? " " : secondWord[i]
+    }${i < number - 1 ? "\n" : ""}`;
+  }
+
+  return string;
+}
+
+transposeTwoStrings(["Hello", "World"]);
+
 // String average 6kyu
 function averageString(str) {
   let object = {
