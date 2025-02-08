@@ -79,3 +79,16 @@ function averageString(str) {
 }
 
 averageString("zero nine five two");
+
+// The average length 7kyu
+function averageLength(array) {
+  let lengths = array.map((element) => element.length);
+  let average = Math.round(
+    lengths.reduce((acc, current) => acc + current) / lengths.length
+  );
+
+  let newArray = array.map((element) => element.slice(0, 1).repeat(average));
+  return newArray;
+}
+
+averageLength(["aa", "bbb", "cccc"]);
