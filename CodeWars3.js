@@ -92,3 +92,27 @@ function averageLength(array) {
 }
 
 averageLength(["aa", "bbb", "cccc"]);
+
+// Make the small words big! 7kyu
+function smallWordHelper(sentence) {
+  let newSentence = sentence.split(" ").map((word) => {
+    if (word.length <= 3) {
+      return word.toUpperCase();
+    } else {
+      return word
+        .split("")
+        .map((char) => {
+          let newWord = "";
+          if (!/[aeiou]/i.test(char)) {
+            newWord += char;
+          }
+          return newWord;
+        })
+        .join("");
+    }
+  });
+
+  return newSentence.join(" ");
+}
+
+smallWordHelper("The quick brown fox jumps over the lazy dog");
