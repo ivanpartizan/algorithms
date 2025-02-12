@@ -93,6 +93,15 @@ function averageLength(array) {
 
 averageLength(["aa", "bbb", "cccc"]);
 
+// Substring fun 7kyu
+function nthChar(words) {
+  let newWord = "";
+  words.forEach((word, index) => (newWord += word[index]));
+  return newWord;
+}
+
+nthChar(["yoda", "best", "has"]);
+
 // Make the small words big! 7kyu
 function smallWordHelper(sentence) {
   let newSentence = sentence.split(" ").map((word) => {
