@@ -126,6 +126,15 @@ function smallWordHelper(sentence) {
 
 smallWordHelper("The quick brown fox jumps over the lazy dog");
 
+// One line task: Square Every Digit 6kyu
+const squareEveryDigit = (x) =>
+  +String(x)
+    .split("")
+    .map((digit) => digit * digit)
+    .join("");
+
+squareEveryDigit(77455754);
+
 // Turkish Numbers, 0-99 7kyu
 const getTurkishNumber = (num) => {
   let numbers = {
