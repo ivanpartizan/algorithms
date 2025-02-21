@@ -47,6 +47,15 @@ function transposeTwoStrings(array) {
 
 transposeTwoStrings(["Hello", "World"]);
 
+// Name Array Capping 7kyu
+function capMe(names) {
+  return names.map(
+    (name) => `${name[0].toUpperCase()}${name.slice(1).toLowerCase()}`
+  );
+}
+
+capMe(["RALPH", "GEORGIA", "CHRISTINA"]);
+
 // String average 6kyu
 function averageString(str) {
   let object = {
