@@ -56,6 +56,13 @@ function capMe(names) {
 
 capMe(["RALPH", "GEORGIA", "CHRISTINA"]);
 
+// Substituting Variables Into Strings: Padded Numbers 7kyu
+function padNumbers(value) {
+  return `Value is ${String(value).padStart(5, "0")}`;
+}
+
+padNumbers(1204);
+
 // String average 6kyu
 function averageString(str) {
   let object = {
