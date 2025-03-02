@@ -47,6 +47,26 @@ function transposeTwoStrings(array) {
 
 transposeTwoStrings(["Hello", "World"]);
 
+// Find twins 7kyu
+function elimination(arr) {
+  let count = {};
+  for (let number of arr) {
+    if (count[number]) {
+      count[number]++;
+    } else {
+      count[number] = 1;
+    }
+  }
+
+  for (let [key, value] of Object.entries(count)) {
+    if (value === 2) return +key;
+    else continue;
+  }
+  return null;
+}
+
+elimination([2, 5, 34, 1, 22, 1]);
+
 // Name Array Capping 7kyu
 function capMe(names) {
   return names.map(
