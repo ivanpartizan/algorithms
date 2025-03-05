@@ -25,6 +25,19 @@ function mergeArrays(a, b) {
 
 mergeArrays([1, 2, 3, 4, 5, 6, 7, 8], ["a", "b", "c", "d", "e"]);
 
+// Get key/value pairs as arrays 7kyu
+function keysAndValues(data) {
+  let keysArray = Object.keys(data);
+  let valuesArray = Object.values(data);
+  let fullArray = [];
+
+  fullArray.push(keysArray);
+  fullArray.push(valuesArray);
+  return fullArray;
+}
+
+keysAndValues({ a: 1, b: 2, c: 3 });
+
 // Transpose two strings in an array 7kyu
 function transposeTwoStrings(array) {
   let firstWord = array[0];
