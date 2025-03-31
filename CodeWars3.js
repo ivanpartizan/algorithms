@@ -175,6 +175,23 @@ function smallWordHelper(sentence) {
 
 smallWordHelper("The quick brown fox jumps over the lazy dog");
 
+// maxPossibleScore 7kyu
+function maxPossibleScore(obj, arr) {
+  let score = 0;
+
+  for (const [key, value] of Object.entries(obj)) {
+    if (arr.includes(key)) {
+      score += value * 2;
+    } else {
+      score += value;
+    }
+  }
+
+  return score;
+}
+
+maxPossibleScore({ a: 2, b: 5, c: 8 }, ["c"]);
+
 // One line task: Square Every Digit 6kyu
 const squareEveryDigit = (x) =>
   +String(x)
