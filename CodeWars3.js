@@ -175,6 +175,25 @@ function smallWordHelper(sentence) {
 
 smallWordHelper("The quick brown fox jumps over the lazy dog");
 
+// Sentence Calculator 6kyu
+function lettersToNumbers(s) {
+  let totalScore = 0;
+
+  for (let char of s) {
+    if (/[A-Z]/.test(char)) {
+      totalScore += (char.charCodeAt(0) - 64) * 2;
+    } else if (/[a-z]/.test(char)) {
+      totalScore += char.charCodeAt(0) - 96;
+    } else if (/[0-9]/.test(char)) {
+      totalScore += +char;
+    }
+  }
+
+  return totalScore;
+}
+
+lettersToNumbers("I Love You");
+
 // maxPossibleScore 7kyu
 function maxPossibleScore(obj, arr) {
   let score = 0;
