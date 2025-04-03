@@ -211,6 +211,23 @@ function maxPossibleScore(obj, arr) {
 
 maxPossibleScore({ a: 2, b: 5, c: 8 }, ["c"]);
 
+// Round to nearest 0 or 5 7kyu
+function roundToFive(numbers) {
+  let rounded = numbers
+    .map((number) => Math.round(number))
+    .map((number) => {
+      if (number % 5 === 0) {
+        return number;
+      } else {
+        return Math.round(number / 5) * 5;
+      }
+    });
+
+  return rounded;
+}
+
+roundToFive([34.5, 56.2, 11, 13]);
+
 // One line task: Square Every Digit 6kyu
 const squareEveryDigit = (x) =>
   +String(x)
