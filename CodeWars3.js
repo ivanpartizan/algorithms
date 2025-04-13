@@ -247,6 +247,25 @@ function calcType(a, b, res) {
 
 calcType(1, 2, 3);
 
+// Loose Change! 7kyu
+function changeCount(change) {
+  let sum = 0;
+
+  let amounts = {
+    penny: 0.01,
+    nickel: 0.05,
+    dime: 0.1,
+    quarter: 0.25,
+    dollar: 1.0,
+  };
+
+  let array = change.split(" ").forEach((value) => (sum += amounts[value]));
+
+  return `$${sum.toFixed(2)}`;
+}
+
+changeCount("dime penny dollar");
+
 // Turkish Numbers, 0-99 7kyu
 const getTurkishNumber = (num) => {
   let numbers = {
