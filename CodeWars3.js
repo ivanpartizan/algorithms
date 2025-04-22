@@ -266,6 +266,23 @@ function changeCount(change) {
 
 changeCount("dime penny dollar");
 
+// DNA GC-content 7kyu
+function gcContent(dna) {
+  let dnaLength = dna.length;
+  let gc = 0;
+
+  if (dnaLength === 0) return 0;
+
+  for (let letter of dna) {
+    if (letter == "G" || letter == "C") gc++;
+  }
+
+  let percentage = (gc / dnaLength) * 100;
+  return percentage;
+}
+
+gcContent("AAACCCGGGTTT");
+
 // Turkish Numbers, 0-99 7kyu
 const getTurkishNumber = (num) => {
   let numbers = {
