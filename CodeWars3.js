@@ -89,6 +89,42 @@ function capMe(names) {
 
 capMe(["RALPH", "GEORGIA", "CHRISTINA"]);
 
+// Most sales 7kyu
+function top3(products, amounts, prices) {
+  let entries = products.map((product, index) => [
+    product,
+    amounts[index] * prices[index],
+    index,
+  ]);
+
+  let sorted = entries.sort((a, b) => {
+    if (b[1] !== a[1]) {
+      return b[1] - a[1];
+    } else {
+      return a[2] - b[2];
+    }
+  });
+
+  let mostSales = sorted.slice(0, 3).map((entry) => entry[0]);
+
+  return mostSales;
+}
+
+top3(
+  [
+    "Cell Phones",
+    "Vacuum Cleaner",
+    "Computer",
+    "Autos",
+    "Gold",
+    "Fishing Rods",
+    "Lego",
+    "Speakers",
+  ],
+  [5, 25, 2, 7, 10, 3, 2, 24],
+  [51, 225, 22, 47, 510, 83, 82, 124]
+);
+
 // Substituting Variables Into Strings: Padded Numbers 7kyu
 function padNumbers(value) {
   return `Value is ${String(value).padStart(5, "0")}`;
