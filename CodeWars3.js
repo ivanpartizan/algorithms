@@ -125,6 +125,25 @@ top3(
   [51, 225, 22, 47, 510, 83, 82, 124]
 );
 
+// Time Converter: hours, minutes, seconds and milliseconds 7kyu
+function convert(time) {
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
+  let seconds = time.getSeconds();
+  let milliseconds = time.getMilliseconds() || 0;
+
+  return `${(hours = hours < 10 ? `0${hours}` : hours)}:${(minutes =
+    minutes < 10 ? `0${minutes}` : minutes)}:${(seconds =
+    seconds < 10 ? `0${seconds}` : seconds)},${(milliseconds =
+    milliseconds < 10
+      ? `00${milliseconds}`
+      : milliseconds < 100
+      ? `0${milliseconds}`
+      : milliseconds)}`;
+}
+
+convert(new Date(1951, 10, 31, 2, 2, 24, 399));
+
 // Substituting Variables Into Strings: Padded Numbers 7kyu
 function padNumbers(value) {
   return `Value is ${String(value).padStart(5, "0")}`;
