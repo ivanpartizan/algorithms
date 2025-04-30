@@ -230,6 +230,26 @@ function smallWordHelper(sentence) {
 
 smallWordHelper("The quick brown fox jumps over the lazy dog");
 
+// Help Mr. E 7kyu
+function evenator(str) {
+  if (!str) return "";
+
+  let noPunctuationStr = str.replace(/[.,?!_]/g, "");
+
+  let words = noPunctuationStr.split(" ").map((word) => {
+    if (word.length % 2 === 0) {
+      return word;
+    } else {
+      word = `${word}${word[word.length - 1]}`;
+      return word;
+    }
+  });
+
+  return words.join(" ");
+}
+
+evenator("I got a hole in 1!");
+
 // Sentence Calculator 6kyu
 function lettersToNumbers(s) {
   let totalScore = 0;
