@@ -151,6 +151,23 @@ function padNumbers(value) {
 
 padNumbers(1204);
 
+// Return a string's even characters. 7kyu
+function evenChars(string) {
+  if (string.length < 2 || string.length > 100) {
+    return "invalid string";
+  } else {
+    let array = [];
+
+    for (let i = 1; i < string.length; i++) {
+      if (i % 2 == 1) array.push(string[i]);
+    }
+
+    return array;
+  }
+}
+
+evenChars("abcdefghijklm");
+
 // String average 6kyu
 function averageString(str) {
   let object = {
