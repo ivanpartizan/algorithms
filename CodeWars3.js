@@ -286,6 +286,26 @@ function lettersToNumbers(s) {
 
 lettersToNumbers("I Love You");
 
+// Scrabble Score 7kyu
+function scrabbleScore(str) {
+  let newStr = "";
+  let score = 0;
+
+  for (let letter of str) {
+    if (letter !== " ") {
+      newStr += letter;
+    }
+  }
+
+  for (let letter of newStr) {
+    letter = letter.toUpperCase();
+    score += $dict[letter];
+  }
+  return score;
+}
+
+scrabbleScore("street");
+
 // maxPossibleScore 7kyu
 function maxPossibleScore(obj, arr) {
   let score = 0;
