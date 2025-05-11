@@ -223,6 +223,25 @@ function nthChar(words) {
 
 nthChar(["yoda", "best", "has"]);
 
+// What comes after? 7kyu
+function comes_after(str, l) {
+  let after = "";
+  let regEx = /[A-Za-z]/;
+
+  for (let i = 0; i < str.length - 1; i++) {
+    if (
+      (str[i] === l.toLowerCase() || str[i] === l.toUpperCase()) &&
+      regEx.test(str[i + 1])
+    ) {
+      after += str[i + 1];
+    }
+  }
+
+  return after;
+}
+
+comes_after("are you really learning Ruby?", "r");
+
 // Make the small words big! 7kyu
 function smallWordHelper(sentence) {
   let newSentence = sentence.split(" ").map((word) => {
@@ -301,6 +320,7 @@ function scrabbleScore(str) {
     letter = letter.toUpperCase();
     score += $dict[letter];
   }
+
   return score;
 }
 
