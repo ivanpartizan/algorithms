@@ -305,6 +305,23 @@ function lettersToNumbers(s) {
 
 lettersToNumbers("I Love You");
 
+// Sum of Odd Cubed Numbers 7kyu
+function cubeOdd(arr) {
+  let sum = 0;
+
+  for (let item of arr) {
+    if (typeof item != "number") return undefined;
+
+    if (item % 2 == 1 || item % 2 == -1) {
+      sum += item * item * item;
+    }
+  }
+
+  return sum;
+}
+
+cubeOdd([1, 2, 3, 4]);
+
 // Scrabble Score 7kyu
 function scrabbleScore(str) {
   let newStr = "";
