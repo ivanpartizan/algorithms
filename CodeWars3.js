@@ -1,3 +1,17 @@
+// Arithmetic List! 7kyu
+function seqlist(first, c, l) {
+  let list = [first];
+
+  for (let i = 1; i < l; i++) {
+    first = first + c;
+    list.push(first);
+  }
+
+  return list;
+}
+
+seqlist(0, 1, 20);
+
 // Merge two arrays 7kyu
 function mergeArrays(a, b) {
   let newArray = [];
