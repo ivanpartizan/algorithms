@@ -103,6 +103,21 @@ function capMe(names) {
 
 capMe(["RALPH", "GEORGIA", "CHRISTINA"]);
 
+// Indexed capitalization 7kyu
+function capitalize(s, arr) {
+  let capitalized = s
+    .split("")
+    .map((char, index) => {
+      if (arr.includes(index)) return char.toUpperCase();
+      else return char;
+    })
+    .join("");
+
+  return capitalized;
+}
+
+capitalize("abracadabra", [2, 6, 9, 10]);
+
 // Most sales 7kyu
 function top3(products, amounts, prices) {
   let entries = products.map((product, index) => [
