@@ -8,6 +8,25 @@ function calculate(str) {
 
 calculate("1plus2plus3minus4");
 
+// Magic Sum of 3s 7kyu
+function magicSum(numbers) {
+  let sum = 0;
+
+  let oddNumbersWithDigit3 = numbers
+    .filter((number) => number % 2 === 1)
+    .map((number) => String(number))
+    .filter((digit) => digit.includes(3))
+    .map((number) => +number);
+
+  for (let number of oddNumbersWithDigit3) {
+    sum += number;
+  }
+
+  return sum;
+}
+
+magicSum([3, 12, 5, 8, 30, 13]);
+
 // Powers of 3 7kyu
 function largestPower(n) {
   let x = 0;
