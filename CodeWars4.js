@@ -41,3 +41,36 @@ function largestPower(n) {
 }
 
 largestPower(82);
+
+// Array Array Array 7kyu
+function explode(x) {
+  if (typeof x[0] !== "number" && typeof x[1] !== "number") {
+    return "Void!";
+  } else if (typeof x[0] === "number" && typeof x[1] === "number") {
+    let sum = x[0] + x[1];
+    let array = [];
+
+    for (let i = 0; i < sum; i++) {
+      array.push(x);
+    }
+
+    return array;
+  } else if (typeof x[0] === "number" || typeof x[1] === "number") {
+    let y;
+    let array = [];
+
+    if (typeof x[0] === "number") {
+      y = x[0];
+    } else {
+      y = x[1];
+    }
+
+    for (let i = 0; i < y; i++) {
+      array.push(x);
+    }
+
+    return array;
+  }
+}
+
+explode(["a", "b"]);
