@@ -74,3 +74,14 @@ function explode(x) {
 }
 
 explode(["a", "b"]);
+
+// Is it a vowel on this position? 7kyu
+function checkVowel(string, position) {
+  if (position < 0) return false;
+
+  let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+
+  return vowels.includes(string[position]);
+}
+
+checkVowel("cat", 1);
