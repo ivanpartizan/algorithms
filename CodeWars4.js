@@ -75,6 +75,19 @@ function explode(x) {
 
 explode(["a", "b"]);
 
+// Find array 7kyu
+function findArray(arr1, arr2) {
+  if (arr1.length === 0 || arr2.length === 0) return [];
+
+  let newArray = [];
+  for (let i = 0; i < arr2.length; i++) {
+    newArray.push(arr1[arr2[i]]);
+  }
+  return newArray;
+}
+
+findArray([0, 1, 5, 2, 1, 8, 9, 1, 5], [1, 4, 7]);
+
 // Is it a vowel on this position? 7kyu
 function checkVowel(string, position) {
   if (position < 0) return false;
