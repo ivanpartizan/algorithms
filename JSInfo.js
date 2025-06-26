@@ -74,3 +74,24 @@ function min(a, b) {
 }
 
 min(2, 5);
+
+// Function pow(x,n)
+// Write a function pow(x,n) that returns x in power n. Or, in other words, multiplies x by itself n times and returns the result.
+
+// Create a web-page that prompts for x and n, and then shows the result of pow(x,n).
+
+// P.S. In this task the function should support only natural values of n: integers up from 1.
+let x = prompt("Enter x");
+let n = prompt("Enter n");
+
+function pow(x, n) {
+  let result = 1;
+
+  for (let i = 1; i <= n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+pow(x, n);
