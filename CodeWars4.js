@@ -27,6 +27,22 @@ function magicSum(numbers) {
 
 magicSum([3, 12, 5, 8, 30, 13]);
 
+// Unique Sum 7kyu
+function uniqueSum(lst) {
+  if (lst.length === 0) return null;
+
+  let sum = 0;
+  let uniques = [...new Set(lst)];
+
+  for (let number of uniques) {
+    sum += number;
+  }
+
+  return sum;
+}
+
+uniqueSum([1, 3, 8, 1, 8]);
+
 // Powers of 3 7kyu
 function largestPower(n) {
   let x = 0;
