@@ -43,6 +43,22 @@ function uniqueSum(lst) {
 
 uniqueSum([1, 3, 8, 1, 8]);
 
+// Sum of Multiples 8kyu
+function sumMul(n, m) {
+  if (n <= 0 || m <= 0 || n > m) return "INVALID";
+
+  let multiples = [];
+
+  for (let i = n; i < m; i++) {
+    if (i % n == 0) multiples.push(i);
+  }
+
+  let sum = multiples.reduce((a, b) => a + b);
+  return sum;
+}
+
+sumMul(4, 123);
+
 // Powers of 3 7kyu
 function largestPower(n) {
   let x = 0;
