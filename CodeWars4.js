@@ -130,3 +130,21 @@ function checkVowel(string, position) {
 }
 
 checkVowel("cat", 1);
+
+// esrever esreveR! 7kyu
+function esrever(str) {
+  if (str === "") return "";
+
+  let mark = str[str.length - 1];
+
+  let string = str.slice(0, str.length - 1);
+
+  let words = string.split(" ");
+
+  let reversedWords = words.map((word) => word.split("").reverse().join(""));
+  reversedWords = reversedWords.reverse();
+
+  return `${reversedWords.join(" ")}${mark}`;
+}
+
+esrever("hello world.");
