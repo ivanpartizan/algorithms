@@ -148,3 +148,19 @@ function esrever(str) {
 }
 
 esrever("hello world.");
+
+// Ciphers #1 - The 01 Cipher 7kyu
+function encode(plaintext) {
+  let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let array = plaintext.split("");
+
+  let encoded = array.map((letter) => {
+    if (!letters.includes(letter)) return letter;
+    else if (letter.charCodeAt(0) % 2 == 0) return 1;
+    else return 0;
+  });
+
+  return encoded.join("");
+}
+
+encode("Hello World!");
