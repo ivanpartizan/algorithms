@@ -164,3 +164,22 @@ function encode(plaintext) {
 }
 
 encode("Hello World!");
+
+// Jenny the youngest detective 7kyu
+function missingWord(nums, str) {
+  let orderedNums = nums.sort((a, b) => a - b);
+
+  let newStr = str.toLowerCase().split(" ").join("");
+
+  for (let num of orderedNums) {
+    if (num > newStr.length - 1) return "No mission today";
+  }
+
+  let word = orderedNums.map((num) => {
+    return newStr[num];
+  });
+
+  return word.join("");
+}
+
+missingWord([29, 31, 8], "The quick brown fox jumps over the lazy dog");
