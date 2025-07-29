@@ -225,3 +225,11 @@ function Accumulator(startingValue) {
     this.value += this.number;
   };
 }
+
+// Sum numbers from the visitor
+// Create a script that prompts the visitor to enter two numbers and then shows their sum.
+let x = +prompt("Enter the first number");
+let y = +prompt("Enter the second number");
+let sum = x + y;
+
+alert(sum);
