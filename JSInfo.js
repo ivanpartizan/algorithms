@@ -233,3 +233,22 @@ let y = +prompt("Enter the second number");
 let sum = x + y;
 
 alert(sum);
+
+// Repeat until the input is a number
+// Create a function readNumber which prompts for a number until the visitor enters a valid numeric value.
+// The resulting value must be returned as a number.
+// The visitor can also stop the process by entering an empty line or pressing “CANCEL”. In that case, the function should return null.
+function readNumber() {
+  let number;
+  while (true) {
+    number = prompt("Please enter a number...");
+
+    if (isFinite(number)) {
+      return +number;
+    }
+
+    if (number === "" || number === null) {
+      return null;
+    }
+  }
+}
