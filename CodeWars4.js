@@ -183,3 +183,20 @@ function missingWord(nums, str) {
 }
 
 missingWord([29, 31, 8], "The quick brown fox jumps over the lazy dog");
+
+// Remove First and Last Character 8kyu
+function removeChar(str) {
+  let num = str.length;
+  if (num === 2) return "";
+
+  let newStr = "";
+  for (let i = 0; i < num; i++) {
+    if (i !== 0 && i !== num - 1) {
+      newStr += str[i];
+    }
+  }
+
+  return newStr;
+}
+
+removeChar("country");
