@@ -149,6 +149,20 @@ function esrever(str) {
 
 esrever("hello world.");
 
+// Reverse words 7kyu
+function reverseWords(str) {
+  let words = str.split(" ");
+
+  let reversedWords = words.map((word) => {
+    return word.split("").reverse().join("");
+  });
+
+  let newStr = reversedWords.join(" ");
+  return newStr;
+}
+
+reverseWords("  double  spaced  words  ");
+
 // Ciphers #1 - The 01 Cipher 7kyu
 function encode(plaintext) {
   let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
