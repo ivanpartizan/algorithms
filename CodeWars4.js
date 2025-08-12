@@ -214,3 +214,10 @@ function removeChar(str) {
 }
 
 removeChar("country");
+
+// Do you speak "English"? 8kyu
+function spEng(sentence) {
+  return sentence.toLowerCase().includes("english");
+}
+
+spEng("english");
