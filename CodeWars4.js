@@ -215,6 +215,24 @@ function removeChar(str) {
 
 removeChar("country");
 
+// Initialize my name 7kyu
+function initializeNames(name) {
+  let names = name.split(" ");
+  if (names.length <= 2) return name;
+
+  let initialize = names.map((name, index) => {
+    if (index == 0 || index == names.length - 1) {
+      return name;
+    } else {
+      return `${name[0].toUpperCase()}.`;
+    }
+  });
+
+  return initialize.join(" ");
+}
+
+initializeNames("Alice Betty Catherine Davis");
+
 // Do you speak "English"? 8kyu
 function spEng(sentence) {
   return sentence.toLowerCase().includes("english");
