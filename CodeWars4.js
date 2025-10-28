@@ -59,6 +59,29 @@ function sumMul(n, m) {
 
 sumMul(4, 123);
 
+// Sum of array singles 7kyu
+function repeats(arr) {
+  let obj = {};
+  let occurOnce = [];
+
+  arr.forEach((number) => {
+    if (obj[number]) {
+      obj[number]++;
+    } else {
+      obj[number] = 1;
+    }
+  });
+
+  for (const [key, value] of Object.entries(obj)) {
+    if (value == 1) occurOnce.push(+key);
+  }
+
+  let sum = occurOnce.reduce((acc, value) => acc + value);
+  return sum;
+}
+
+repeats([4, 5, 7, 5, 4, 8]);
+
 // Powers of 3 7kyu
 function largestPower(n) {
   let x = 0;
