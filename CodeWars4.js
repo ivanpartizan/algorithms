@@ -97,6 +97,21 @@ function largestPower(n) {
 
 largestPower(82);
 
+// KISS - Keep It Simple Stupid 7kyu
+function isKiss(words) {
+  let wordsArray = words.split(" ");
+  let arrayLength = wordsArray.length;
+
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i].length > arrayLength) {
+      return "Keep It Simple Stupid";
+    }
+  }
+  return "Good work Joe!";
+}
+
+isKiss("Sometimes joe cries for hours");
+
 // Array Array Array 7kyu
 function explode(x) {
   if (typeof x[0] !== "number" && typeof x[1] !== "number") {
