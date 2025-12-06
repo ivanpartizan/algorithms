@@ -158,6 +158,33 @@ function findArray(arr1, arr2) {
 
 findArray([0, 1, 5, 2, 1, 8, 9, 1, 5], [1, 4, 7]);
 
+// Odds-Index 7kyu
+function oddBall(arr) {
+  let index = arr.indexOf("odd");
+
+  for (let item of arr) {
+    if (item === index) return true;
+  }
+
+  return false;
+}
+
+oddBall([
+  "even",
+  4,
+  "even",
+  7,
+  "even",
+  55,
+  "even",
+  6,
+  "even",
+  10,
+  "odd",
+  3,
+  "even",
+]);
+
 // Is it a vowel on this position? 7kyu
 function checkVowel(string, position) {
   if (position < 0) return false;
