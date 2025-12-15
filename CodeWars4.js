@@ -185,6 +185,19 @@ oddBall([
   "even",
 ]);
 
+// Only one 7kyu
+function onlyOne(...args) {
+  let trueCount = 0;
+
+  for (let arg of args) {
+    if (arg === true) trueCount++;
+  }
+
+  return trueCount === 1 ? true : false;
+}
+
+onlyOne(true, false, false, true);
+
 // Is it a vowel on this position? 7kyu
 function checkVowel(string, position) {
   if (position < 0) return false;
