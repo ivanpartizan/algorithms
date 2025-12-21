@@ -317,3 +317,10 @@ function spEng(sentence) {
 }
 
 spEng("english");
+
+// Beginner - Reduce but Grow 8kyu
+function grow(x) {
+  return x.reduce((acc, value) => acc * value);
+}
+
+grow([1, 2, 3]);
