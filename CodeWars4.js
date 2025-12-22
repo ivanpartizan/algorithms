@@ -241,6 +241,24 @@ function reverseWords(str) {
 
 reverseWords("  double  spaced  words  ");
 
+// String Scramble 7kyu
+function scramble(str, arr) {
+  let newStr = "";
+  let obj = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i]] = str[i];
+  }
+
+  for (const key in obj) {
+    newStr += obj[key];
+  }
+
+  return newStr;
+}
+
+scramble("abcd", [0, 3, 1, 2]);
+
 // Ciphers #1 - The 01 Cipher 7kyu
 function encode(plaintext) {
   let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
